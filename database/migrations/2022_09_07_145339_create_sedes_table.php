@@ -14,17 +14,17 @@ return new class extends Migration
     public function up()
     {
         Schema::create('sedes', function (Blueprint $table) {
-            $table->id('id_sede');
-            $table->string('nombre_sede');
-            $table->string('direccion');
-            $table->string('contacto');
-            $table->integer('telefono');
+            $table->id('id_sede' , 11);
+            $table->string('nombre_sede', 20);
+            $table->string('direccion',30);
+            $table->string('contacto',20);
+            $table->integer('telefono',16);
             //se crea campo a relacionar
-            $table->unsignedBigInteger('ciudad_id');
+            $table->unsignedBigInteger('ciudad_id',11);
             // se hace la relacion de la tabla
             $table->foreign('ciudad_id')->references('id_ciudad')->on('ciudades');
             //campo a relacionar
-            $table->unsignedBigInteger('cliente_id');
+            $table->unsignedBigInteger('cliente_id',11);
             // se hace la relacion de la tabla
             $table->foreign('cliente_id')->references('id_cliente')->on('clientes');
             $table->timestamps();

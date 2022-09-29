@@ -24,6 +24,9 @@ return new class extends Migration
             $table->unsignedBigInteger('id_tmovimiento');
             // se hace la relacion de la tabla
             $table->foreign('id_tmovimiento')->references('id_tmovimiento')->on('tipo_movimientos');
+            $table->unsignedBigInteger('id_user');
+            // se hace la relacion de la tabla
+            $table->foreign('id_user')->references('id_user')->on('users');
             $table->timestamps();
         });
     }
