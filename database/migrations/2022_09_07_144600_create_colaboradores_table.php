@@ -20,7 +20,7 @@ return new class extends Migration
             $table->integer('telefono');
             $table->integer('id_rol');
             $table->foreign('id_rol')->references('id_rol')->on('roles');
-           
+            $table->timestamps();
         });
     }
 

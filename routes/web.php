@@ -6,7 +6,7 @@ use App\Http\Controllers\CabezeraMovimientoController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CiudadesController;
 use App\Http\Controllers\ClientesController;
-
+use App\Http\Controllers\ColaboradoresController;
 use App\Http\Controllers\EstadosController;
 use App\Http\Controllers\TipoDeEquipoController;
 use App\Http\Controllers\ProveedoresController;
@@ -106,6 +106,11 @@ Route::controller(MarcaController::class)->group(function(){
 
 });
 
+
+Route::controller(ColaboradoresController::class)->group(function(){
+
+    Route::resource('colaboradores', ColaboradoresController::class);
+});
 
 
 

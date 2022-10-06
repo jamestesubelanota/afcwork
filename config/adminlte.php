@@ -322,6 +322,10 @@ return [
                     'text' => 'Agregar estado',
                     'url'  => 'estados',
                 ],
+                [
+                    'text' => 'Agregar Colaborador',
+                    'url'  => 'colaboradores',
+                ],
                   [
                     'text' => 'Agregar equipo',
                     'url'  => 'equipos',
