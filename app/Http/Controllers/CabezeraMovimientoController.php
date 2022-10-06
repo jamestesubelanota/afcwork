@@ -9,7 +9,7 @@ use App\Models\DetalleMovimiento;
 use App\Models\Sede;
 use App\Models\TipoMovimiento;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 class CabezeraMovimientoController extends Controller
 {
     public function index()
@@ -51,6 +51,7 @@ class CabezeraMovimientoController extends Controller
         $cabezeraMovimiento->id_cliente = $request->cliente;
         $cabezeraMovimiento->id_sede = $request->sede;
         $cabezeraMovimiento->id_tmovimiento = $request->id_movimiento;
+        $cabezeraMovimiento->id_user =  Auth::id('id_user');
         $cabezeraMovimiento->save();
 
         if ($cabezeraMovimiento) {

@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('colaboradores', function (Blueprint $table) {
             $table->id('id_colaborador', 11);
-            $table->string('nombre_colaborador');
-            $table->string('identificacion');
+            $table->string('nombre_colaborador',30);
+            $table->string('identificacion' ,30);
             $table->integer('telefono');
             $table->integer('id_rol');
             $table->foreign('id_rol')->references('id_rol')->on('roles');

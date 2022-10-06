@@ -9,7 +9,7 @@ class DetalleMovimiento extends Model
 {
     use HasFactory;
 
-    protected $primaryKey = 'id';
+    protected $primaryKey = 'id_detalle';
     protected $fillable = ['id_activo','id_cabezera', 'inicio', 'fin', 'detalle'];
 
 

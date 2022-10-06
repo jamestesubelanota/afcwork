@@ -14,6 +14,7 @@ use App\Models\Marca;
 use App\Models\User;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ActivoController extends Controller
 {
@@ -89,6 +90,7 @@ public function store(Request $request){
       $activo->id_proveedor      =  $request->id_proveedor;
       $activo->id_estado         =  $request->id_estado;
       $activo->id_tipoEquipo     =  $request->tipo_de_equipo;
+      $activo->id_user =  Auth::id('id_user');
   
 
       $activo->save();
