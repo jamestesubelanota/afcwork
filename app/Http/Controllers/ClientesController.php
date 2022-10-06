@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Clientes;
+use App\Models\Colaboradores;
 use Illuminate\Http\Request;
 
 class ClientesController extends Controller
@@ -14,9 +15,9 @@ class ClientesController extends Controller
     }
 
     public function create(Clientes $cliente){
+         $colaboradores = Colaboradores::all();
 
-
-        return view('clientes.create', ['cliente' => $cliente]);
+        return view('clientes.create', ['cliente' => $cliente , 'colaboradores' => $colaboradores]);
     }
 
     public function store(Request $request){
@@ -26,6 +27,7 @@ class ClientesController extends Controller
          $clientes->nit = $request->nit;
          $clientes->razon_social = $request->razon_social;
          $clientes->detalle = $request->detalle;
+         $clientes->id_colaborador = $request->colaborador;
          $clientes->save();
 
          return redirect()->route('clientes.index');
@@ -44,6 +46,7 @@ class ClientesController extends Controller
         $clientes->nit = $request->nit;
         $clientes->razon_social = $request->razon_social;
         $clientes->detalle = $request->detalle;
+        $clientes->id_colaborador = $request->colaborador;
         $clientes->save();
         return redirect()->route('clientes.index');
     }
