@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('detalle_movimientos', function (Blueprint $table) {
             $table->id('id_destalle',11);
-            $table->unsignedBigInteger('id_activo',11);
+            $table->unsignedBigInteger('id_activo');
             // se hace la relacion de la tabla
             $table->foreign('id_activo')->references('id_activo')->on('activos');
-            $table->unsignedBigInteger('id_cabezera',11);
+            $table->unsignedBigInteger('id_cabezera');
             // se hace la relacion de la tabla
             $table->foreign('id_cabezera')->references('id_cabezera')->on('cabezera_movimientos');
             $table->date('inicio');

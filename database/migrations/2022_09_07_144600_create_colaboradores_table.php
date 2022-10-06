@@ -17,9 +17,9 @@ return new class extends Migration
             $table->id('id_colaborador', 11);
             $table->string('nombre_colaborador');
             $table->string('identificacion');
-            $table->integer('telefono', 15);
-            $table->integer('id_rol',11);
-            $table->foreign('id_rol')->references('id_rol')->on('rol');
+            $table->integer('telefono');
+            $table->integer('id_rol');
+            $table->foreign('id_rol')->references('id_rol')->on('roles');
            
         });
     }

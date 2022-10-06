@@ -16,26 +16,26 @@ return new class extends Migration
         Schema::create('activos', function (Blueprint $table) {
             $table->id('id_activo',11);
             $table->string('activo',20);
-            $table->unsignedBigInteger('id_equipo',11);
+            $table->unsignedBigInteger('id_equipo');
             // se hace la relacion de la tabla
             $table->foreign('id_equipo')->references('id_equipo')->on('equipos');
-            $table->unsignedBigInteger('id_marca',11);
+            $table->unsignedBigInteger('id_marca');
             // se hace la relacion de la tabla
             $table->foreign('id_marca')->references('id_marca')->on('marcas');
             $table->string('serial', 40);
             $table->double('costo',30);
-            $table->unsignedBigInteger('id_proveedor',11);
+            $table->unsignedBigInteger('id_proveedor');
             // se hace la relacion de la tabla
             $table->foreign('id_proveedor')->references('id_proveedor')->on('proveedores');
             // // se hace la relacion de la tabla
-            $table->unsignedBigInteger('id_estado',11);
+            $table->unsignedBigInteger('id_estado');
             // se hace la relacion de la tabla
             $table->foreign('id_estado')->references('id_estado')->on('estados');
             // // se hace la relacion de la tabla
-            $table->unsignedBigInteger('id_tipoEquipo',11);
+            $table->unsignedBigInteger('id_tipoEquipo');
             // se hace la relacion de la tabla
             $table->foreign('id_tipoEquipo')->references('id_equipo')->on('tipo_de_equipos');
-            $table->unsignedBigInteger('id_sede',11);
+            $table->unsignedBigInteger('id_sede');
             // se hace la relacion de la tabla
             $table->foreign('id_sede')->references('id_sede')->on('sedes');
             // // se hace la relacion de la tabla

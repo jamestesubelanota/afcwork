@@ -18,13 +18,13 @@ return new class extends Migration
             $table->string('nombre_sede', 20);
             $table->string('direccion',30);
             $table->string('contacto',20);
-            $table->integer('telefono',16);
+            $table->integer('telefono');
             //se crea campo a relacionar
-            $table->unsignedBigInteger('ciudad_id',11);
+            $table->unsignedBigInteger('ciudad_id');
             // se hace la relacion de la tabla
             $table->foreign('ciudad_id')->references('id_ciudad')->on('ciudades');
             //campo a relacionar
-            $table->unsignedBigInteger('cliente_id',11);
+            $table->unsignedBigInteger('cliente_id');
             // se hace la relacion de la tabla
             $table->foreign('cliente_id')->references('id_cliente')->on('clientes');
             $table->timestamps();
