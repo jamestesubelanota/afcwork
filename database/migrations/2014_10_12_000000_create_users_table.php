@@ -23,7 +23,7 @@ return new class extends Migration
           
             $table->foreign('id_rol')->references('id_rol')->on('roles');
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password', 30);
+            $table->string('password');
             $table->rememberToken();
             $table->timestamps();
         });
