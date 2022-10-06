@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('razon_social' ,30);
             $table->string('detalle', 20);
             $table->timestamps();
+            $table->unsignedBigInteger('id_colaborador', 11);
+            $table->foreign('id_colaborador')->references('id_colaborador')->on('colaborador');
         });
     }
 
@@ -30,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('_clientes');
+        Schema::dropIfExists('clientes');
     }
 };
