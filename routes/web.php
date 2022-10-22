@@ -15,6 +15,9 @@ use App\Http\Controllers\SedeController;
 use App\http\Controllers\TipoMovimientoController;
 use App\http\Controllers\MarcaController;
 use App\http\Controllers\EquipoController;
+use App\http\Controllers\CartaEnvioController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -112,6 +115,10 @@ Route::controller(ColaboradoresController::class)->group(function(){
     Route::resource('colaboradores', ColaboradoresController::class);
 });
 
+Route::controller(CartaEnvioController::class)->group(function(){
+
+Route::resource('cartaenvio', CartaEnvioController::class);
+});
 
 
 Route::get('/', function () {

@@ -157,7 +157,7 @@ public function destroy( $activo){
 public function show($activo){
   $activo = Activo::find($activo);
 
-  $movimientos = DetalleMovimiento::where('id_activo' ,$activo->id_activo )->get(['id', 'id_activo', 'id_cabezera']);
+  $movimientos = DetalleMovimiento::where('id_activo' ,$activo->id_activo )->get([ 'id_activo', 'id_cabezera']);
   return view('activos.ver' , ['activo' =>  $activo , 'movimientos' =>  $movimientos]);
 
 }
