@@ -35,9 +35,9 @@ class ClientesController extends Controller
     }
 
     public function edit($cliente){
-
+        $colaboradores = Colaboradores::all();
         $clientes = Clientes::find($cliente);
-        return view('clientes.edit', ['cliente' =>  $clientes]);
+        return view('clientes.edit', ['cliente' =>  $clientes, 'colaboradores' => $colaboradores]);
     }
 
     public function update(Request $request , $clientes){

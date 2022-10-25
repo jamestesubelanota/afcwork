@@ -31,7 +31,7 @@
                                 <th>Detalle</th>
                                 <th>Encargado</th>
                                 <th>Opciones</th>
-                                <th>Opciones</th>
+                              
                                
                             </tr>
                         </thead>
@@ -45,22 +45,35 @@
                             <td>{{  $cliente->detalle}}</td>
                             <td>{{  $cliente->colaborador->nombre_colaborador}}</td>
                             <td class=" px-6 py-6">
-                                <a href="{{route('clientes.edit', $cliente->id_cliente)}}"   class="bg-gray-800 text-white rounded px-4 py-2" >editar</a>
-                            
-                            </td>
-                             <td>    <form action="   {{route('clientes.destroy', $cliente->id_cliente)}}" method="POST" >
+                              
+                                <div class="dropdown">
+                                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button"
+                                        id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false">
+                                        Acciones
+                                    </a>
+
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                        <a href="{{route('clientes.edit', $cliente->id_cliente)}}"   class="bg-gray-800 text-white rounded px-4 py-2" >editar</a>
+
+                                        <form action="   {{route('clientes.destroy', $cliente->id_cliente)}}" method="POST" >
             
-                                @csrf
-                                @method('DELETE')
-                                    <input 
-                                    type="submit" 
-                                    value="Eliminar" 
-                                    class="bg-gray-800 text-white rounded px-4 py-2" 
-                                    onclick="return confirm('desea eliminar ?')"
-                                    >
-                    
-                                </form>
+                                            @csrf
+                                            @method('DELETE')
+                                                <input 
+                                                type="submit" 
+                                                value="Eliminar" 
+                                                class="bg-gray-800 text-white rounded px-4 py-2" 
+                                                onclick="return confirm('desea eliminar ?')"
+                                                >
+                                
+                                            </form>
+
+
+                                    </div>
+                                </div>
                             </td>
+                            
                                
                         </tr>
                           @endforeach

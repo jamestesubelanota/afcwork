@@ -23,7 +23,7 @@
        
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                    <table id="ciudad" class="table table-striped" style="width:80%">
+                    <table id="movimientos" class="table table-striped" style="width:80%">
                      
                         <thead>
                             <tr>
@@ -32,7 +32,7 @@
                                 <th>sede</th>
                                 <th>Movimiento</th>
                                 <th>Opciones</th>
-                                <th>Opciones</th>
+                              
                                
                             </tr>
                         </thead>
@@ -45,22 +45,35 @@
                             <td>{{ $movimiento->sedes->nombre_sede}}</td>
                             <td>{{ $movimiento->tipoMovimiento->movimiento}}</td>
                             <td class=" px-6 py-6">
-                                <a href="{{route('movimientos.edit', $movimiento)}}"   class="bg-gray-800 text-white rounded px-4 py-2" >editar</a>
-                            
-                            </td>
-                             <td>    <form action="   {{route('movimientos.destroy', $movimiento)}}" method="POST" >
+                              
+                                <div class="dropdown">
+                                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button"
+                                        id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false">
+                                        Acciones
+                                    </a>
+
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                        <a href="{{route('movimientos.edit', $movimiento)}}"   class="bg-gray-800 text-white rounded px-4 py-2" >editar</a>
+
+                                        <form action="   {{route('movimientos.destroy', $movimiento)}}" method="POST" >
             
-                                @csrf
-                                @method('DELETE')
-                                    <input 
-                                    type="submit" 
-                                    value="Eliminar" 
-                                    class="bg-gray-800 text-white rounded px-4 py-2" 
-                                    onclick="return confirm('desea eliminar ?')"
-                                    >
-                    
-                                </form>
+                                            @csrf
+                                            @method('DELETE')
+                                                <input 
+                                                type="submit" 
+                                                value="Eliminar" 
+                                                class="bg-gray-800 text-white rounded px-4 py-2" 
+                                                onclick="return confirm('desea eliminar ?')"
+                                                >
+                                
+                                            </form>
+
+
+                                    </div>
+                                </div>
                             </td>
+                             
                                
                         </tr>
                           @endforeach
@@ -87,5 +100,9 @@
   <script>
    
   </script>
- 
+  <script>
+    $(document).ready(function() {
+        $('#movimientos').DataTable();
+    });
+</script>
 @stop
