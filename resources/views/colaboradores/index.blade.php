@@ -23,9 +23,9 @@
 
                             <thead>
                                 <tr>
-                                    <th>nombre</th>
-                                    <th>identificacion</th>
-                                    <th>telefono</th>
+                                    <th>Nombre</th>
+                                    <th>Identificacion</th>
+                                    <th>Telefono</th>
                                     <th>Rol</th>    
                                     <th>Opcciones</th>
 

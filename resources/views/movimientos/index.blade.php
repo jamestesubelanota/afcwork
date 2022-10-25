@@ -28,8 +28,8 @@
                         <thead>
                             <tr>
                                
-                                <th>cliente</th>
-                                <th>sede</th>
+                                <th>Cliente</th>
+                                <th>Sede</th>
                                 <th>Movimiento</th>
                                 <th>Opciones</th>
                               
