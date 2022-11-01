@@ -54,7 +54,10 @@
                                     </a>
 
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+
+                                        
                                         <a href="{{route('movimientos.edit', $movimiento)}}"   class="bg-gray-800 text-white rounded px-4 py-2" >editar</a>
+                                       
 
                                         <form action="   {{route('movimientos.destroy', $movimiento)}}" method="POST" >
             
@@ -69,8 +72,10 @@
                                 
                                             </form>
 
-
+                                            <a href="{{route('movimientos.edit', $movimiento)}}"   class="bg-gray-800 text-white rounded px-4 py-2" >Generar carta</a>
+                                            <a href="{{route('movimientos.edit', $movimiento)}}"   class="bg-gray-800 text-white rounded px-4 py-2" >Generar Formato prestamos</a>
                                     </div>
+                                    
                                 </div>
                             </td>
                              

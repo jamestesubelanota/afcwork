@@ -106,18 +106,20 @@ public function store(Request $request){
 public function edit( Request $request , $activo){
       
       $activo = Activo::find($activo);
-
+      $equipos = Equipo::all();
       $proveedor          = Proveedores::all();
       $estados     =  Estados::all();
       $tipoEquipo         = TipoDeEquipo::all();
-     
+      $marcas  = Marca::all();
       $user = User::all();
 
 
 
   return view('activos.edit', 
                  ['activo' =>$activo, 'proveedor' => $proveedor , 'estados' => $estados 
-                 ,'tipoEquipo' =>  $tipoEquipo ,   
+                 ,'tipoEquipo' =>  $tipoEquipo , 
+                 'equipos' => $equipos  ,
+                 'marcas' =>$marcas
                   ]);
 }
 

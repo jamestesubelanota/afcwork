@@ -23,7 +23,7 @@
 
                             <thead>
                                 <tr>
-                                    <th>Municipio</th>
+                                    <th>Departamento</th>
                                     <th>Ciudad</th>
                                     <th>Opcciones</th>
 

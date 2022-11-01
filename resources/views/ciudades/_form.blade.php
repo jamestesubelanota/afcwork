@@ -1,9 +1,11 @@
 @csrf 
 <label class="uppercase text-gray-700 text-xs" >Departamento</label>
-<input type="text" id="departamento"  name ="departamento" class="rounded border-gray-200 w-full mb-4" value="{{ $ciudad->departamento}}"  >
+<span class="text-xs">@error('departamento') {{$message}} @enderror  </span>
+<input type="text" id="departamento"  name ="departamento" class="rounded border-gray-200 w-full mb-4" value="{{ old('departamento',$ciudad->departamento) }}"  >
 
 <label class="uppercase text-gray-700 text-xs" >Nombre ciudad</label>
-<input type="text" id="nombre_ciudad" name ="nombre_ciudad" class="rounded border-gray-200 w-full mb-4" value="{{$ciudad->nombre_ciudad }}"  >
+<span class="text-xs">@error('nombre_ciudad') {{$message}} @enderror  </span>
+<input type="text" id="nombre_ciudad" name ="nombre_ciudad" class="rounded border-gray-200 w-full mb-4" value="{{ old('nombre_ciudad' ,$ciudad->nombre_ciudad)  }}"  >
 
 
 

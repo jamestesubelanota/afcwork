@@ -24,6 +24,12 @@ class CiudadesController extends Controller
 
         //
         $ciudad = new Ciudades();
+        $request->validate([
+                    'departamento' => 'required',
+                    'nombre_ciudad' => 'required | unique:ciudades,nombre_ciudad',
+
+
+        ]);
         $ciudad->departamento  = $request->departamento;
         $ciudad->nombre_ciudad = $request->nombre_ciudad ;
         $ciudad->save();
@@ -42,6 +48,12 @@ class CiudadesController extends Controller
     
         {
             $ciudad = Ciudades::find($ciudad);
+            $request->validate([
+                'departamento' => 'required',
+                'nombre_ciudad' => 'required | unique:ciudades,nombre_ciudad',
+
+
+    ]);
             $ciudad->departamento  = $request->departamento;
             $ciudad->nombre_ciudad = $request->nombre_ciudad ;
             $ciudad->save();
