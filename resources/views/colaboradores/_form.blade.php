@@ -1,11 +1,20 @@
 @csrf 
 <label class="uppercase text-gray-700 text-xs" >Nombre</label>
-<input type="text" id="nombre"  name ="nombre" class="rounded border-gray-200 w-full mb-4" value="{{ $colaboradores->nombre_colaborador}}"  >
+<span>@error('nombre') {{$message}}
+    
+    @enderror</span>
+<input type="text" id="nombre"  name ="nombre" class="rounded border-gray-200 w-full mb-4" value="{{ old('nombre', $colaboradores->nombre_colaborador)}}"  >
 <label class="uppercase text-gray-700 text-xs" >identificacion</label>
-<input type="text" id="identificacion"  name ="identificacion" class="rounded border-gray-200 w-full mb-4" value="{{ $colaboradores->identificacion}}"  >
+<span>@error('identificacion') {{$message}}
+    
+    @enderror</span>
+<input type="text" id="identificacion"  name ="identificacion" class="rounded border-gray-200 w-full mb-4" value="{{ old('identificacion',$colaboradores->identificacion)}}"  >
 
 <label class="uppercase text-gray-700 text-xs" >telefono </label>
-<input type="text" id="telefono" name ="telefono" class="rounded border-gray-200 w-full mb-4" value="{{$colaboradores->telefono }}"  >
+<span>@error('telefono') {{$message}}
+    
+    @enderror</span>
+<input type="text" id="telefono" name ="telefono" class="rounded border-gray-200 w-full mb-4" value="{{ old('telefono',$colaboradores->telefono) }}"  >
 
 <label class="uppercase text-gray-700 text-xs">Rol </label>
 <br>

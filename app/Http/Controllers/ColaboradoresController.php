@@ -26,6 +26,13 @@ class ColaboradoresController extends Controller
     public function store( Request $request  ){
 
         $colaboradores = new Colaboradores();
+
+        $request->validate([
+            'nombre' => 'required',
+            'identificacion' => 'required',
+            'telefono' => 'required',
+            'id_rol' => 'required',
+        ]);
         $colaboradores->nombre_colaborador = $request->nombre;
         $colaboradores->identificacion = $request->identificacion;
         $colaboradores->telefono = $request->telefono;

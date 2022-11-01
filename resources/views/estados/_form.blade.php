@@ -1,6 +1,7 @@
 @csrf 
 <label class="uppercase text-gray-700 text-xs" >Estados</label>
-<input type="text" id="estado"  name ="estado" class="rounded border-gray-200 w-full mb-4" value="{{ $estados->estado}}"  >
+<span class="text-xs">@error('estado') {{$message}} @enderror  </span>
+<input type="text" id="estado"  name ="estado" class="rounded border-gray-200 w-full mb-4" value="{{old('estado', $estados->estado)}}"  >
 
 
 

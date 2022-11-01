@@ -21,6 +21,10 @@ class EstadosController extends Controller
      public function store( Request $request){
 
         $estado =  new Estados();
+        $request->validate([
+
+            'estado'=> 'required | unique:estados,estado'
+        ]);
         $estado->estado = $request->estado;
         $estado->save();
         
