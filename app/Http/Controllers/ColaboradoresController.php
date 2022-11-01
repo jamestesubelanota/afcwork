@@ -50,6 +50,12 @@ class ColaboradoresController extends Controller
 
     public function update(  Request $request  , $colaboradores  ){
         $colaborador = Colaboradores::find( $colaboradores);
+        $request->validate([
+            'nombre' => 'required',
+            'identificacion' => 'required',
+            'telefono' => 'required',
+            'id_rol' => 'required',
+        ]);
         $colaborador->nombre_colaborador = $request->nombre;
         $colaborador->identificacion = $request->identificacion;
         $colaborador->telefono = $request->telefono;

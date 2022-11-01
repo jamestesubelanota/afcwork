@@ -25,6 +25,7 @@ class MarcaController extends Controller
     public function store( Request $request){
 
         $marca = new Marca();
+        $request->validate(['marca' => 'required']);
         $marca->marca = $request->marca;
         $marca->save();
 
@@ -53,7 +54,7 @@ class MarcaController extends Controller
     public function destroy( $marca){
 
         $marca = Marca::find($marca);
-        $marca->delete;
+        $marca->delete();
         return back();
     }
 }

@@ -25,6 +25,10 @@ class EquipoController extends Controller
     public function store(Request $request ){
 
         $equipo = new Equipo();
+        $request->validate([
+         'equipo' => 'required'
+
+        ]);
         $equipo->equipo = $request->equipo;
         $equipo->save();
         return redirect()->route('equipos.index');

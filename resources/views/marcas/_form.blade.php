@@ -1,6 +1,10 @@
 @csrf 
 <label class="uppercase text-gray-700 text-xs" >Equipo</label>
-<input type="text" id="marca"  name ="marca" class="rounded border-gray-200 w-full mb-4" value="{{ $marcas->marca}}"  >
+<br>
+<span>@error('marca') {{$message}}
+    
+@enderror</span>
+<input type="text" id="marca"  name ="marca" class="rounded border-gray-200 w-full mb-4" value="{{old('marca', $marcas->marca)}}"  >
 
 
 
