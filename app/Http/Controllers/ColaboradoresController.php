@@ -31,7 +31,7 @@ class ColaboradoresController extends Controller
             'nombre' => 'required',
             'identificacion' => 'required',
             'telefono' => 'required',
-            'id_rol' => 'required',
+           
         ]);
         $colaboradores->nombre_colaborador = $request->nombre;
         $colaboradores->identificacion = $request->identificacion;

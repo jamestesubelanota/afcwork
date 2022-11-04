@@ -17,6 +17,8 @@ class Activo extends Model
     "id_marca",
     "serial",
     "costo",
+    "modelo",
+    "propietario",
     "id_proveedor",
      "id_estado",
      "id_tipoEquipo",

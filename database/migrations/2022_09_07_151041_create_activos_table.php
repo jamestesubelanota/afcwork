@@ -24,6 +24,8 @@ return new class extends Migration
             $table->foreign('id_marca')->references('id_marca')->on('marcas');
             $table->string('serial', 40);
             $table->double('costo',30);
+            $table->string('modelo', 40);
+            $table->string('propietario', 40);
             $table->unsignedBigInteger('id_proveedor');
             // se hace la relacion de la tabla
             $table->foreign('id_proveedor')->references('id_proveedor')->on('proveedores');

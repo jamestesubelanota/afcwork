@@ -25,7 +25,7 @@ class ClientesController extends Controller
          $clientes = new Clientes(); 
          $request->validate([
             'nombre_cliente' => 'required',
-            'nit' => 'required | uniqued:clientes,nombre_cliente',
+            'nit' => 'required | unique:clientes,nombre_cliente',
             'razon_social' => 'required',
             'detalle' => 'required',
             'colaborador' => 'required'

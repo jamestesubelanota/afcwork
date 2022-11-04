@@ -25,7 +25,7 @@ class TipoMovimientoController extends Controller
 
     public function store(Request $request){
           $movimiento = new TipoMovimiento();
-          $request->validate(['movimiento' => 'required | uniqued:tipo_de_equipo, movimiento' ]);
+          $request->validate(['movimiento' => 'required | unique:tipo_movimientos,movimiento' ]);
           $movimiento->movimiento = $request->movimiento;
           $movimiento->save();
           return redirect()->route( 'tipoMovimiento.index' , ['movimiento' => $movimiento] );

@@ -7,7 +7,7 @@
 <input type="text" id="activo" name="activo" class="rounded border-gray-200 w-full mb-4" value="{{ $activo->activo }}">
 
 
-<label class="uppercase text-gray-700 text-xs">equipo </label>
+<label class="uppercase text-gray-700 text-xs">Equipo </label>
 <br>
 <select class="custom-select" id="equipo" name="equipo">
     @foreach ($equipos as $equipo)
@@ -19,7 +19,7 @@
 
 <br>
 
-<label class="uppercase text-gray-700 text-xs">marca </label>
+<label class="uppercase text-gray-700 text-xs">Marca </label>
 <br>
 <select class="custom-select" id="marca" name="marca">
     @foreach ($marcas as $marca)
@@ -32,14 +32,22 @@
 <br>
 
 
-<label class="uppercase text-gray-700 text-xs">serial</label>
+<label class="uppercase text-gray-700 text-xs">Serial</label>
 <input type="text" id="serial" name="serial" class="rounded border-gray-200 w-full mb-4"
     value="{{ $activo->serial }}">
-<label class="uppercase text-gray-700 text-xs">costo</label>
+<label class="uppercase text-gray-700 text-xs">Costo</label>
 <input type="text" id="costo" name="costo" class="rounded border-gray-200 w-full mb-4"
     value="{{ $activo->costo }}">
+    <label class="uppercase text-gray-700 text-xs">Modelo</label>
+<input type="text" id="modelo" name="modelo" class="rounded border-gray-200 w-full mb-4"
+    value="{{ $activo->modelo}}">
 
-<label class="uppercase text-gray-700 text-xs">proveedor </label>
+    <label class="uppercase text-gray-700 text-xs">Propietario</label>
+    <input type="text" id="propietario" name="propietario" class="rounded border-gray-200 w-full mb-4"
+        value="{{ $activo->propietario}}">
+    
+
+<label class="uppercase text-gray-700 text-xs">Proveedor </label>
 <br>
 <select class="custom-select" id="id_proveedor" name="id_proveedor">
     @foreach ($proveedor as $proveedor)
