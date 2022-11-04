@@ -23,6 +23,13 @@ class ClientesController extends Controller
     public function store(Request $request){
 
          $clientes = new Clientes(); 
+         $request->validate([
+            'nombre_cliente' => 'required',
+            'nit' => 'required | uniqued:clientes,nombre_cliente',
+            'razon_social' => 'required',
+            'detalle' => 'required',
+            'colaborador' => 'required'
+        ]);
          $clientes->nombre_cliente = $request->nombre_cliente;
          $clientes->nit = $request->nit;
          $clientes->razon_social = $request->razon_social;
