@@ -1,14 +1,31 @@
 @csrf 
 <label class="uppercase text-gray-700 text-xs" >Nombre del proveedor</label>
-<input type="text" id="nombre_proveedor"  name ="nombre_proveedor" class="rounded border-gray-200 w-full mb-4" value="{{$proveedores->nombre_proveedor  }}"  >
+<br>
+<span > @error('nombre_proveedor') {{$message}}
+    
+@enderror </span>
+<input type="text" id="nombre_proveedor"  name ="nombre_proveedor" class="rounded border-gray-200 w-full mb-4" value="{{old( 'nombre_proveedor', $proveedores->nombre_proveedor ) }}">
 
 <label class="uppercase text-gray-700 text-xs" >Nit</label>
-<input type="text" id="nit" name ="nit" class="rounded border-gray-200 w-full mb-4" value="{{ $proveedores->nit }}"  >
+<br>
+<span > @error('nit') {{$message}}
+    
+    @enderror </span>
+<input type="text" id="nit" name ="nit" class="rounded border-gray-200 w-full mb-4" value="{{ old('nit', $proveedores->nit) }}"  >
 
 <label class="uppercase text-gray-700 text-xs" >Direccion</label>
-<input type="text" id="direccion" name ="direccion" class="rounded border-gray-200 w-full mb-4" value="{{ $proveedores->direccion }}"  >
+<br>
+<span > @error('direccion') {{$message}}
+    
+    @enderror </span>
+<input type="text" id="direccion" name ="direccion" class="rounded border-gray-200 w-full mb-4" value="{{ old('direccion', $proveedores->direccion) }}"  >
+
 <label class="uppercase text-gray-700 text-xs" >Razon social</label>
-<input type="text" id="razon_social" name ="razon_social" class="rounded border-gray-200 w-full mb-4" value="{{ $proveedores->Razon_social}}"  >
+<br>
+<span > @error('razon_social') {{$message}}
+    
+    @enderror </span>
+<input type="text" id="razon_social" name ="razon_social" class="rounded border-gray-200 w-full mb-4" value="{{ old('razon_social', $proveedores->Razon_social)}}"  >
 
 
 <div>

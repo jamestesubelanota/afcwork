@@ -10,7 +10,11 @@
 
 @csrf 
 <label class="uppercase text-gray-700 text-xs" >Caracteristica de equipo</label>
-<input type="text" id="tipo_equipo"  name ="tipo_equipo" class="rounded border-gray-200 w-full mb-4" value="{{ $equipo->tipo_de_equipo}}"  >
+<br>
+<span>@error('tipo_equipo') {{$message}}
+    
+@enderror
+<input type="text" id="tipo_equipo"  name ="tipo_equipo" class="rounded border-gray-200 w-full mb-4" value="{{ old('tipo_equipo', $equipo->tipo_de_equipo) }}"  >
 
 
 

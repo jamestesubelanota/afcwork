@@ -23,6 +23,11 @@ class ProveedoresController extends Controller
     public function store( Request $request , Proveedores $proveedores){
 
         $proveedores = new Proveedores();
+        $request->validate([
+        'nombre_proveedor' =>'required',
+        'nit' =>'required',
+        'direccion' =>'required',
+        'razon_social' =>'required',]);
         $proveedores->nombre_proveedor = $request->nombre_proveedor;
         $proveedores->nit= $request->nit;
         $proveedores->direccion = $request->direccion;

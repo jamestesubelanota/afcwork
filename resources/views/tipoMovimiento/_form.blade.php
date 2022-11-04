@@ -1,5 +1,10 @@
 @csrf 
 <label class="uppercase text-gray-700 text-xs" >Tipo de movimiento</label>
+<br>
+<span>@error('movimiento') {{$message}}
+    
+@enderror
+</span>
 <input type="text" id="movimiento"  name ="movimiento" class="rounded border-gray-200 w-full mb-4" value="{{ $movimiento->movimiento }}"  >
 
 

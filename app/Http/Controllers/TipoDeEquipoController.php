@@ -24,6 +24,7 @@ class TipoDeEquipoController extends Controller
     public function store(Request $request){
 
       $equipo = new TipoDeEquipo();
+      $request->validate([ 'tipo_equipo'=> 'required']);
       $equipo->tipo_de_equipo = $request->tipo_equipo;
       $equipo->save();
              
@@ -39,6 +40,7 @@ class TipoDeEquipoController extends Controller
 
         
           $equipos = TipoDeEquipo::find($equipo);
+          $request->validate([ 'tipo_equipo'=> 'required']);
           $equipos->tipo_de_equipo = $request->tipo_equipo;
           $equipos->save();
 
