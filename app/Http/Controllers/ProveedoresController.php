@@ -46,6 +46,11 @@ class ProveedoresController extends Controller
 
     public function update( Request $request, $proveedor){
       $proveedorUpdate = Proveedores::find( $proveedor);
+      $request->validate([
+        'nombre_proveedor' =>'required',
+        'nit' =>'required',
+        'direccion' =>'required',
+        'razon_social' =>'required',]);
       $proveedorUpdate->nombre_proveedor = $request->nombre_proveedor;
       $proveedorUpdate->nit = $request->nit;
       $proveedorUpdate->direccion = $request->direccion;

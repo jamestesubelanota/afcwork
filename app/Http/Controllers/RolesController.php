@@ -23,7 +23,9 @@ class RolesController extends Controller
        public function store(Request $request){
    
            $rol = new Roles();
+           $request->validate(['rol' => 'required | unique:roles,rol']);
            $rol->rol = $request->rol;
+           
            $rol->save();
    
            return redirect()->route('roles.index'); 

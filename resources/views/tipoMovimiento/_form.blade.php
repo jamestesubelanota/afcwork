@@ -5,7 +5,7 @@
     
 @enderror
 </span>
-<input type="text" id="movimiento"  name ="movimiento" class="rounded border-gray-200 w-full mb-4" value="{{ $movimiento->movimiento }}"  >
+<input type="text" id="movimiento"  name ="movimiento" class="rounded border-gray-200 w-full mb-4" value="{{ old('movimiento', $movimiento->movimiento )}}"  >
 
 
 
