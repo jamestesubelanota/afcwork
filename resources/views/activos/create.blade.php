@@ -11,7 +11,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Crear un activos') }}
+            {{ __('Crear un activo') }}
         </h2>
     </x-slot>
 
@@ -39,11 +39,51 @@
 @stop
 
 @section('js')
-    <script> console.log('Hi!'); </script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
 
+
+<script>
+ 
+    $(document).ready(function () {
+        $('#example').DataTable();
+    });
+    </script>
+
+   
+<script src=" https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+<script src="   https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function () {
+            $('#cliente').on('change', function () {
+                var cliente_id = this.value;
+                $('#sede').html('');
+                $.ajax({
+                    url: '{{ route('movimientos.create') }}?cliente_id='+ cliente_id,
+                    type: 'get',
+                    success: function (res) {
+                        $('#sede').html('<option value="">Seleccione sede</option>');
+          
+                        $.each(res, function (key, value) {
+                            $('#sede').append('<option value="' + value
+                                .id_sede + '">' + value.nombre_sede + '</option>');
+                        });
+                       
+                      
+                       
+                       
+                    }
+                });
+            }); 
+        
+        });  
+        
+
+      
+ 
+       
+         </script>
   
-    
+
+
 @stop

@@ -72,6 +72,26 @@
     @endforeach
 </select>
 <br>
+<br>
+<label class="uppercase text-gray-700 text-xs">Cliente</label>
+<br>
+<select class="custom-select" id="cliente" name="cliente">
+    <option value=" ">selecione</option>
+    @foreach ($clientes as $cliente)
+        <option value=" {{ $cliente->id_cliente }}">{{ $cliente->nombre_cliente }}</option>
+    @endforeach
+</select>
+<br>
+<br>
+<label class="uppercase text-gray-700 text-xs">Sede </label>
+<br>
+<select class="custom-select" id="sede" name="sede">
+    <option value=" ">selecione</option>
+    @foreach ($sedes as $sede)
+        <option value=" {{ $sede->id_sede }}">{{ $sede->nombre_sede }}</option>
+    @endforeach
+</select>
+<br>
 
 
 
