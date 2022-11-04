@@ -22,7 +22,7 @@
 
         </section>
         <section>
-            <div class="container-fluid bg-white">
+            <div class="container bg-white">
 
                 <table id="Proveedores" class="table table-striped" style="width:80%">
 
@@ -37,6 +37,9 @@
                             <th>Proveedor</th>
                             <th>Estado</th>
                             <th>tipo</th>
+                            <th>Modelo</th>
+                            <th>Propietario</th>
+                            <th>id activo pgadmin</th>
                             <!---usuario--->
                             <th>Opciones</th>
 
@@ -57,6 +60,9 @@
                                 <td>{{ $activo->proveedor->nombre_proveedor }}</td>
                                 <td>{{ $activo->estado->estado }}</td>
                                 <td>{{ $activo->tipoEquipo->tipo_de_equipo }}</td>
+                                <td>{{ $activo->modelo }}</td>
+                                <td>{{ $activo->propietario }}</td>
+                                <td>{{ $activo->id_activo }}</td>
 
                                 <td class=" px-6 py-6">
                                     <div class="dropdown">
@@ -110,15 +116,17 @@
 @stop
 
 @section('js')
-    <script>
-        console.log('Hi!');
-    </script>
+
     <script src=" https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
     <script src="   https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
     <script>
         $(document).ready(function() {
-            $('#Proveedores').DataTable();
+            $('#Proveedores').DataTable({
+                scrollX: true,
+                
+            });
+          
         });
     </script>
 
