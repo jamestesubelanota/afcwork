@@ -14,6 +14,7 @@
             {{ __('Movimientos') }}
             <a  class="bg-gray-800 text-white rounded px-4 py-2" 
             href="{{route('movimientos.create')}}"> Generar movimientos</a>
+            <p>Proximo movimiento es {{$proximo}} </p> 
         </h2>
     </x-slot>
 
