@@ -14,8 +14,9 @@ class CabezeraMovimientoController extends Controller
 {
     public function index()
     {
-         $prosimoMovimientop = CabezeraMovimiento::first();
-      $proximoMovi=  $prosimoMovimientop  + 1;
+         $prosimoMovimientop =  CabezeraMovimiento::orderBy('id_cabezera', 'desc')->first();
+         $prosimoMovimientop->id_cabezera += 1 ;
+         $proximoMovi=  $prosimoMovimientop  ;
 
         $movimientos = CabezeraMovimiento::latest()->paginate();
         return view(
