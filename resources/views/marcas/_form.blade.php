@@ -10,5 +10,5 @@
 
 <div>
 <a   class="bg-gray-800 text-white rounded px-4 py-2"  href="{{route('marcas.index')}}">volver</a>
-<input type="submit" value="Registrar marca"  class="bg-gray-800 text-white rounded px-4 py-2" >
+<input type="submit" value="Guardar"  class="bg-gray-800 text-white rounded px-4 py-2" >
 </div>

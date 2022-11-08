@@ -11,5 +11,5 @@
 
 <div>
 <a   class="bg-gray-800 text-white rodunded px-4 py-2"  href="{{route('roles.index')}}">volver</a>
-<input type="submit" value="Registrar rol "  class="bg-gray-800 text-white rounded px-4 py-2" >
+<input type="submit" value="Guardar"  class="bg-gray-800 text-white rounded px-4 py-2" >
 </div>

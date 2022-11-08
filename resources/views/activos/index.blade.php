@@ -124,7 +124,9 @@
         $(document).ready(function() {
             $('#Proveedores').DataTable({
                 scrollX: true,
-                
+                scrollY: '200px',
+        scrollCollapse: true,
+        paging: false,
             });
           
         });

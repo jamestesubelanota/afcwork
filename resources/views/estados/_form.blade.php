@@ -7,5 +7,5 @@
 
 <div>
 <a   class="bg-gray-800 text-white rounded px-4 py-2"  href="{{route('estados.index')}}">volver</a>
-<input type="submit" value="Registrar funcion "  class="bg-gray-800 text-white rounded px-4 py-2" >
+<input type="submit" value="Guardar"  class="bg-gray-800 text-white rounded px-4 py-2" >
 </div>
