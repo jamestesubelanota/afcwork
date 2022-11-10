@@ -22,7 +22,7 @@ return new class extends Migration
             // se hace la relacion de la tabla
             $table->foreign('id_cabezera')->references('id_cabezera')->on('cabezera_movimientos');
             $table->date('inicio');
-            $table->date('fin');
+           
             $table->string('detalle',30);
             $table->timestamps();
 

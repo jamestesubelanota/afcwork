@@ -67,7 +67,6 @@ class CabezeraMovimientoController extends Controller
                 $detalleMovimiento->id_activo =  $check;
                 $detalleMovimiento->id_cabezera =   $cabezeraMovimiento->id_cabezera;
                 $detalleMovimiento->inicio =  $request->inicio;
-                $detalleMovimiento->fin =  $request->fin;
                 $detalleMovimiento->detalle =  $request->detalle;
                 $detalleMovimiento->save();
                 if ($detalleMovimiento) 

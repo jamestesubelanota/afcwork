@@ -52,10 +52,7 @@
                                 <label for="formGroupExampleInput">inicio</label>
                                 <input type="date" class="form-control" name="inicio" id="inicio" placeholder="Example input">
                               </div>
-                              <div class="form-group">
-                                <label for="formGroupExampleInput">fin</label>
-                                <input type="date" class="form-control" name="fin" id="fin" placeholder="Example input">
-                              </div>
+                            
                               <div class="form-group">
                                 <label for="formGroupExampleInput"></label>
                                 <input type="text" class="form-control" name="detalle" id="detalle" placeholder="Example input">
