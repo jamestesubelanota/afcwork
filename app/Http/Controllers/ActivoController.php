@@ -120,11 +120,13 @@ class ActivoController extends Controller
 
 
     $activo->save();
-
-
+         
+  
 
     return redirect()->route('activos.index');
   }
+
+ 
 
 
 

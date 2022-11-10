@@ -34,9 +34,10 @@ use App\http\Controllers\CartaEnvioController;
 Route::controller(ActivoController::class)->group(function(){
  
     Route::resource('activos', ActivoController::class);
-    
 
 });
+
+
 Route::controller(ClientesController::class)->group(function(){
 
 
