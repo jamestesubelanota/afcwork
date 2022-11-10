@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('sedes', function (Blueprint $table) {
             $table->id('id_sede' , 11);
-            $table->string('nombre_sede', 20);
-            $table->string('direccion',30);
-            $table->string('contacto',20);
-            $table->integer('telefono');
+            $table->string('nombre_sede', 100);
+            $table->string('direccion',100);
+            $table->string('contacto',100);
+            $table->double('telefono');
             //se crea campo a relacionar
             $table->unsignedBigInteger('ciudad_id');
             // se hace la relacion de la tabla

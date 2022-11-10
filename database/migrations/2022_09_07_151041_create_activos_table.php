@@ -22,10 +22,10 @@ return new class extends Migration
             $table->unsignedBigInteger('id_marca');
             // se hace la relacion de la tabla
             $table->foreign('id_marca')->references('id_marca')->on('marcas');
-            $table->string('serial', 40);
-            $table->double('costo',30);
-            $table->string('modelo', 40);
-            $table->string('propietario', 40);
+            $table->string('serial', 100);
+            $table->double('costo',100);
+            $table->string('modelo', 50);
+            $table->string('propietario', 100);
             $table->unsignedBigInteger('id_proveedor');
             // se hace la relacion de la tabla
             $table->foreign('id_proveedor')->references('id_proveedor')->on('proveedores');

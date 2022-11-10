@@ -14,7 +14,7 @@
             {{ __('Movimientos') }}
             <a  class="bg-gray-800 text-white rounded px-4 py-2" 
             href="{{route('movimientos.create')}}"> Generar movimientos</a>
-            <p>Proximo movimiento es <li>{{$proximo->id_cabezera}}</li> </p> 
+            <p>Codigo del proximo movimiento : <li>{{$proximo->id_cabezera}}</li> </p> 
         </h2>
     </x-slot>
 
