@@ -1,7 +1,7 @@
 @csrf 
 <label class="uppercase text-gray-700 text-xs" >Tipo de movimiento</label>
 <br>
-<span>@error('movimiento') {{$message}}
+<span style="color: red">@error('movimiento') {{$message}}
     
 @enderror
 </span>

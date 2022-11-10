@@ -1,7 +1,7 @@
 @csrf 
 <label class="uppercase text-gray-700 text-xs" >Rol</label>
 <br>
-<span> @error('rol') {{$message}}
+<span style="color: red"> @error('rol') {{$message}}
     
 @enderror </span>
 <input type="text" id="rol"  name ="rol" class="rounded border-gray-200 w-full mb-4" value="{{ $roles->rol}}"  >
