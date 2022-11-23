@@ -116,10 +116,6 @@ Route::controller(ColaboradoresController::class)->group(function(){
     Route::resource('colaboradores', ColaboradoresController::class);
 });
 
-Route::controller(CartaEnvioController::class)->group(function(){
-
-Route::resource('cartaenvio', CartaEnvioController::class);
-});
 
 
 Route::get('/', function () {
