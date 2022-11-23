@@ -21,6 +21,7 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     <form action="   {{route('activos.update', $activo)}}" method="POST" enctype="multipart/form-data" >
               <!--esitar methodo put-->
+              @csrf
                 @method('PUT')
                 @include('activos._form')
                 

@@ -21,7 +21,7 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                 <form action=" {{route('equipos.store')}}" method="POST" >
               <!--esitar methodo put-->
-             
+              @csrf
                 @include('equipos._form')
                 
                 </form>

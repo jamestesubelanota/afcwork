@@ -21,6 +21,8 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                 <form action="   {{route('ciudades.update',  $ciudad)}}" method="POST" >
               <!--esitar methodo put-->
+
+              @csrf
                 @method('PUT')
                 @include('ciudades._form')
                 

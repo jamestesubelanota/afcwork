@@ -23,7 +23,7 @@
               <!--esitar methodo put-->
                 @method('PUT')
                 @include('ciudades._form')
-                
+                @csrf
                 </form>
                
                 </div>

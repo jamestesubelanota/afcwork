@@ -21,7 +21,7 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                 <form action=" {{route('ciudades.store')}}" method="POST" >
               <!--esitar methodo put-->
-             
+              @csrf
                 @include('ciudades._form')
                 
                 </form>

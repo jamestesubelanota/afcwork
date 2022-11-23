@@ -1,4 +1,4 @@
-@csrf
+
 <label class="uppercase text-gray-700 text-xs">
     Foto</label>
 <br>
