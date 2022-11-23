@@ -5,14 +5,17 @@
 <span style="color: red"> @error('foto')
         {{ $message }}
     @enderror </span>
+    <label class="uppercase text-gray-700 text-xs">Foto serial y activo</label>
+<br>
 <input type="file" id="foto" name="foto" class="rounded border-gray-200 w-full mb-4">
 
-<label class="uppercase text-gray-700 text-xs">Foto serial y activo</label>
+
 <br>
 <span style="color: red"> @error('foto2')
         {{ $message }}
     @enderror </span>
 <input type="file" id="foto2" name="foto2" class="rounded border-gray-200 w-full mb-4">
+<br>
 <label class="uppercase text-gray-700 text-xs">activo</label>
 <br>
 <span style="color: red"> @error('activo')
@@ -21,7 +24,7 @@
 <input type="text" id="activo" name="activo" class="rounded border-gray-200 w-full mb-4"
     value="{{ old('activo', $activo->activo) }}">
 
-
+<br>
 <label class="uppercase text-gray-700 text-xs">Equipo </label>
 
 

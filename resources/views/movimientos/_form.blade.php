@@ -54,7 +54,7 @@
                               </div>
                             
                               <div class="form-group">
-                                <label for="formGroupExampleInput"></label>
+                                <label for="formGroupExampleInput"> Descipcion del movimiento </label>
                                 <input type="text" class="form-control" name="detalle" id="detalle" placeholder="Example input">
                               </div>
                            
