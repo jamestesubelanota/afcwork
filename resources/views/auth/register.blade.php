@@ -1,13 +1,4 @@
 
-@extends('adminlte::page')
-
-@section('title', 'Dashboard')
-
-@section('content_header')
-   
-@stop
-@csrf
-@section('content')
 <x-guest-layout>
     <x-auth-card>
         <x-slot name="logo">
@@ -20,9 +11,9 @@
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
         <form method="POST" action="{{ route('register') }}">
-          
-
             @csrf
+
+           
 
             <!-- Name -->
             <div>
@@ -84,12 +75,3 @@
     </x-auth-card>
 </x-guest-layout>
 
-@stop
-
-@section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
-@stop
-
-@section('js')
-    <script> console.log('Hi!'); </script>
-@stop
