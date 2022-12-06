@@ -15,6 +15,7 @@ use App\Http\Controllers\SedeController;
 use App\http\Controllers\TipoMovimientoController;
 use App\http\Controllers\MarcaController;
 use App\http\Controllers\EquipoController;
+use App\http\Controllers\FotosController;
 use App\http\Controllers\CartaEnvioController;
 
 
@@ -114,6 +115,10 @@ Route::controller(MarcaController::class)->group(function(){
 Route::controller(ColaboradoresController::class)->group(function(){
 
     Route::resource('colaboradores', ColaboradoresController::class);
+});
+Route::controller(FotosController::class)->group(function(){
+
+    Route::resource('foto', FotosController::class);
 });
 
 

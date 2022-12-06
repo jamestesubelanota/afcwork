@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('activos', function (Blueprint $table) {
             $table->id('id_activo',11);
-            $table->string('activo',20);
+            $table->string('activo',7);
             $table->unsignedBigInteger('id_equipo');
             // se hace la relacion de la tabla
             $table->foreign('id_equipo')->references('id_equipo')->on('equipos');
@@ -23,6 +23,7 @@ return new class extends Migration
             // se hace la relacion de la tabla
             $table->foreign('id_marca')->references('id_marca')->on('marcas');
             $table->string('serial', 100);
+            $table->string('activocontable', 4);
             $table->double('costo',100);
             $table->string('modelo', 50);
             $table->string('propietario', 100);
@@ -44,8 +45,6 @@ return new class extends Migration
             $table->unsignedBigInteger('id_user');
             // se hace la relacion de la tabla
             $table->foreign('id_user')->references('id_user')->on('users');
-            $table->string('foto');
-            $table->string('foto2');
             $table->timestamps();
         });
     }

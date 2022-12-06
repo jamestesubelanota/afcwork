@@ -14,12 +14,11 @@ return new class extends Migration
     public function up()
     {
         Schema::create('colaboradores', function (Blueprint $table) {
-            $table->id('id_colaborador', 11);
+            $table->id('id_colaborador', 4);
             $table->string('nombre_colaborador',100);
             $table->string('identificacion' ,50);
             $table->double('telefono');
-            $table->integer('id_rol');
-            $table->foreign('id_rol')->references('id_rol')->on('roles');
+            $table->string('cargo', 20);
             $table->timestamps();
         });
     }

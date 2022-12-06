@@ -55,6 +55,11 @@
     
 @enderror</span>
 <input type="text" id="telefono" name ="telefono" class="rounded border-gray-200 w-full mb-4" value="{{ old( 'telefono',$sede->telefono)}}"  >
+<br>
+<span> @error('zona') {{$message}}
+    
+@enderror</span>
+<input type="text" id="zona" name ="zona" class="rounded border-gray-200 w-full mb-4" value="{{ old( 'telefono',$sede->zona)}}"  >
 
 <div>
 <a   class="bg-gray-800 text-white rounded px-4 py-2"  href="{{route('clientes.index')}}">volver</a>

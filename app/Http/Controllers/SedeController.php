@@ -33,13 +33,15 @@ class SedeController extends Controller
                 'contacto'=>'required',
                 'telefono'=>'required',
                 'ciudad_id'=>'required',
-                'cliente_id'=>'required']);
+                'cliente_id'=>'required',
+                'zona' =>'required']);
             $sede->nombre_sede = $request->nombre_sede;
             $sede->direccion = $request->direccion;
             $sede->contacto = $request->contacto;
             $sede->telefono = $request->telefono;
             $sede->ciudad_id = $request->ciudad_id;
             $sede->cliente_id = $request->cliente_id;
+            $sede->zona = $request->zona;
             $sede->save();
         return redirect()->route('sedes.index');
     }
@@ -54,12 +56,21 @@ class SedeController extends Controller
 
     public function update(Request $request, $sede){
         $sede = Sede::find($sede);
+        $request->validate([
+            'nombre_sede'=>'required',
+            'direccion'=>'required',
+            'contacto'=>'required',
+            'telefono'=>'required',
+            'ciudad_id'=>'required',
+            'cliente_id'=>'required',
+            'zona' =>'required']);
         $sede->nombre_sede = $request->nombre_sede;
         $sede->direccion = $request->direccion;
         $sede->contacto = $request->contacto;
         $sede->telefono = $request->telefono;
         $sede->ciudad_id = $request->ciudad_id;
         $sede->cliente_id = $request->cliente_id;
+        $sede->zona = $request->zona;
         $sede->save();
 
     }

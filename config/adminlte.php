@@ -360,14 +360,24 @@ return [
         ],
 
         ['header' => 'Herramientas'],
-       
+
         [
-            'text'        => 'Activos',
-            'url'         => 'activos',
-            'icon'        => 'fas fa-laptop-code fa-lg',
-            'label'       => 4,
-            'label_color' => 'success',
+            'text'    => 'Activos',
+            'icon'    => 'fas fa-laptop-code fa-lg',
+            'submenu' => [
+                [
+                    'text' => 'Fotos',
+                    'url'  => 'foto',
+                ],
+                [
+                    'text' => 'activos',
+                    'url'  => 'activos',
+                ],
+
+            ],
         ],
+       
+      
         [
             'text'        => 'usuarios',
             'url'         => 'usuarios',

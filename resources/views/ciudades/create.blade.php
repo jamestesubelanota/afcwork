@@ -1,43 +1,42 @@
-
 @extends('adminlte::page')
 
 @section('title', 'Crear un Ciudad')
 
 @section('content_header')
-    <h1>Activos fijos</h1>
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Ciudades </a></li>
+            <li class="breadcrumb-item active" aria-current="page">Agregar ciudad</li>
+        </ol>
+    </nav>
 @stop
 
 @section('content')
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Crear un Ciudad') }}
-        </h2>
-    </x-slot>
+    <x-app-layout>
+        <x-slot name="header">
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200">
-                <form action=" {{route('ciudades.store')}}" method="POST" >
-              <!--esitar methodo put-->
-              @csrf
-                @include('ciudades._form')
-                
-                </form>
-               
-                </div>
-            </div>
+        </x-slot>
+
+        <div class="container"style="background:linear-gradient(30deg, white,#004593, white, #004593, white);"
+            class="vh-100 gradient-custom">
+            <br>
+          
         </div>
-    </div>
-</x-app-layout>
+        </div>
+    </x-app-layout>
 
 @stop
 
 @section('css')
     <link rel="stylesheet" href="/css/admin_custom.css">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 @stop
 
 @section('js')
-    <script> console.log('Hi!'); </script>
+    <script>
+        console.log('Hi!');
+    </script>
 @stop

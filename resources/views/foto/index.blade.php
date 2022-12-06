@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'equipos')
+@section('title', 'Ftos de activos ')
 
 @section('content_header')
 
@@ -10,38 +10,33 @@
     <x-app-layout>
         <x-slot name="header">
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                {{ __('Equipos') }}
-                <a class="bg-gray-800 text-white rounded px-4 py-2" href="{{ route('equipos.create') }}"> crear</a>
+                {{ __('Fotos') }}
+                <a class="bg-gray-800 text-white rounded px-4 py-2" href="{{ route('foto.create') }}"> crear</a>
             </h2>
         </x-slot>
-        <div class="container"style="background:linear-gradient(30deg, white,#004593, white, #004593, white);"
-            class="vh-100 gradient-custom">
-            <br>
-            <section>
-                <div class="card ">
-                    <div class="card-header">
-                        <nav class="navbar bg-light">
-                            <div class="container-fluid">
-                                <a class="btn btn-primary" href="{{ route('equipos.create') }}"> Agregar un equipo </a>
-                            </div>
-                        </nav>
 
-                    </div>
-                    <div class="card-body">
-                        <table id="Funcionalidades" class="table table-striped" style="width:100%">
+        <div class="py-12">
+            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                    <div class="p-6 bg-white border-b border-gray-200">
+                        <table id="ciudad" class="table table-striped" style="width:80%">
 
                             <thead>
                                 <tr>
-                                    <th>Equipos</th>
-                                    <th>Opciones</th>
+                                    <th>fecha</th>
+                                    <th>activo</th>
+                                 
+                                    <th>Opcciones</th>
+
 
                                 </tr>
                             </thead>
                             <tbody>
 
-                                @foreach ($equipos as $equipo)
+                                @foreach ($Fotos as $foto)
                                     <tr>
-                                        <td>{{ $equipo->equipo }}</td>
+                                        <td>{{ $foto->created_at }}</td>
+                                        <td>{{ $ciudad->activos->activo }}</td>
 
 
 
@@ -54,19 +49,22 @@
                                                 </a>
 
                                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                                    <li>   <a href="{{ route('equipos.edit', $equipo->id_equipo) }}"
-                                                        class="dropdown-item active">editar</a></li>
+                                                    <a href="{{ route('fotos.edit', $ciudad) }}"
+                                                        class="dropdown-item">Editar</a>
+                                                        <a href="{{ route('fotos.show', $ciudad) }}"
+                                                        class="dropdown-item">Ver</a>
 
-
-                                                    <form action="   {{ route('equipos.destroy', $equipo->id_equipo) }}"
+                                                    <form action="   {{ route('fotos.destroy', $ciudad) }}"
                                                         method="POST">
 
                                                         @csrf
                                                         @method('DELETE')
-                                                        <li> <input type="submit" value="Eliminar" class="dropdown-item"
-                                                            onclick="return confirm('desea eliminar ?')"> </li>
+                                                        <input type="submit" value="Eliminar"
+                                                            class="bg-gray-800 text-white rounded px-4 py-2"
+                                                            onclick="return confirm('desea eliminar ?')">
 
                                                     </form>
+
 
 
                                                 </div>
@@ -77,28 +75,17 @@
                                 @endforeach
 
                             </tbody>
-                        </table>
 
-                    </div>
-                    <div class="card-footer text-muted">
-                        2 days ago
                     </div>
                 </div>
-
-
-            </section>
-<hr>
+            </div>
         </div>
-
-        <hr>
-        </div>
-
     </x-app-layout>
 @stop
 
 @section('css')
     <link rel="stylesheet" href="/css/admin_custom.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
+
 @stop
 
 @section('js')
@@ -110,8 +97,11 @@
     <script src="   https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
     <script>
         $(document).ready(function() {
-            $('#Funcionalidades').DataTable();
+            $('#ciudad').DataTable();
         });
     </script>
 
 @stop
+
+
+

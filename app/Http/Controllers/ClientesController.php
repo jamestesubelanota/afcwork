@@ -15,9 +15,9 @@ class ClientesController extends Controller
     }
 
     public function create(Clientes $cliente){
-         $colaboradores = Colaboradores::all();
+        
 
-        return view('clientes.create', ['cliente' => $cliente , 'colaboradores' => $colaboradores]);
+        return view('clientes.create', ['cliente' => $cliente ]);
     }
 
     public function store(Request $request){
@@ -28,13 +28,13 @@ class ClientesController extends Controller
             'nit' => 'required | unique:clientes,nombre_cliente',
             'razon_social' => 'required',
             'detalle' => 'required',
-            'colaborador' => 'required'
+            
         ]);
          $clientes->nombre_cliente = $request->nombre_cliente;
          $clientes->nit = $request->nit;
          $clientes->razon_social = $request->razon_social;
          $clientes->detalle = $request->detalle;
-         $clientes->id_colaborador = $request->colaborador;
+       
          $clientes->save();
 
          return redirect()->route('clientes.index');
@@ -42,9 +42,9 @@ class ClientesController extends Controller
     }
 
     public function edit($cliente){
-        $colaboradores = Colaboradores::all();
+        
         $clientes = Clientes::find($cliente);
-        return view('clientes.edit', ['cliente' =>  $clientes, 'colaboradores' => $colaboradores]);
+        return view('clientes.edit', ['cliente' =>  $clientes]);
     }
 
     public function update(Request $request , $clientes){
@@ -53,7 +53,7 @@ class ClientesController extends Controller
         $clientes->nit = $request->nit;
         $clientes->razon_social = $request->razon_social;
         $clientes->detalle = $request->detalle;
-        $clientes->id_colaborador = $request->colaborador;
+    
         $clientes->save();
         return redirect()->route('clientes.index');
     }

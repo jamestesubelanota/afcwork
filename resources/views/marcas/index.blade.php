@@ -15,17 +15,28 @@
             </h2>
         </x-slot>
 
-        <div class="py-12">
-            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                    <div class="p-6 bg-white border-b border-gray-200">
+        <div class="container"style="background:linear-gradient(30deg, white,#004593, white, #004593, white);"
+            class="vh-100 gradient-custom">
+            <br>
+
+            <section>
+                <div class="card ">
+                    <div class="card-header">
+                        <nav class="navbar bg-light">
+                            <div class="container-fluid">
+                                <a class="btn btn-primary" href="{{ route('equipos.create') }}"> Agregar una marca </a>
+                            </div>
+                        </nav>
+
+                    </div>
+                    <div class="card-body">
                         <table id="Funcionalidades" class="table table-striped" style="width:100%">
 
                             <thead>
                                 <tr>
                                     <th>Marcas</th>
                                     <th>Opciones</th>
-                
+
                                 </tr>
                             </thead>
                             <tbody>
@@ -34,31 +45,29 @@
                                     <tr>
                                         <td>{{ $marca->marca }}</td>
 
-                                     
+
 
                                         <td class=" px-6 py-6">
                                             <div class="dropdown">
-                                                <a class="btn btn-secondary dropdown-toggle" href="#"
-                                                    role="button" id="dropdownMenuLink" data-toggle="dropdown"
-                                                    aria-haspopup="true" aria-expanded="false">
+                                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button"
+                                                    id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                                                    aria-expanded="false">
                                                     Acciones
                                                 </a>
 
                                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                                    <a href="{{ route('marcas.edit', $marca->id_marca ) }}"
-                                                        class="dropdown-item">editar</a>
-        
-                                        
-                                                        <form
-                                                        action="   {{ route('marcas.destroy', $marca->id_marca) }}"
+                                                   <li> <a href="{{ route('marcas.edit', $marca->id_marca) }}"
+                                                        class="dropdown-item active">editar</a></li>
+
+
+                                                    <form action="   {{ route('marcas.destroy', $marca->id_marca) }}"
                                                         method="POST">
-        
+
                                                         @csrf
                                                         @method('DELETE')
-                                                        <input type="submit" value="Eliminar"
-                                                        class="dropdown-item"
+                                                        <input type="submit" value="Eliminar" class="dropdown-item"
                                                             onclick="return confirm('desea eliminar ?')">
-        
+
                                                     </form>
 
 
@@ -70,11 +79,19 @@
                                 @endforeach
 
                             </tbody>
+                        </table>
 
                     </div>
+                    <div class="card-footer text-muted">
+                        2 days ago
+                    </div>
                 </div>
-            </div>
+
+
+            </section>
+<hr>
         </div>
+
     </x-app-layout>
 @stop
 

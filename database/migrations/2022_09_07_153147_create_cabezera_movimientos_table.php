@@ -27,6 +27,7 @@ return new class extends Migration
             $table->unsignedBigInteger('id_user');
             // se hace la relacion de la tabla
             $table->foreign('id_user')->references('id_user')->on('users');
+            $table->date('inicio');
             $table->timestamps();
         });
     }

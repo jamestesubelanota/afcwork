@@ -9,17 +9,32 @@
 @section('content')
     <x-app-layout>
         <x-slot name="header">
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                {{ __('Ciudades') }}
-                <a class="bg-gray-800 text-white rounded px-4 py-2" href="{{ route('ciudades.create') }}"> crear</a>
-            </h2>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Ciudad </a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Ciudades</li>
+                </ol>
+            </nav>
+
+
         </x-slot>
 
-        <div class="py-12">
-            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                    <div class="p-6 bg-white border-b border-gray-200">
-                        <table id="ciudad" class="table table-striped" style="width:80%">
+        <div class="container"style="background:linear-gradient(30deg, white,#004593, white, #004593, white);"
+            class="vh-100 gradient-custom">
+            <br>
+            <section style="background-color : white">
+
+                <div class="card ">
+                    <div class="card-header">
+                        <nav class="navbar bg-light">
+                            <div class="container-fluid">
+                                <a class="btn btn-primary" href="{{ route('ciudades.create') }}"> Agregar una ciudad </a>
+                            </div>
+                        </nav>
+
+                    </div>
+                    <div class="card-body">
+                        <table id="ciudad" class="table table-striped" style="width:90%">
 
                             <thead>
                                 <tr>
@@ -47,9 +62,10 @@
                                                     Acciones
                                                 </a>
 
-                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                                    <a href="{{ route('ciudades.edit', $ciudad) }}"
-                                                        class="dropdown-item">Editar</a>
+                                                <div class="dropdown-menu dropdown-menu-dark"
+                                                    aria-labelledby="dropdownMenuLink">
+                                                    <li> <a href="{{ route('ciudades.edit', $ciudad) }}"
+                                                            class="dropdown-item active">Editar</a></li>
 
 
                                                     <form action="   {{ route('ciudades.destroy', $ciudad) }}"
@@ -57,9 +73,8 @@
 
                                                         @csrf
                                                         @method('DELETE')
-                                                        <input type="submit" value="Eliminar"
-                                                            class="bg-gray-800 text-white rounded px-4 py-2"
-                                                            onclick="return confirm('desea eliminar ?')">
+                                                        <li> <input type="submit" value="Eliminar" class="dropdown-item "
+                                                                onclick="return confirm('desea eliminar ?')"></li>
 
                                                     </form>
 
@@ -73,16 +88,30 @@
                                 @endforeach
 
                             </tbody>
+                        </table>
 
                     </div>
+                    <div class="card-footer text-muted">
+                        2 days ago
+                    </div>
                 </div>
-            </div>
+                
         </div>
+
+        </section>
+        <br>
+
+
+        </div>
+
     </x-app-layout>
 @stop
 
 @section('css')
     <link rel="stylesheet" href="/css/admin_custom.css">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 
 @stop
 

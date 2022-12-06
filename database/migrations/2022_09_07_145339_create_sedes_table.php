@@ -14,10 +14,11 @@ return new class extends Migration
     public function up()
     {
         Schema::create('sedes', function (Blueprint $table) {
-            $table->id('id_sede' , 11);
+            $table->id('id_sede' , 8);
             $table->string('nombre_sede', 100);
             $table->string('direccion',100);
             $table->string('contacto',100);
+            $table->string('zona',50);
             $table->double('telefono');
             //se crea campo a relacionar
             $table->unsignedBigInteger('ciudad_id');
@@ -27,6 +28,8 @@ return new class extends Migration
             $table->unsignedBigInteger('cliente_id');
             // se hace la relacion de la tabla
             $table->foreign('cliente_id')->references('id_cliente')->on('clientes');
+          
+        
             $table->timestamps();
             
         });

@@ -30,20 +30,8 @@
 @enderror</span>
 <input type="text" id="detalle" name ="detalle" class="rounded border-gray-200 w-full mb-4" value="{{ $cliente->detalle}}"  >
 
-<label class="uppercase text-gray-700 text-xs">Encargado </label>
 
-<br>
-<span style="color: red">@error('colaborador') {{$message}}
-    
-@enderror</span>
-<br>
-<select class="custom-select" id="colaborador" name="colaborador">
-    <option value="">Selecione Encargado  </option>
-    @foreach ($colaboradores as $colaborador)
- 
-        <option value="{{$colaborador->id_colaborador}}">{{$colaborador->nombre_colaborador}} </option>
-    @endforeach
-</select>
+
 <br>
 
 <div>

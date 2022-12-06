@@ -13,9 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('estados', function (Blueprint $table) {
-            $table->id('id_estado',1);
-            $table->string('estado',20);
+        Schema::create('fotos', function (Blueprint $table) {
+            $table->id('id_foto');
+            
+            $table->string('foto');
+            $table->unsignedBigInteger('id_activo');
+            $table->foreign('id_activo')->references('id_activo')->on('activos');
             $table->timestamps();
         });
     }
@@ -27,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('funcionalidades');
+        Schema::dropIfExists('fotos');
     }
 };

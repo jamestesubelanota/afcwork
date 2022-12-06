@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('name', 50);
             $table->string('email', 60)->unique();
             $table->string('identificacion',20)->unique();
+            $table->string('estado',10);
               // se hace la relacion de la tabla
             $table->integer('id_rol');
           

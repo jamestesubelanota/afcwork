@@ -29,7 +29,7 @@
                                 <th>Nit</th>
                                 <th>Rason social</th>
                                 <th>Detalle</th>
-                                <th>Encargado</th>
+                               
                                 <th>Opciones</th>
                               
                                
@@ -43,7 +43,7 @@
                             <td>{{  $cliente->nit}}</td>
                             <td>{{ $cliente->razon_social}}</td>
                             <td>{{  $cliente->detalle}}</td>
-                            <td>{{  $cliente->colaborador->nombre_colaborador}}</td>
+                            
                             <td class=" px-6 py-6">
                               
                                 <div class="dropdown">
