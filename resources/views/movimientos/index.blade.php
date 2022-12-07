@@ -17,85 +17,102 @@
             <p>Codigo del proximo movimiento : <li>{{$proximo->id_cabezera}}</li> </p> 
         </h2>
     </x-slot>
+    <div class="container"style="background:linear-gradient(30deg, white,#004593, white, #004593, white);"
+    class="vh-100 gradient-custom">
+    <br>
 
-    <div class="py-12">
-        
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-       
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200">
-                    <table id="movimientos" class="table table-striped" style="width:80%">
+    <section>
+        <div class="card ">
+            <div class="card-header">
+                <nav class="navbar bg-light">
+                    <div class="container-fluid">
+                        <a class="btn btn-primary" href="{{ route('equipos.create') }}"> Agregar una marca </a>
+                    </div>
+                </nav>
+
+            </div>
+            <div class="card-body">
+                <table id="movimientos" class="table table-striped" style="width:80%">
                      
-                        <thead>
-                            <tr>
-                               
-                                <th>Cliente</th>
-                                <th>Sede</th>
-                                <th>Movimiento</th>
-                                <th>Opciones</th>
-                              
-                               
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                          @foreach ( $movimientos as $movimiento)
-                          <tr>
-                        
-                            <td>{{ $movimiento->clientes->nombre_cliente}}</td>
-                            <td>{{ $movimiento->sedes->nombre_sede}}</td>
-                            <td>{{ $movimiento->tipoMovimiento->movimiento}}</td>
-                            <td class=" px-6 py-6">
-                              
-                                <div class="dropdown">
-                                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button"
-                                        id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
-                                        aria-expanded="false">
-                                        Acciones
-                                    </a>
-
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-
-                                        
-                                        <a href="{{route('movimientos.edit', $movimiento)}}"   class="bg-gray-800 text-white rounded px-4 py-2" >editar</a>
-                                       
-
-                                        <form action="   {{route('movimientos.destroy', $movimiento)}}" method="POST" >
-            
-                                            @csrf
-                                            @method('DELETE')
-                                                <input 
-                                                type="submit" 
-                                                value="Eliminar" 
-                                                class="bg-gray-800 text-white rounded px-4 py-2" 
-                                                onclick="return confirm('desea eliminar ?')"
-                                                >
-                                
-                                            </form>
-
-                                            <a href="{{route('movimientos.edit', $movimiento)}}"   class="bg-gray-800 text-white rounded px-4 py-2" >Generar carta</a>
-                                            <a href="{{route('movimientos.edit', $movimiento)}}"   class="bg-gray-800 text-white rounded px-4 py-2" >Generar Formato prestamos</a>
-                                    </div>
-                                    
-                                </div>
-                            </td>
-                             
-                               
+                    <thead>
+                        <tr>
+                           
+                            <th>Cliente</th>
+                            <th>Sede</th>
+                            <th>Movimiento</th>
+                            <th>Opciones</th>
+                          
+                           
                         </tr>
-                          @endforeach
+                    </thead>
+                    <tbody>
 
-                        </tbody>
-                        
-                </div>
+                      @foreach ( $movimientos as $movimiento)
+                      <tr>
+                    
+                        <td>{{ $movimiento->clientes->nombre_cliente}}</td>
+                        <td>{{ $movimiento->sedes->nombre_sede}}</td>
+                        <td>{{ $movimiento->tipoMovimiento->movimiento}}</td>
+                        <td class=" px-6 py-6">
+                          
+                            <div class="dropdown">
+                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button"
+                                    id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false">
+                                    Acciones
+                                </a>
+
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+
+                                    
+                                    <a href="{{route('movimientos.edit', $movimiento)}}"   class="bg-gray-800 text-white rounded px-4 py-2" >editar</a>
+                                   
+
+                                    <form action="   {{route('movimientos.destroy', $movimiento)}}" method="POST" >
+        
+                                        @csrf
+                                        @method('DELETE')
+                                            <input 
+                                            type="submit" 
+                                            value="Eliminar" 
+                                            class="bg-gray-800 text-white rounded px-4 py-2" 
+                                            onclick="return confirm('desea eliminar ?')"
+                                            >
+                            
+                                        </form>
+
+                                        <a href="{{route('movimientos.edit', $movimiento)}}"   class="bg-gray-800 text-white rounded px-4 py-2" >Generar carta</a>
+                                        <a href="{{route('movimientos.edit', $movimiento)}}"   class="bg-gray-800 text-white rounded px-4 py-2" >Generar Formato prestamos</a>
+                                </div>
+                                
+                            </div>
+                        </td>
+                         
+                           
+                    </tr>
+                      @endforeach
+
+                    </tbody>
+                </table>
+
+            </div>
+            <div class="card-footer text-muted">
+               
             </div>
         </div>
-    </div>
+
+
+    </section>
+<hr>
+</div>
+ 
 </x-app-layout>
 @stop
 
 @section('css')
     <link rel="stylesheet" href="/css/admin_custom.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
+
 @stop
 
 @section('js')
