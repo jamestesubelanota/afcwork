@@ -18,12 +18,22 @@
 
         </x-slot>
 
+        <div class="container"style="background:linear-gradient(30deg, white,#004593, white, #004593, white);"
+        class="vh-100 gradient-custom">
+        <br>
+    
         <section>
-
-        </section>
-        <section>
-            <div class="container bg-white">
-
+            <div class="card ">
+                <div class="card-header">
+                    <nav class="navbar bg-light">
+                        <div class="container-fluid">
+                            <a class="btn btn-primary" href="{{ route('activos.create') }}"> Agregar un activo </a>
+                        </div>
+                    </nav>
+    
+                </div>
+                <div class="card-body">
+                    
                 <table id="Proveedores" class="table table-striped" style="width:80%">
 
                     <thead>
@@ -99,11 +109,18 @@
 
                     </tbody>
                 </Table>
+    
+                </div>
+                <div class="card-footer text-muted">
+                    2 days ago
+                </div>
             </div>
-          
-
+    
+    
         </section>
-
+    <hr>
+    </div>
+      
 
 
 
