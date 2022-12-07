@@ -55,9 +55,13 @@ return view('contratos.index',[
     }
 
     public function edit($contrato){
-        $contrato= Contrato::find($contrato);
-         $cliente = Clientes::all();
-        return view('contratos.edit',[ 'cliente'=> $cliente,'contrato'=>$contrato]);
+        $contrato          = Contrato::find($contrato);
+         $cliente          = Clientes::all();
+        return view('contratos.edit',
+    [ 
+        'cliente'    =>  $cliente, 
+        'contrato'   =>  $contrato
+    ]);
     }
 
     public function update( Request $request, $contrato ){
@@ -89,7 +93,7 @@ return view('contratos.index',[
 
     public function destroy($id_contrato){
 
-        $contratoEliminar = Contrato::find($id_contrato); 
+        $contratoEliminar   =   Contrato::find($id_contrato); 
         $contratoEliminar->delete();
         return(back());
     }
