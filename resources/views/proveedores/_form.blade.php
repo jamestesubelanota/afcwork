@@ -1,34 +1,34 @@
 @csrf 
-<label class="uppercase text-gray-700 text-xs" >Nombre del proveedor</label>
+<label class="form-label" >Nombre del proveedor</label>
 <br>
 <span style="color: red"> @error('nombre_proveedor') {{$message}}
     
 @enderror </span>
-<input type="text" id="nombre_proveedor"  name ="nombre_proveedor" class="rounded border-gray-200 w-full mb-4" value="{{old( 'nombre_proveedor', $proveedores->nombre_proveedor ) }}">
+<input type="text" id="nombre_proveedor"  name ="nombre_proveedor" class="form-control" value="{{old( 'nombre_proveedor', $proveedores->nombre_proveedor ) }}">
 
-<label class="uppercase text-gray-700 text-xs" >Nit</label>
+<label class="form-label" >Nit</label>
 <br>
 <span style="color: red" > @error('nit') {{$message}}
     
     @enderror </span>
-<input type="text" id="nit" name ="nit" class="rounded border-gray-200 w-full mb-4" value="{{ old('nit', $proveedores->nit) }}"  >
+<input type="text" id="nit" name ="nit" class="form-control" value="{{ old('nit', $proveedores->nit) }}"  >
 
-<label class="uppercase text-gray-700 text-xs" >Direccion</label>
+<label class="form-label" >Direccion</label>
 <br>
 <span style="color: red" > @error('direccion') {{$message}}
     
     @enderror </span>
-<input type="text" id="direccion" name ="direccion" class="rounded border-gray-200 w-full mb-4" value="{{ old('direccion', $proveedores->direccion) }}"  >
+<input type="text" id="direccion" name ="direccion" class="form-control" value="{{ old('direccion', $proveedores->direccion) }}"  >
 
-<label class="uppercase text-gray-700 text-xs" >Razon social</label>
+<label class="form-label" >Razon social</label>
 <br>
 <span style="color: red" > @error('razon_social') {{$message}}
     
     @enderror </span>
-<input type="text" id="razon_social" name ="razon_social" class="rounded border-gray-200 w-full mb-4" value="{{ old('razon_social', $proveedores->Razon_social)}}"  >
+<input type="text" id="razon_social" name ="razon_social" class="form-control" value="{{ old('razon_social', $proveedores->Razon_social)}}"  >
 
 
 <div>
 <a   class="bg-gray-800 text-white rounded px-4 py-2"  href="{{route('proveedores.index')}}">volver</a>
-<input type="submit" value="Guardar"  class="bg-gray-800 text-white rounded px-4 py-2" >
+<input type="submit" value="Guardar"  class="btn btn-primary" >
 </div>
