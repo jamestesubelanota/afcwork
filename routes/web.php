@@ -17,8 +17,7 @@ use App\http\Controllers\MarcaController;
 use App\http\Controllers\EquipoController;
 use App\http\Controllers\FotosController;
 use App\http\Controllers\CartaEnvioController;
-
-
+use App\Http\Controllers\ContratoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,6 +45,13 @@ Route::controller(ClientesController::class)->group(function(){
 
 
 });
+Route::controller(ContratoController::class)->group(function(){
+
+
+    Route::resource('contratos', ContratoController::class);
+  
+  
+  });
 
 Route::controller(RolesController::class)->group(function(){
 
