@@ -14,16 +14,25 @@ class CabezeraMovimientoController extends Controller
 {
     public function index()
     {
-         $prosimoMovimientop =  CabezeraMovimiento::orderBy('id_cabezera', 'desc')->first();
-         $prosimoMovimientop->id_cabezera += 1 ;
-         $proximoMovi=  $prosimoMovimientop  ;
+       // $prosimoMovimientop =  CabezeraMovimiento::orderBy('id_cabezera', 'desc')->first();
+     //   if( $prosimoMovimientop != null){
+
+               
+        //    $prosimoMovimientop->id_cabezera += 1 ;
+        //    $proximoMovi=  $prosimoMovimientop  ;
+       // }
+        
+       
+         
+      
+     
 
         $movimientos = CabezeraMovimiento::latest()->paginate();
         return view(
             'movimientos.index',
             [
                 'movimientos' => $movimientos,
-                'proximo' =>  $proximoMovi
+             
             ]
         );
     }
@@ -51,9 +60,11 @@ class CabezeraMovimientoController extends Controller
 
     public function store(Request $request)
     {
+        
         $cabezeraMovimiento  = new CabezeraMovimiento();
         $cabezeraMovimiento->id_cliente = $request->cliente;
         $cabezeraMovimiento->id_sede = $request->sede;
+        $cabezeraMovimiento->inicio =  $request->inicio;
         $cabezeraMovimiento->id_tmovimiento = $request->id_movimiento;
         $cabezeraMovimiento->id_user =  Auth::id('id_user');
         $cabezeraMovimiento->save();
@@ -66,7 +77,6 @@ class CabezeraMovimientoController extends Controller
                 $detalleMovimiento = new DetalleMovimiento();
                 $detalleMovimiento->id_activo =  $check;
                 $detalleMovimiento->id_cabezera =   $cabezeraMovimiento->id_cabezera;
-                $detalleMovimiento->inicio =  $request->inicio;
                 $detalleMovimiento->detalle =  $request->detalle;
                 $detalleMovimiento->save();
                 if ($detalleMovimiento) 

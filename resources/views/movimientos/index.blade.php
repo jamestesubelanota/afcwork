@@ -14,7 +14,7 @@
             {{ __('Movimientos') }}
             <a  class="bg-gray-800 text-white rounded px-4 py-2" 
             href="{{route('movimientos.create')}}"> Generar movimientos</a>
-            <p>Codigo del proximo movimiento : <li>{{$proximo->id_cabezera}}</li> </p> 
+          
         </h2>
     </x-slot>
     <div class="container"style="background:linear-gradient(30deg, white,#004593, white, #004593, white);"
@@ -26,7 +26,7 @@
             <div class="card-header">
                 <nav class="navbar bg-light">
                     <div class="container-fluid">
-                        <a class="btn btn-primary" href="{{ route('equipos.create') }}"> Agregar una marca </a>
+                        <a class="btn btn-primary" href="{{ route('movimientos.create') }}"> Generar un proximo movimiento  </a>
                     </div>
                 </nav>
 

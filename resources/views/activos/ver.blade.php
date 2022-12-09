@@ -14,104 +14,103 @@
             {{ __('Activo / Ver activos') }}
         </h2>
     </x-slot>
-
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200">
-              
-                    <div class="jumbotron">
-
-                      <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
-                        <div class="carousel-indicators">
-                          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                        </div>
-                        <div class="carousel-inner">
-                       @foreach($fotos as $foto)
-                          <div class="carousel-item active">
-                            <img src="{{$foto->foto}}" class="d-block w-100" alt="...">
-                          </div>
-                          @endforeach
-                        
-                          
-                        </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                          <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                          <span class="visually-hidden">Next</span>
-                        </button>
-                      </div>
-                           <div> <h1 class="display-4">Activo, {{$activo->activo}}</h1>
-                            <div class="alert alert-primary" role="alert">
-                                <p class="lead">Equipo {{$activo->tipoEquipo->tipo_de_equipo}}</p></div>
-                                <div class="alert alert-success" role="alert">
-                                <p class="lead">Este equipo su sede actual es {{$activo->sede->nombre_sede}}</p></div>
-                                <a class= "btn btn-dark  " href="{{route('activos.index')}}" >volver</a>
-                        </div>
-                    
-                          </div>
-                        
-                        <hr class="my-4">
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                              <span class="input-group-text" id="basic-addon1">Marca</span></div>
-                          <p class="form-control">{{ $activo->marca->marca}}</p>
-                        </div>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                              <span class="input-group-text" id="basic-addon1">Equipo</span></div>
-                          <p class="form-control">{{  $activo->equipo->equipo}}</p>
-                        </div>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                              <span class="input-group-text" id="basic-addon1">Serial</span></div>
-                          <p class="form-control">{{  $activo->serial}}</p>
-                        </div>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                              <span class="input-group-text" id="basic-addon1">Costo</span></div>
-                          <p class="form-control">{{  $activo->costo}}</p>
-                        </div>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                              <span class="input-group-text" id="basic-addon1">Proveedor</span></div>
-                          <p class="form-control">{{  $activo->proveedor->nombre_proveedor}}</p>
-                        </div>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                              <span class="input-group-text" id="basic-addon1">Estado</span></div>
-                          <p class="form-control">{{  $activo->estado->estado}}</p>
-                        </div>
-                      
-                      
-                        
-                           
-                           <hr>
-                           <ul class="list-group">
-                            
-                      @foreach ($movimientos as $movimiento)
-                      <li class="list-group-item "> Activo: {{$movimiento->activo->activo}}  <p >Ubicacion  :{{$movimiento->cabecera->sedes->nombre_sede}} </p> </li>
-                      
-                        @endforeach
-              
-                                  </ul>
-                                    
-                          
-                          
-                        
-               
-                      </div>
-          
-               
-                </div>
-            </div>
-        </div>
+<div class="container">
+  <div class="card text-center">
+    <div class="card-header">
+      Featured
     </div>
+    <div class="card-body">
+     <div class="row">
+
+      <div class="col-md-6" > <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+       @foreach($fotos as $foto)
+          <div class="carousel-item active">
+            <img src="{{$foto->foto}}" class="d-block w-100" alt="...">
+          </div>
+          @endforeach
+        
+          
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Siguiente</span>
+        </button>
+      </div></div>
+      <div class="col-md-6" >
+
+        <div class="card">
+          <div class="card-header">
+           <h5> Activo Fijos :{{$activo->activo}}</h5> 
+           
+          </div>
+          <div class="card-body">
+            <blockquote style="text-align: left" class="blockquote mb-0">
+              <div> 
+                <div class="alert alert-primary" role="alert">
+                    <p class="">Equipo {{$activo->tipoEquipo->tipo_de_equipo}}</p></div>
+                    <div class="alert alert-success" role="alert">
+                    <p class="lead">Este equipo se encuentra en la sede {{$activo->sede->nombre_sede}}</p></div>
+               
+            </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1">Marca</span></div>
+              <p class="form-control">{{ $activo->marca->marca}}</p>
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1">Equipo</span></div>
+              <p class="form-control">{{  $activo->equipo->equipo}}</p>
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1">Serial</span></div>
+              <p class="form-control">{{  $activo->serial}}</p>
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1">Costo</span></div>
+              <p class="form-control">{{  $activo->costo}}</p>
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1">Proveedor</span></div>
+              <p class="form-control">{{  $activo->proveedor->nombre_proveedor}}</p>
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1">Estado</span></div>
+              <p class="form-control">{{  $activo->estado->estado}}</p>
+            </div>
+            </blockquote>
+          </div>
+        </div>
+      
+
+      </div>
+     </div>
+    </div>
+    <div style="text-align: left" class="card-footer text-muted">
+           
+      @foreach ($movimientos as $movimiento)
+      <li class="list-group-item "> Activo: {{$movimiento->activo->activo}}  <p >Ubicacion  :{{$movimiento->cabecera->sedes->nombre_sede}} </p> </li>
+      
+        @endforeach
+    </div>
+  </div>
+</div>
+  
+  
 </x-app-layout>
 
 @stop
