@@ -20,9 +20,9 @@ return new class extends Migration
             $table->string('identificacion',20)->unique();
             $table->string('estado',10);
               // se hace la relacion de la tabla
-            $table->integer('id_rol');
+           // $table->integer('id_rol');
           
-            $table->foreign('id_rol')->references('id_rol')->on('roles');
+           // $table->foreign('id_rol')->references('id')->on('roles');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

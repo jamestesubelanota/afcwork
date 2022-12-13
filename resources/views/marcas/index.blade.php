@@ -24,7 +24,7 @@
                     <div class="card-header">
                         <nav class="navbar bg-light">
                             <div class="container-fluid">
-                                <a class="btn btn-primary" href="{{ route('equipos.create') }}"> Agregar una marca </a>
+                                <a class="btn btn-primary" href="{{ route('marcas.create') }}"> Agregar una marca </a>
                             </div>
                         </nav>
 

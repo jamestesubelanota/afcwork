@@ -97,6 +97,7 @@ class="vh-100 gradient-custom">
                                 <tr>
                                     <th>Activo</th>
                                     <th>Sede</th>
+                                  
                                     <th>equipo</th>
                                     <th>serial</th>
                                     <th>marca</th>
@@ -106,12 +107,15 @@ class="vh-100 gradient-custom">
                             <tbody>
                                 @foreach ($activos as $activo)
                                     <tr>
-                                        <td> <input type="checkbox"id="id_activo" name="id_activo[]"  value="{{ $activo->id_activo }}">...{{ $activo->activo }}</td>
+                                        <td> <input type="checkbox"id="id_activo" name="id_activo[]"
+                                            value="{{ $activo->id_activo }}">...{{ $activo->activo }}</td>
                                         <td>{{ $activo->sede->nombre_sede }}</td>
+                                        
                                         <td>{{ $activo->equipo->equipo }}</td>
                                         <td>{{ $activo->marca->marca }}</td>
                                         <td>{{ $activo->serial }}</td>
                                         <td>{{ $activo->costo }}</td>
+                                      
 
                                     </tr>
                                 @endforeach
@@ -120,7 +124,7 @@ class="vh-100 gradient-custom">
                         </table>
                     </div>
                     <!---segunda secciom--->
-                   
+                  
 
                 </div>
             </div>

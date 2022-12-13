@@ -1,5 +1,5 @@
 @csrf 
-<label class="form-label" >Equipo</label>
+<label class="form-label" >Marca</label>
 <br>
 <span style="color: red">@error('marca') {{$message}}
     

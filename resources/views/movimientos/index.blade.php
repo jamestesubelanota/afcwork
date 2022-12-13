@@ -17,18 +17,26 @@
           
         </h2>
     </x-slot>
-    <div class="container"style="background:linear-gradient(30deg, white,#004593, white, #004593, white);"
-    class="vh-100 gradient-custom">
-    <br>
+   
 
     <section>
         <div class="card ">
             <div class="card-header">
-                <nav class="navbar bg-light">
-                    <div class="container-fluid">
-                        <a class="btn btn-primary" href="{{ route('movimientos.create') }}"> Generar un proximo movimiento  </a>
+
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                     Genear movimientos
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      <a class="dropdown-item " href="{{ route('movimientos.create') }}"> Generar un proximo movimiento  </a>
+                       <button type="button" class="dropdown-item" data-toggle="modal" data-target="#exampleModal" data-whatever="@fat">movimiento de entrada @fat</button>
+                       <button type="button" class="dropdown-item" data-toggle="modal" data-target="#exampleModal" data-whatever="@fat">Movimiento de salida @fat</button>
                     </div>
-                </nav>
+                  </div>
+                
+                    
+                    
+              
 
             </div>
             <div class="card-body">
@@ -106,6 +114,60 @@
 <hr>
 </div>
  
+<!----nodal-->
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+           
+           <form action="{{route('entrada.create')}}">
+          @csrf
+            <div class="col-md-6">
+        
+              <div class="input-group-prepend">
+
+                  <label class="input-group-text" for="inputGroupSelect01">Cliente</label>
+              </div>
+              <select name="cliente" class="custom-select" id="cliente">
+                  <option selected>Selecione el cliente</option>
+                  @foreach ($clientes as $cliente)
+                      <option value="{{ $cliente->id_cliente }}" selected>
+                          {{ $cliente->nombre_cliente }}</option>
+                  @endforeach
+              </select>
+          </div>
+          <div class="col-md-6">
+              <label class="input-group-text" for="inputGroupSelect01">Sedes</label>
+
+              <select class="custom-select" name="sede" id="sede">
+                  <option selected>Seleccione la sede </option>
+                  @foreach ($sedes as $sede)
+                      <option value="{{ $sede->id_sede }}" selected>{{ $sede->nombre_sede }}</option>
+                  @endforeach
+              </select>
+          </div>
+
+
+
+   <input class="bg-gray-800 text-white rounded px-4 py-2" type="submit" value="generar movmiento de entrada">
+
+           </form>
+        
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+       
+        </div>
+      </div>
+    </div>
+  </div>
 </x-app-layout>
 @stop
 
@@ -128,4 +190,43 @@
         $('#movimientos').DataTable();
     });
 </script>
+<script>
+  $(document).ready(function() {
+      $('#clientes').DataTable();
+  });
+</script>
+
+<script type="text/javascript">
+
+  $(document).ready(function () {
+              $('#cliente').on('change', function () {
+                  var cliente_id = this.value;
+                  $('#sede').html('');
+                  $.ajax({
+                      url: '{{ route('movimientos.create') }}?cliente_id='+ cliente_id,
+                      type: 'get',
+                      success: function (res) {
+                          $('#sede').html('<option value="">Seleccione sede</option>');
+            
+                          $.each(res, function (key, value) {
+                              $('#sede').append('<option value="' + value
+                                  .id_sede + '">' + value.nombre_sede + '</option>');
+                          });
+                         
+                        
+                         
+                         
+                      }
+                  });
+              }); 
+          
+          });  
+          
+  
+        
+   
+         
+           </script>
+    
+
 @stop

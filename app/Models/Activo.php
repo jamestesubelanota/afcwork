@@ -13,6 +13,7 @@ class Activo extends Model
     protected $primaryKey = "id_activo";
     protected $fillable = 
     ["activo",
+    "activocontable",
     "id_equipo",
     "id_marca",
     "serial",

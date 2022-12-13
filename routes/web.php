@@ -17,6 +17,7 @@ use App\http\Controllers\MarcaController;
 use App\http\Controllers\EquipoController;
 use App\http\Controllers\FotosController;
 use App\http\Controllers\CartaEnvioController;
+use App\http\Controllers\EntradaController;
 use App\Http\Controllers\ContratoController;
 
 /*
@@ -27,6 +28,8 @@ use App\Http\Controllers\ContratoController;
 | Here is where you can register web routes for your application. These
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
+|
+|
 |
 */
 
@@ -99,7 +102,12 @@ Route::controller(SedeController::class)->group(function(){
 Route::controller(CabezeraMovimientoController::class)->group(function(){
 
     Route::resource('movimientos', CabezeraMovimientoController::class);
+    
+});
+Route::controller(EntradaController::class)->group(function(){
 
+    Route::resource('entrada', EntradaController::class);
+    
 });
 Route::controller(CabezeraMovimientoController::class)->group(function(){
 

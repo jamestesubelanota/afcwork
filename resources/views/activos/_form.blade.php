@@ -13,7 +13,16 @@
     @enderror </span>
 <input type="text" id="activo" name="activo" class="form-control"
     value="{{ old('activo', $activo->activo) }}">
-
+    <br>
+    <label class="uppercase text-gray-700 text-xs">Activo  contable</label>
+    <br>
+    <span style="color: red"> @error('activo')
+            {{ $message }}
+        @enderror </span>
+    <input type="text" id="activocontable" name="activocontable" class="form-control"
+        value="{{ old('activo', $activo->activocontable) }}">
+    
+    
 <br>
 <label class="uppercase text-gray-700 text-xs">Equipo </label>
 

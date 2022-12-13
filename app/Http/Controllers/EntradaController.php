@@ -2,70 +2,49 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\CabezeraMovimiento;
 use App\Models\Activo;
+use App\Models\CabezeraMovimiento;
 use App\Models\Clientes;
 use App\Models\DetalleMovimiento;
 use App\Models\Sede;
 use App\Models\TipoMovimiento;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-class CabezeraMovimientoController extends Controller
+
+class EntradaController extends Controller
 {
-    public function index( Request $request)
-    {
-       // $prosimoMovimientop =  CabezeraMovimiento::orderBy('id_cabezera', 'desc')->first();
-     //   if( $prosimoMovimientop != null){
 
-               
-        //    $prosimoMovimientop->id_cabezera += 1 ;
-        //    $proximoMovi=  $prosimoMovimientop  ;
-       // }
+    public function index( )
+
+    {
+
+    }
+    public function create( Request $request  )
+
+    {
         
-       
-       $cliente            = Clientes::get(["nombre_cliente", "id_cliente"]);
-       $sede               = Sede::where('cliente_id', $request->cliente_id)->get();
-   
-       if (count($sede) > 0) {
-         return response()->json($sede);
-       }
-      
+        $activos = Activo::where('id_sede', $request->sede)->get();
+        $clientess =Clientes::get(['id_cliente', 'nombre_cliente'])->where('id_cliente', $request->cliente);
      
+        $movimiento = TipoMovimiento::get(['id_tmovimiento','movimiento'])->where('id_tmovimiento',1); 
+        $cliente = Clientes::get(['id_cliente','nombre_cliente'])->where('id_cliente',1); 
+         $sede =  Sede::where('cliente_id', $request->cliente_id)->get();
+         if (count($sede) > 0) {
+             return response()->json($sede);
+         }
  
-        $movimientos = CabezeraMovimiento::latest()->paginate();
-        return view(
-            'movimientos.index',
-            [
-                'movimientos' => $movimientos,
-                'clientes' =>  $cliente,
-                'sedes' =>     $sede  
-             
-            ]
-        );
+ 
+         return view('entrada.create', [
+             'activos' => $activos, 'clientes' => $cliente,
+             'sedes'  => $sede,
+             'movimientos' => $movimiento,
+             'clientess' => $clientess
+            
+         ]);
+         
     }
 
-
-    public function create(Request $request)
-    {
-        $activos = Activo::latest()->paginate();
-        $movimiento = TipoMovimiento::all();
-        $cliente = Clientes::get(["nombre_cliente", "id_cliente"]);
-        $sede =  Sede::where('cliente_id', $request->cliente_id)->get();
-        if (count($sede) > 0) {
-            return response()->json($sede);
-        }
-
-
-        return view('movimientos.create', [
-            'activos' => $activos, 'clientes' => $cliente,
-            'sedes'  => $sede,
-            'movimientos' => $movimiento
-        ]);
-    }
-
-
-
-    public function store(Request $request)
+     public function store(Request $request)
     {
         
         $cabezeraMovimiento  = new CabezeraMovimiento();
@@ -99,5 +78,6 @@ class CabezeraMovimientoController extends Controller
         return redirect()->route('movimientos.index');
     }
 
- 
+
+    
 }

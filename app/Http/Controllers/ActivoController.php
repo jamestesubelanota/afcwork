@@ -77,6 +77,7 @@ class ActivoController extends Controller
     $request->validate([
       'foto' => 'required',
       'activo' => 'required | unique:activos,activo',
+      'activocontable' => 'required | unique:activos,activocontable',
       'equipo' => 'required ',
       'marca' => 'required',
       'serial' => 'required | unique:activos,serial',
@@ -95,11 +96,12 @@ class ActivoController extends Controller
   
     
     $activo->activo            =  $request->activo;
+    $activo->activocontable  =  $request->activocontable;
     $activo->id_equipo         =  $request->equipo;
     $activo->id_marca          =  $request->marca;
     $activo->serial            =  $request->serial;
     $activo->costo             =  $request->costo;
-    $activo->modelo           =  $request->modelo;
+    $activo->modelo            =  $request->modelo;
     $activo->propietario          =  $request->propietario;
     $activo->id_proveedor      =  $request->id_proveedor;
     $activo->id_estado         =  $request->id_estado;
