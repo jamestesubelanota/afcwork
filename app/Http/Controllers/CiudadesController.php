@@ -8,6 +8,11 @@ use App\Models\Ciudades;
 class CiudadesController extends Controller
 {
    
+
+    public function __construct()
+    {
+        $this->middleware('can:ciudades.index');
+    }
     public function index(){
 
 

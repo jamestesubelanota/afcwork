@@ -41,13 +41,13 @@ Route::controller(ActivoController::class)->group(function(){
 });
 
 
-Route::controller(ClientesController::class)->group(function(){
+Route::controller(ClientesController::class)->group( function(){
 
 
   Route::resource('clientes', ClientesController::class);
 
 
-});
+})->middleware('can:clientes.index');
 Route::controller(ContratoController::class)->group(function(){
 
 
@@ -56,11 +56,13 @@ Route::controller(ContratoController::class)->group(function(){
   
   });
 
-Route::controller(RolesController::class)->group(function(){
+Route::controller(RolesController::class)->group( function(){
 
        Route::resource('roles', RolesController::class);
 
 });
+
+
 
 Route::controller(TipoMovimientoController::class)->group(function(){
 

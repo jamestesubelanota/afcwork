@@ -49,6 +49,19 @@ class DatabaseSeeder extends Seeder
       
       ]);
       
+      \App\Models\Sede::factory()->create([
+        'nombre_sede' => 'Principal',
+        'direccion'   => 'calle 106 54-63',
+        'contacto'    => 'Resepcion',
+        'zona'        => '1',
+        'telefono'    => '17426486',
+        'ciudad_id'   => '1',
+        'cliente_id'  => '1'
+        
+        ]);
+        
+
+      
   
     $this->call(RoleSeeder::class);
 
@@ -67,6 +80,6 @@ class DatabaseSeeder extends Seeder
           'password'  => bcrypt('123456'),
           'estado' => 'activo',
           
-      ])->assignRole('ingeniero');
+      ])->assignRole('Tecnico');
     }
 }

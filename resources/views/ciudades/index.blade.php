@@ -28,7 +28,10 @@
                     <div class="card-header">
                         <nav class="navbar bg-light">
                             <div class="container-fluid">
+                                @can('ciudades.create')
                                 <a class="btn btn-primary" href="{{ route('ciudades.create') }}"> Agregar una ciudad </a>
+                                @endcan
+                             
                             </div>
                         </nav>
 
