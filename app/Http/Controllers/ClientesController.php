@@ -8,6 +8,13 @@ use Illuminate\Http\Request;
 
 class ClientesController extends Controller
 {
+   
+
+    public function __construct()
+    {
+        $this->middleware('can:clientes.index');
+    }
+  
     public function index(){
         $clientes = Clientes::latest()->paginate();
       return view('clientes.index', ['clientes' => $clientes ]);

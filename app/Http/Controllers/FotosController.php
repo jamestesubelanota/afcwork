@@ -11,6 +11,8 @@ class FotosController extends Controller
 {
     //
 
+
+    
     public function index(){
 
 

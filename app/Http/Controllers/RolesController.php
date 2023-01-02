@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 
 class RolesController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('roles.index');
+    }
     public function index(){
         $rol = Roles::latest()->paginate();
         return view('roles.index', ['roles' => $rol ]);

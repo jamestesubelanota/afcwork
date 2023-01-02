@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 class TipoMovimientoController extends Controller
 {
     
+
+  
     public function index(){
 
         $movimiento = TipoMovimiento::latest()->paginate();

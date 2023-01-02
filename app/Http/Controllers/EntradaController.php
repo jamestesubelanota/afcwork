@@ -14,6 +14,11 @@ use Illuminate\Support\Facades\Auth;
 class EntradaController extends Controller
 {
 
+
+    public function __construct()
+    {
+        $this->middleware('can:entrada.index');
+    }
     public function index( )
 
     {

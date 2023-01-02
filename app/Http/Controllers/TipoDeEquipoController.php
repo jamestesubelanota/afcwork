@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 class TipoDeEquipoController extends Controller
 {
     
+  public function __construct()
+  {
+      $this->middleware('can:tipoEquipo.index');
+  }
 
     public function index(){
       $equipo =  TipoDeEquipo::latest()->paginate();

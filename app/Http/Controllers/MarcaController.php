@@ -8,7 +8,10 @@ class MarcaController extends Controller
 {
     //
 
-
+    public function __construct()
+    {
+        $this->middleware('can:marcas.index');
+    }
     public function index(){
 
 

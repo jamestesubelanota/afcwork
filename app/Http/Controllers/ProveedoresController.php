@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class ProveedoresController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('can:proveedores.index');
+    }
+
     public function index(){
         $proveedores = Proveedores::latest()->paginate();
          return view('proveedores.index', ['proveedores' => $proveedores  ]);

@@ -12,6 +12,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 class CabezeraMovimientoController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('can:movimientos.index');
+    }
     public function index( Request $request)
     {
        // $prosimoMovimientop =  CabezeraMovimiento::orderBy('id_cabezera', 'desc')->first();

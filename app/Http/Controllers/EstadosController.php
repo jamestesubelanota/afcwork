@@ -8,7 +8,10 @@ use Illuminate\Http\Request;
 class EstadosController extends Controller
 {
     //
-
+    public function __construct()
+    {
+        $this->middleware('can:estados.index');
+    }
     public function index(){
 
         return view('estados.index', [ "estados" =>Estados::all() ]);

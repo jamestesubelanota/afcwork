@@ -9,7 +9,12 @@ use Illuminate\Http\Request;
 
 class SedeController extends Controller
 {
-    public function index(  ){
+
+    public function __construct()
+    {
+        $this->middleware('can:sedes.index');
+    }
+    public function index( ){
 
       
          $sede = Sede::latest()->paginate();

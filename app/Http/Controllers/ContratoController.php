@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 
 class ContratoController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('can:contrato.index');
+    }
     
     public function index(){
 

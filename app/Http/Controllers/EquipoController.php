@@ -9,7 +9,11 @@ use PhpParser\Node\Expr\BinaryOp\Equal;
 class EquipoController extends Controller
 {
     //
-
+    
+    public function __construct()
+    {
+        $this->middleware('can:equipos.index');
+    }
     public function index(){
 
         return  view('equipos.index', ['equipos' => $equipos = Equipo::get(['id_equipo', 'equipo'])]);

@@ -19,6 +19,11 @@ use Illuminate\Support\Facades\Auth;
 
 class ActivoController extends Controller
 {
+
+  public function __construct()
+  {
+      $this->middleware('can:activos.index');
+  }
   public function index()
   {
 
