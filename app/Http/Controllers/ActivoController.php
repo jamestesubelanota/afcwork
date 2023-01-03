@@ -229,7 +229,7 @@ class ActivoController extends Controller
     $activo = Activo::find($activo);
     $foto = Fotos::where('id_activo', $activo->id_activo)->get(['id_activo', 'foto']);
    
-    $movimientos = DetalleMovimiento::where('id_activo', $activo->id_activo)->get(['id_activo', 'id_cabezera']);
+    $movimientos = DetalleMovimiento::where('id_activo', $activo->id_activo)->get(['id_activo', 'id_cabecera']);
     
     return view('activos.ver', ['activo' =>  $activo, 'movimientos' =>  $movimientos, 'fotos' => $foto ]);
   }

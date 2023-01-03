@@ -10,7 +10,7 @@ class DetalleMovimiento extends Model
     use HasFactory;
 
     protected $primaryKey = 'id_detalle';
-    protected $fillable = ['id_activo','id_cabezera', 'inicio', 'fin', 'detalle'];
+    protected $fillable = ['id_activo','id_cabecera', 'inicio', 'fin', 'detalle'];
 
 
     public  function activo(){
@@ -19,6 +19,6 @@ class DetalleMovimiento extends Model
     }
     public  function cabecera(){
 
-        return $this->belongsTo(CabezeraMovimiento::class, "id_cabezera");
+        return $this->belongsTo(CabeceraMovimiento::class, "id_cabecera");
     }
 }

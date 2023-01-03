@@ -13,8 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('cabezera_movimientos', function (Blueprint $table) {
-            $table->id('id_cabezera');
+        Schema::create('cabecera_movimientos', function (Blueprint $table) {
+            $table->id('id_cabecera');
             $table->unsignedBigInteger('id_cliente');
             // se hace la relacion de la tabla
             $table->foreign('id_cliente')->references('id_cliente')->on('clientes');
@@ -39,6 +39,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cabezera_movimiento');
+        Schema::dropIfExists('cabecera_movimiento');
     }
 };

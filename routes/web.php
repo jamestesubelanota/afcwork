@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\ActivoController;
 use App\Http\Controllers\Auth\RegisteredUserController;
-use App\Http\Controllers\CabezeraMovimientoController;
+use App\Http\Controllers\CabeceraMovimientoController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CiudadesController;
 use App\Http\Controllers\ClientesController;
@@ -101,9 +101,9 @@ Route::controller(SedeController::class)->group(function(){
     Route::resource('sedes',SedeController::class);
 });
 
-Route::controller(CabezeraMovimientoController::class)->group(function(){
+Route::controller(CabeceraMovimientoController::class)->group(function(){
 
-    Route::resource('movimientos', CabezeraMovimientoController::class);
+    Route::resource('movimientos', CabeceraMovimientoController::class);
     
 });
 Route::controller(EntradaController::class)->group(function(){

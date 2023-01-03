@@ -15,9 +15,9 @@
         </h2>
     </x-slot>
 <div class="container">
-  <div class="card text-center">
-    <div class="card-header">
-      Featured
+  <div class="card text-center  ">
+    <div class="card-header border border-primary">
+    <h1>Activo </h1>
     </div>
     <div class="card-body">
      <div class="row">

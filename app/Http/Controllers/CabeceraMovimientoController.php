@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\CabezeraMovimiento;
+use App\Models\CabeceraMovimiento;
 use App\Models\Activo;
 use App\Models\Clientes;
 use App\Models\DetalleMovimiento;
@@ -10,7 +10,7 @@ use App\Models\Sede;
 use App\Models\TipoMovimiento;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-class CabezeraMovimientoController extends Controller
+class CabeceraMovimientoController extends Controller
 {
     public function __construct()
     {
@@ -18,13 +18,11 @@ class CabezeraMovimientoController extends Controller
     }
     public function index( Request $request)
     {
-       // $prosimoMovimientop =  CabezeraMovimiento::orderBy('id_cabezera', 'desc')->first();
-     //   if( $prosimoMovimientop != null){
-
-               
-        //    $prosimoMovimientop->id_cabezera += 1 ;
-        //    $proximoMovi=  $prosimoMovimientop  ;
-       // }
+        // $prosimoMovimientop =  CabezeraMovimiento::orderBy('id_cabezera', 'desc')->first();
+       //   if( $prosimoMovimientop != null){
+      //    $prosimoMovimientop->id_cabezera += 1 ;
+     //    $proximoMovi=  $prosimoMovimientop  ;
+    // }
         
        
        $cliente            = Clientes::get(["nombre_cliente", "id_cliente"]);
@@ -36,7 +34,7 @@ class CabezeraMovimientoController extends Controller
       
      
  
-        $movimientos = CabezeraMovimiento::latest()->paginate();
+        $movimientos = CabeceraMovimiento::latest()->paginate();
         return view(
             'movimientos.index',
             [
@@ -54,8 +52,12 @@ class CabezeraMovimientoController extends Controller
         $activos = Activo::latest()->paginate();
         $movimiento = TipoMovimiento::all();
         $cliente = Clientes::get(["nombre_cliente", "id_cliente"]);
+
         $sede =  Sede::where('cliente_id', $request->cliente_id)->get();
-        if (count($sede) > 0) {
+
+
+        if (count($sede) > 0)
+        {
             return response()->json($sede);
         }
 
@@ -72,29 +74,31 @@ class CabezeraMovimientoController extends Controller
     public function store(Request $request)
     {
         
-        $cabezeraMovimiento  = new CabezeraMovimiento();
-        $cabezeraMovimiento->id_cliente = $request->cliente;
-        $cabezeraMovimiento->id_sede = $request->sede;
-        $cabezeraMovimiento->inicio =  $request->inicio;
-        $cabezeraMovimiento->id_tmovimiento = $request->id_movimiento;
-        $cabezeraMovimiento->id_user =  Auth::id('id_user');
-        $cabezeraMovimiento->save();
+        $cabeceraMovimiento  = new CabeceraMovimiento();
+        $cabeceraMovimiento->id_cliente = $request->cliente;
+        $cabeceraMovimiento->id_sede = $request->sede;
+        $cabeceraMovimiento->inicio =  $request->inicio;
+        $cabeceraMovimiento->id_tmovimiento = $request->id_movimiento;
+        $cabeceraMovimiento->id_user =  Auth::id('id_user');
+        $cabeceraMovimiento->save();
 
-        if ($cabezeraMovimiento) {
+        if ($cabeceraMovimiento) {
             foreach ($request->id_activo as $check) {
 
 
-                $cabezeraMovimiento = CabezeraMovimiento::latest('id_cabezera')->first();
+                $cabeceraMovimiento = CabeceraMovimiento::latest('id_cabecera')->first();
                 $detalleMovimiento = new DetalleMovimiento();
                 $detalleMovimiento->id_activo =  $check;
-                $detalleMovimiento->id_cabezera =   $cabezeraMovimiento->id_cabezera;
+                $detalleMovimiento->id_cabecera =   $cabeceraMovimiento->id_cabecera;
                 $detalleMovimiento->detalle =  $request->detalle;
                 $detalleMovimiento->save();
+
                 if ($detalleMovimiento) 
+                
                 {
                     $activoActualizarSedeActual = $detalleMovimiento->id_activo =  $check;
                     $activoActualizarSedeActual = Activo::find($activoActualizarSedeActual);
-                    $activoActualizarSedeActual->id_sede =  $cabezeraMovimiento->id_sede = $request->sede;
+                    $activoActualizarSedeActual->id_sede =  $cabeceraMovimiento->id_sede = $request->sede;
                     $activoActualizarSedeActual->save();
                 }
             }

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Activo;
-use App\Models\CabezeraMovimiento;
+use App\Models\CabeceraMovimiento;
 use App\Models\Clientes;
 use App\Models\DetalleMovimiento;
 use App\Models\Sede;
@@ -52,22 +52,22 @@ class EntradaController extends Controller
      public function store(Request $request)
     {
         
-        $cabezeraMovimiento  = new CabezeraMovimiento();
-        $cabezeraMovimiento->id_cliente = $request->cliente;
-        $cabezeraMovimiento->id_sede = $request->sede;
-        $cabezeraMovimiento->inicio =  $request->inicio;
-        $cabezeraMovimiento->id_tmovimiento = $request->id_movimiento;
-        $cabezeraMovimiento->id_user =  Auth::id('id_user');
-        $cabezeraMovimiento->save();
+        $cabeceraMovimiento  = new CabeceraMovimiento();
+        $cabeceraMovimiento->id_cliente = $request->cliente;
+        $cabeceraMovimiento->id_sede = $request->sede;
+        $cabeceraMovimiento->inicio =  $request->inicio;
+        $cabeceraMovimiento->id_tmovimiento = $request->id_movimiento;
+        $cabeceraMovimiento->id_user =  Auth::id('id_user');
+        $cabeceraMovimiento->save();
 
-        if ($cabezeraMovimiento) {
+        if ($cabeceraMovimiento) {
             foreach ($request->id_activo as $check) {
 
 
-                $cabezeraMovimiento = CabezeraMovimiento::latest('id_cabezera')->first();
+                $cabezeraMovimiento = CabeceraMovimiento::latest('id_cabecera')->first();
                 $detalleMovimiento = new DetalleMovimiento();
                 $detalleMovimiento->id_activo =  $check;
-                $detalleMovimiento->id_cabezera =   $cabezeraMovimiento->id_cabezera;
+                $detalleMovimiento->id_cabezera =   $cabezeraMovimiento->id_cabecera;
                 $detalleMovimiento->detalle =  $request->detalle;
                 $detalleMovimiento->save();
                 if ($detalleMovimiento) 

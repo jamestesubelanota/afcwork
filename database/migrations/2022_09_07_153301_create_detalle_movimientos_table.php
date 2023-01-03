@@ -18,9 +18,9 @@ return new class extends Migration
             $table->unsignedBigInteger('id_activo');
             // se hace la relacion de la tabla
             $table->foreign('id_activo')->references('id_activo')->on('activos');
-            $table->unsignedBigInteger('id_cabezera');
+            $table->unsignedBigInteger('id_cabecera');
             // se hace la relacion de la tabla
-            $table->foreign('id_cabezera')->references('id_cabezera')->on('cabezera_movimientos');
+            $table->foreign('id_cabecera')->references('id_cabecera')->on('cabecera_movimientos');
            
            
             $table->string('detalle',30);
