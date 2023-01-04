@@ -5,12 +5,13 @@ namespace App\Http\Controllers;
 use App\Models\Roles;
 
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Permission;
 
 class RolesController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('roles.index');
+        $this->middleware('can:roles.index');
     }
     public function index(){
         $rol = Roles::latest()->paginate();
@@ -19,8 +20,9 @@ class RolesController extends Controller
       
    
        public function create( Roles $rol ){
+        $permisos = Permission::all();
            
-          return  view('roles.create', ['roles' => $rol]);
+          return  view('roles.create', ['roles' => $rol , 'permisos' =>  $permisos   ]);
    
        }
    

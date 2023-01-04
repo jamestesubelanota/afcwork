@@ -36,6 +36,7 @@
 
                             <thead>
                                 <tr>
+                                    <th>ID</th>
                                     <th>Rol</th>
                                     <th>Opciones</th>
 
@@ -46,7 +47,8 @@
 
                                 @foreach ($roles as $rol)
                                     <tr>
-                                        <td>{{ $rol->rol }}</td>
+                                        <td>{{$rol->id }}</td>
+                                        <td>{{$rol->name }}</td>
 
                                         <td class=" px-6 py-6">
 
@@ -58,10 +60,10 @@
                                                 </a>
 
                                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                                    <li><a href="{{ route('roles.edit', $rol->id_rol) }}"
+                                                    <li><a href="{{route('roles.edit', $rol->id )}}"
                                                             class="dropdown-item active">editar</a></li>
                                                     <li>
-                                                        <form action="   {{ route('roles.destroy', $rol->id_rol) }}"
+                                                        <form action=""
                                                             method="POST">
 
                                                             @csrf
@@ -89,7 +91,7 @@
 
                     </div>
                     <div class="card-footer text-muted">
-                        2 days ago
+                     
                     </div>
                 </div>
 
@@ -115,7 +117,7 @@
     <script src="   https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
     <script>
         $(document).ready(function() {
-            $('#Funcionalidades').DataTable();
+            $('#roles').DataTable();
         });
     </script>
 
