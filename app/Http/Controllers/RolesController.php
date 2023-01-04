@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Roles;
-
+use Illuminate\Database\Seeder;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\PermissionRegistrar;
 
 class RolesController extends Controller
 {
@@ -29,10 +31,10 @@ class RolesController extends Controller
        public function store(Request $request){
    
            $rol = new Roles();
-           $request->validate(['rol' => 'required | unique:roles,rol']);
-           $rol->rol = $request->rol;
-           
-           $rol->save();
+           $request->validate(['name' => 'required']);
+           $rol = Role::create($request->all());
+           $rol->permissions()->sync($request->permissions);
+
    
            return redirect()->route('roles.index'); 
        

@@ -26,12 +26,15 @@
                     <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                         <div class="p-6 bg-white border-b border-gray-200">
 
-                            <form action="">
-
-                                <label class="form-control" for=""></label>
-                                <input class="form-control" type="text">
+                            <form action=" {{ route('roles.store') }}" method="POST">
+                                @csrf
+                                <span style="color: red" > @error('name') {{$message}}
+    
+                                    @enderror </span>
+                                <label  class="form-control" for="">Nombre</label>
+                                <input id="name" name="name" class="form-control" type="text">
                                 <input type="submit">
-
+                                  
                                 <hr>
 
                                 <h2 class="h3"> Lista de permisos</h2>
@@ -54,7 +57,7 @@
                               
                               
                             </form>
-                        </ul>
+                      
                        
 
                    
