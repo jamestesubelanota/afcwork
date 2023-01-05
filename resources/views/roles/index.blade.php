@@ -63,7 +63,7 @@
                                                     <li><a href="{{route('roles.edit', $rol->id )}}"
                                                             class="dropdown-item active">editar</a></li>
                                                     <li>
-                                                        <form action=""
+                                                        <form action="{{route('roles.destroy', $rol->id )}}"
                                                             method="POST">
 
                                                             @csrf

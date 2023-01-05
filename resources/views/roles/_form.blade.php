@@ -1,15 +1,27 @@
 @csrf 
-<label class="form-label" >Rol</label>
-<br>
-<span style="color: red"> @error('rol') {{$message}}
+<span style="color: red" > @error('name') {{$message}}
     
-@enderror </span>
-<input type="text" id="rol"  name ="rol" class="form-control" value="{{ $roles->rol}}"  >
-
-
+    @enderror </span>
+<label  class="form-control" for="">Nombre</label>
+<input id="name" name="name" class="form-control" type="text" value="{{old( 'name', $roles->name ) }}">
+<input type="submit">
+  
 <hr>
 
-<div>
-<a   class="bg-gray-800 text-white rodunded px-4 py-2"  href="{{route('roles.index')}}">volver</a>
-<input type="submit" value="Guardar"  class="btn btn-primary" >
-</div>
+<h2 class="h3"> Lista de permisos</h2>
+
+<table id="roles" class="table table-striped" style="width:90%">
+
+    <thead>
+        <tr>
+            <th>Permisos</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach ($permisos as $pr)
+             <tr>
+             <td>   <input type="checkbox"id="permissions[]" name="permissions[]"  value="{{ $pr->id }}"> {{$pr->descripcion}}  </td>
+             </tr>
+        @endforeach
+    </tbody>
+</table>

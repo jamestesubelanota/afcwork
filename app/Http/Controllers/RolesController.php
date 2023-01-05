@@ -7,7 +7,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
-use Spatie\Permission\PermissionRegistrar;
+
 
 class RolesController extends Controller
 {
@@ -41,25 +41,31 @@ class RolesController extends Controller
        }
    
        public function edit(  $rol){
-   
-              $rol = Roles::find($rol);
-             
-              return view('roles.edit', ['roles' =>  $rol ]);
-   
+        $permisos = Permission::all();
+        $rol = Role::find( $rol);
+
+        
+           
+        return  view('roles.edit', ['roles' => $rol , 'permisos' =>  $permisos   ]);
        }
    
        public function update(Request $request, $rol){
    
-           $rol = Roles::find($rol);
-           $rol->rol = $request->rol;
-           $rol->save();
-   
+         
+        
+        $request->validate(['name' => 'required']);
+
+
+        $rol = Role::find($rol);
+        $rol->name = $request->name;
+
+        $rol->permissions()->sync($request->permissions);
                return redirect()->route('roles.index');
        }
    
        public function destroy($rol){
    
-           $rol =  Roles::find($rol);
+           $rol =  Role::find($rol);
            $rol->delete();
            return back();
    
