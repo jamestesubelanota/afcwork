@@ -19,6 +19,8 @@ use App\http\Controllers\FotosController;
 use App\http\Controllers\CartaEnvioController;
 use App\http\Controllers\EntradaController;
 use App\Http\Controllers\ContratoController;
+use App\Http\Controllers\UsuariosController;
+use App\Models\Usuarios;
 
 /*
 |--------------------------------------------------------------------------
@@ -111,9 +113,9 @@ Route::controller(EntradaController::class)->group(function(){
     Route::resource('entrada', EntradaController::class);
     
 });
-Route::controller(CabezeraMovimientoController::class)->group(function(){
+Route::controller(UsuariosController::class)->group(function(){
 
-    Route::resource('usuarios', RegisteredUserController::class);
+    Route::resource('usuarios', UsuariosController::class);
 
 });
 Route::controller(EquipoController::class)->group(function(){

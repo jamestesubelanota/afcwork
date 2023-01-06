@@ -64,7 +64,7 @@ class RoleSeeder extends Seeder
         Permission::create((['name'=> 'contratos.index'
                               ,'descripcion' =>'Ver informacion de contratos']))->syncRoles([  $role1,  $role2,     ]);
         Permission::create((['name'=> 'contratos.create'
-                              ,'descripcion' =>'crear contrato']))->syncRoles([  $role1,  $role2,     ]);
+                              ,'descripcion' =>'Crear contrato']))->syncRoles([  $role1,  $role2,     ]);
         Permission::create((['name'=> 'contratos.edit'
                               ,'descripcion' =>'editar contrato']))->syncRoles([  $role1,  $role2,    ]);
         Permission::create((['name'=> 'contratos.destroy'
@@ -131,7 +131,7 @@ class RoleSeeder extends Seeder
         //
           
         Permission::create((['name'=> 'tipoEquipo.destroy'
-                              ,'descripcion' =>'Eliminar caracteriatica de equipo']))->syncRoles([  $role1,  $role2,  $role3,   $role4]);
+                              ,'descripcion' =>'Eliminar caracteristica de equipo']))->syncRoles([  $role1,  $role2,  $role3,   $role4]);
         Permission::create((['name'=> 'tipoEquipo.index'
                               ,'descripcion' =>'Ver informacion de equipos']))->syncRoles([  $role1,  $role2,  $role3,   $role4]);
         Permission::create((['name'=> 'tipoEquipo.create'
@@ -160,15 +160,15 @@ class RoleSeeder extends Seeder
         Permission::create((['name'=> 'usuarios.edit' , 'descripcion' => 'Editar usuarios']))->syncRoles([  $role1,  $role2,  $role3,   $role4]);
         //
         Permission::create((['name'=> 'entrada.destroy',
-                              'descripcion' => 'Eliminar movimientos de entrada']))->syncRoles([  $role1,  $role2,  $role3,   $role4]);
+                              'descripcion' => 'Eliminar Movimientos de entrada']))->syncRoles([  $role1,  $role2,  $role3,   $role4]);
         Permission::create((['name'=> 'entrada.index',
-                              'descripcion' => 'Ingreso a movimientos de entrada']))->syncRoles([  $role1,  $role2,  $role3,   $role4]);
+                              'descripcion' => 'Ingreso a Movimientos de entrada']))->syncRoles([  $role1,  $role2,  $role3,   $role4]);
         Permission::create((['name'=> 'entrada.create',
-                              'descripcion' => 'Registar movimientos de entrada']))->syncRoles([  $role1,  $role2,  $role3,   $role4]);
+                              'descripcion' => 'Registar Movimientos de entrada']))->syncRoles([  $role1,  $role2,  $role3,   $role4]);
         Permission::create((['name'=> 'entrada.edit',
-                              'descripcion' => 'Editar movimientos de entrada']))->syncRoles([  $role1,  $role2,  $role3,   $role4]);
+                              'descripcion' => 'Editar Movimientos de entrada']))->syncRoles([  $role1,  $role2,  $role3,   $role4]);
         Permission::create((['name'=> 'dashboard',
-                              'descripcion' => 'ingreso al dashboar']))->syncRoles([  $role1,  $role2,  $role3,   $role4]);
+                              'descripcion' => 'Ingreso al dashboar']))->syncRoles([  $role1,  $role2,  $role3,   $role4]);
         
      
 

@@ -18,8 +18,8 @@
     <div class="row">
 
    
-        <div class="card border-black mb-3" >
-            <div class="card-header">Lista de permisos</div>
+        <div class="card border-black mb-3  opacity-25 "  >
+            <div class="card-header   ">Lista de permisos</div>
             <div class="card-body text-primary">
 
                 <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -91,7 +91,11 @@
     <script src="   https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
     <script>
         $(document).ready(function() {
-            $('#roles').DataTable();
+            $('#roles').DataTable({
+                languaje : {
+                    "search": "Buscar:"
+                }
+            });
         });
     </script>
 

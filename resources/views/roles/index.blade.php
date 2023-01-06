@@ -61,7 +61,7 @@
 
                                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                                     <li><a href="{{route('roles.edit', $rol->id )}}"
-                                                            class="dropdown-item active">editar</a></li>
+                                                            class="dropdown-item active">Editar</a></li>
                                                     <li>
                                                         <form action="{{route('roles.destroy', $rol->id )}}"
                                                             method="POST">

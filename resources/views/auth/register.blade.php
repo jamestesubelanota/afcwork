@@ -30,9 +30,9 @@
 
               <!-- rol -->
               <div>
-                <x-input-label for="rol" :value="__('rol')" />
+                <x-input-label for="estado" :value="__('estado')" />
 
-                <x-text-input id="rol" class="block mt-1 w-full" type="text" name="rol" :value="old('rol')" required autofocus />
+                <x-text-input id="estado" class="block mt-1 w-full" type="text" name="estado" :value="old('rol')" required autofocus />
             </div>
 
 

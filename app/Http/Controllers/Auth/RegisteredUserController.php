@@ -18,6 +18,11 @@ class RegisteredUserController extends Controller
      *
      * @return \Illuminate\View\View
      */
+
+     public function index(){
+
+        return view('usuarios.index', ['usuarios' => $usuarios = User::latest()->paginate()]);
+     }
     public function create()
     {
         return view('auth.register');
@@ -36,7 +41,7 @@ class RegisteredUserController extends Controller
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'identificacion' => ['required', 'string', 'max:255'],
-            'id_rol' => ['', 'string', 'max:255'],
+            'estado' => ['', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
@@ -44,7 +49,7 @@ class RegisteredUserController extends Controller
         $user = User::create([
             'name' => $request->name,
             'identificacion' => $request->identificacion,
-            'id_rol' => $request->rol,
+            'estado' => $request->estado,
             'email' => $request->email, 
             'password' => Hash::make($request->password),
         ]);
