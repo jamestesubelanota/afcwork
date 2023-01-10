@@ -112,7 +112,7 @@
     
                 </div>
                 <div class="card-footer text-muted">
-                    2 days ago
+                
                 </div>
             </div>
     
@@ -140,10 +140,29 @@
     <script>
         $(document).ready(function() {
             $('#Proveedores').DataTable({
+
+                
                 scrollX: true,
                 scrollY: '200px',
         scrollCollapse: true,
         paging: false,
+                language: {
+    "search": "Buscar:",
+
+        //
+    "info": "Mostrando _START_ a _END_ de _TOTAL_ ciudades",
+
+
+    "paginate": {
+"first": "Primero",
+"last": "Ultimo",
+"next": "Siguiente",
+"previous": "Anterior"
+}
+
+}
+
+              
             });
           
         });

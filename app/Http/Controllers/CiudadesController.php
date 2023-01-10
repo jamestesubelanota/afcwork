@@ -55,7 +55,7 @@ class CiudadesController extends Controller
             $ciudad = Ciudades::find($ciudad);
             $request->validate([
                 'departamento' => 'required',
-                'nombre_ciudad' => 'required | unique:ciudades,nombre_ciudad',
+                'nombre_ciudad' => 'required '
 
 
     ]);

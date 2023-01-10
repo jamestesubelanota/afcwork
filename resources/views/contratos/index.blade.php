@@ -96,7 +96,7 @@
 
             </div>
             <div class="card-footer text-muted">
-                2 days ago
+               
             </div>
         </div>
         
@@ -123,7 +123,25 @@
     <script src="   https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
   <script>
       $(document).ready(function () {
-        $('#Proveedores').DataTable(
+        $('#Proveedores').DataTable({
+
+language: {
+    "search": "Buscar:",
+
+        //
+    "info": "Mostrando _START_ a _END_ de _TOTAL_ ciudades",
+
+
+    "paginate": {
+"first": "Primero",
+"last": "Ultimo",
+"next": "Siguiente",
+"previous": "Anterior"
+}
+}
+
+}
+            
        );
     });
   </script>

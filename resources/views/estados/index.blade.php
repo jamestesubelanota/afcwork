@@ -11,8 +11,8 @@
         <x-slot name="header">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">Estados datatable</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">datatable</li>
+                    <li class="breadcrumb-item"><a href="#">Estados </a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Ver</li>
                 </ol>
             </nav>
         </x-slot>
@@ -30,7 +30,7 @@
                    
                 </div>
     
-                <table id="Funcionalidades" class="table table-striped" style="width:80%">
+                <table id="Colaboradores" class="table table-striped" style="width:80%">
     
                     <thead>
                         <tr>
@@ -82,7 +82,7 @@
                 </table>
     
             <div class="card-footer text-muted">
-                2 days ago
+           
               </div>
             </div>
           <hr>
@@ -109,7 +109,24 @@
     <script src="   https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
     <script>
         $(document).ready(function() {
-            $('#Funcionalidades').DataTable();
+            $('#Colaboradores').DataTable({
+
+                language: {
+                    "search": "Buscar:",
+
+                        //
+                    "info": "Mostrando _START_ a _END_ de _TOTAL_ estados",
+
+                
+                    "paginate": {
+            "first": "Primero",
+            "last": "Ultimo",
+            "next": "Siguiente",
+            "previous": "Anterior"
+        }
+                }
+            });
+            
         });
     </script>
 

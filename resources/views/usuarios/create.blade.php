@@ -55,7 +55,7 @@
                                   <span class="text-xs" style="color: red">@error('password') {{$message}} @enderror  </span>
                                   <input type="text" id="password"  name ="password" class="form-control" value="" 
                                    >
-                                   <label class="uppercase text-gray-700 text-xs" >password_confirmation</label>
+                                   <label class="uppercase text-gray-700 text-xs" >Verificacion de contraseña</label>
                                    <span class="text-xs" style="color: red">@error('password_confirmation') {{$message}} @enderror  </span>
                                    <input type="text" id="password_confirmation"  name ="password_confirmation" class="form-control" value="" >
                                   <hr>

@@ -29,8 +29,8 @@
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                       <a class="dropdown-item " href="{{ route('movimientos.create') }}"> Generar un proximo movimiento  </a>
-                       <button type="button" class="dropdown-item" data-toggle="modal" data-target="#exampleModal" data-whatever="@fat">movimiento de entrada @fat</button>
-                       <button type="button" class="dropdown-item" data-toggle="modal" data-target="#exampleModal" data-whatever="@fat">Movimiento de salida @fat</button>
+                       <button type="button" class="dropdown-item" data-toggle="modal" data-target="#exampleModal" data-whatever="@fat">movimiento de entrada</button>
+            
                     </div>
                   </div>
                 
@@ -70,28 +70,18 @@
                                     Acciones
                                 </a>
 
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <div class="dropdown-menu dropdown-menu-dark"
+                                aria-labelledby="dropdownMenuLink">
+                                <li>  <a href="{{route('movimientos.edit',  $movimiento )}}"   class="dropdown-item active" >Generar carta para cliente</a></li>
+                                <li>  <a href="{{route('movimientos.edit',  $movimiento )}}"   class="dropdown-item " >Generar formato de prestamo</a></li>
+                                <li>  <a href="{{route('movimientos.edit',  $movimiento )}}"   class="dropdown-item " >Generar Boleta</a></li>
 
-                                    
-                                    <a href="{{route('movimientos.edit', $movimiento)}}"   class="bg-gray-800 text-white rounded px-4 py-2" >editar</a>
-                                   
 
-                                    <form action="   {{route('movimientos.destroy', $movimiento)}}" method="POST" >
-        
-                                        @csrf
-                                        @method('DELETE')
-                                            <input 
-                                            type="submit" 
-                                            value="Eliminar" 
-                                            class="bg-gray-800 text-white rounded px-4 py-2" 
-                                            onclick="return confirm('desea eliminar ?')"
-                                            >
-                            
-                                        </form>
+                                
 
-                                        <a href="{{route('movimientos.edit', $movimiento)}}"   class="bg-gray-800 text-white rounded px-4 py-2" >Generar carta</a>
-                                        <a href="{{route('movimientos.edit', $movimiento)}}"   class="bg-gray-800 text-white rounded px-4 py-2" >Generar Formato prestamos</a>
-                                </div>
+
+
+                            </div>
                                 
                             </div>
                         </td>
@@ -120,7 +110,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Selecciona hospital y sede</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -153,16 +143,16 @@
                   @endforeach
               </select>
           </div>
+<hr>
 
 
-
-   <input class="bg-gray-800 text-white rounded px-4 py-2" type="submit" value="generar movmiento de entrada">
+   <input class="btn btn-primary" type="submit" value="generar movmiento de entrada">
 
            </form>
         
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
        
         </div>
       </div>
@@ -187,7 +177,26 @@
   </script>
   <script>
     $(document).ready(function() {
-        $('#movimientos').DataTable();
+        $('#movimientos').DataTable({
+            language: {
+    "search": "Buscar:",
+    "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+
+        //
+    "info": "Mostrando _START_ a _END_ de _TOTAL_ ciudades",
+
+
+    "paginate": {
+       
+"first": "Primero",
+"last": "Ultimo",
+"next": "Siguiente",
+"previous": "Anterior"
+}
+
+}
+
+        });
     });
 </script>
 <script>

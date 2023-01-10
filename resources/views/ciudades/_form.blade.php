@@ -6,7 +6,7 @@
 <label class="uppercase text-gray-700 text-xs" >Nombre ciudad</label>
 <span class="text-xs" style="color: red">@error('nombre_ciudad') {{$message}} @enderror  </span>
 
-<input type="text" id="nombre_ciudad"  name ="nombre_ciudad" class="form-control" value="{{ old('departamento',$ciudad->nombre_ciudad) }}"  >
+<input type="text" id="nombre_ciudad"  name ="nombre_ciudad" class="form-control" value="{{ old('nombre_ciudad',$ciudad->nombre_ciudad) }}"  >
 <hr>
 <br>
 

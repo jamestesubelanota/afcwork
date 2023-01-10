@@ -12,13 +12,13 @@
     <x-slot name="header">
    
     </x-slot>
-    <div class="container"style="background:linear-gradient(30deg, white,#004593, white, #004593, white);"
+    <div class="container"
     class="vh-100 gradient-custom">
     <br>
     <div class="row">
 
    
-        <div class="card border-black mb-3  opacity-25 "  >
+        <div class="card border-black mb-3   "  >
             <div class="card-header   ">Lista de permisos</div>
             <div class="card-body text-primary">
 

@@ -12,7 +12,7 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="#">Colaboradores </a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Datatable</li>
+                    <li class="breadcrumb-item active" aria-current="page">Ver Colaboradores</li>
                 </ol>
             </nav>
         </x-slot>
@@ -91,7 +91,7 @@
                </table>
             </div>
             <div class="card-footer text-muted">
-              2 days ago
+              
             </div>
           </div>
           <hr>
@@ -114,7 +114,26 @@
     <script src="   https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
     <script>
         $(document).ready(function() {
-            $('#colaboradores').DataTable();
+            $('#colaboradores').DataTable({
+            language: {
+    "search": "Buscar:",
+    "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+
+        //
+    "info": "Mostrando _START_ a _END_ de _TOTAL_ Colaboradores",
+
+
+    "paginate": {
+       
+"first": "Primero",
+"last": "Ultimo",
+"next": "Siguiente",
+"previous": "Anterior"
+}
+
+}
+
+        });
         });
     </script>
 

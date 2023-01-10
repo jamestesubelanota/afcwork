@@ -26,7 +26,7 @@
 
                 <div class="col-md-4"></div>
                 <div class="card border-black mb-3" style="max-width: 20rem;">
-                    <div class="card-header">Agregar una Casrateristica</div>
+                    <div class="card-header">Agregar una Caracteristica</div>
                     <div class="card-body text-primary">
 
                         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -61,6 +61,6 @@
 
 @section('js')
     <script>
-        console.log('Hi!');
+    
     </script>
 @stop

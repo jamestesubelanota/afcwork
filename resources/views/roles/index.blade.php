@@ -32,7 +32,7 @@
 
                     </div>
                     <div class="card-body">
-                        <table id="Funcionalidades" class="table table-striped" style="width:100%">
+                        <table id="roles" class="table table-striped" style="width:100%">
 
                             <thead>
                                 <tr>
@@ -61,7 +61,7 @@
 
                                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                                     <li><a href="{{route('roles.edit', $rol->id )}}"
-                                                            class="dropdown-item active">Editar</a></li>
+                                                            class="dropdown-item active">Asginar permisos</a></li>
                                                     <li>
                                                         <form action="{{route('roles.destroy', $rol->id )}}"
                                                             method="POST">
@@ -117,7 +117,24 @@
     <script src="   https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
     <script>
         $(document).ready(function() {
-            $('#roles').DataTable();
+            $('#roles').DataTable({
+
+language: {
+    "search": "Buscar:",
+
+        //
+    "info": "Mostrando _START_ a _END_ de _TOTAL_ ciudades",
+
+
+    "paginate": {
+"first": "Primero",
+"last": "Ultimo",
+"next": "Siguiente",
+"previous": "Anterior"
+}
+}
+
+});
         });
     </script>
 

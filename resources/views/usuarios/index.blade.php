@@ -32,7 +32,7 @@
                 <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                         <div class="p-6 bg-white border-b border-gray-200">
-                            <table id="ciudad" class="table table-striped" style="width:80%">
+                            <table id="activos" class="table table-striped" style="width:80%">
                      
                                 <thead>
                                     <tr>
@@ -67,7 +67,7 @@
         
                                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                                          
-                                                              <a    href="{{ route('usuarios.edit', $us) }}" class="dropdown-item">editar</a>
+                                                              <a    href="{{ route('usuarios.edit', $us) }}" class="dropdown-item">Asignar rol</a>
                 
                                                 
                                                                 <form
@@ -133,7 +133,26 @@
     <script src="   https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
   <script>
       $(document).ready(function () {
-        $('#ciudad').DataTable(
+        $('#activos').DataTable({
+            language: {
+    "search": "Buscar:",
+    "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+
+        //
+    "info": "Mostrando _START_ a _END_ de _TOTAL_ ciudades",
+
+
+    "paginate": {
+       
+"first": "Primero",
+"last": "Ultimo",
+"next": "Siguiente",
+"previous": "Anterior"
+}
+
+}
+
+        }
        );
     });
   </script>

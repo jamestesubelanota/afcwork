@@ -54,19 +54,21 @@ class ColaboradoresController extends Controller
     }
 
     public function update(  Request $request  , $colaboradores  ){
-        $colaborador = Colaboradores::find( $colaboradores);
+        $colaboradores = Colaboradores::find( $colaboradores);
         $request->validate([
             'nombre' => 'required',
             'identificacion' => 'required',
             'telefono' => 'required',
-            'cargo' => 'required',
+            'cargo' => 'required'
+           
         ]);
-        $colaborador->nombre_colaborador = $request->nombre;
-        $colaborador->identificacion = $request->identificacion;
-        $colaborador->telefono = $request->telefono;
+        $colaboradores->nombre_colaborador = $request->nombre;
+        $colaboradores->identificacion = $request->identificacion;
+        $colaboradores->telefono = $request->telefono;
         $colaboradores->cargo = $request->cargo;
-        $colaborador->save();
-       return redirect()->route('colaboradores.index');
+        $colaboradores->save();
+           
+        return redirect()->route('colaboradores.index');
    }
 
    public function destroy($colaboradores){

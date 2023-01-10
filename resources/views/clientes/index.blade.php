@@ -114,6 +114,27 @@
   <script>
       $(document).ready(function () {
         $('#Proveedores').DataTable(
+
+        {
+            language: {
+    "search": "Buscar:",
+    "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+
+        //
+    "info": "Mostrando _START_ a _END_ de _TOTAL_ ciudades",
+
+
+    "paginate": {
+       
+"first": "Primero",
+"last": "Ultimo",
+"next": "Siguiente",
+"previous": "Anterior"
+}
+
+}
+
+        }
        );
     });
   </script>
