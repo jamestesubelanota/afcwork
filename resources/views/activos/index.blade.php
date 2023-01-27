@@ -72,7 +72,7 @@
                                 <td>{{ $activo->estado->estado }}</td>
                                 <td>{{ $activo->tipoEquipo->tipo_de_equipo }}</td>
                                 <td>{{ $activo->modelo }}</td>
-                                <td>{{ $activo->propietario }}</td>
+                                <td>{{ $activo->propietario->nombre_propietario }}</td>
                                 <td>{{ $activo->id_activo }}</td>
 
                                 <td class=" px-6 py-6">
@@ -151,7 +151,7 @@
     "search": "Buscar:",
 
         //
-    "info": "Mostrando _START_ a _END_ de _TOTAL_ ciudades",
+    "info": "Mostrando _START_ a _END_ de _TOTAL_ Activos",
 
 
     "paginate": {

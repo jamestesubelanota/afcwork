@@ -18,7 +18,7 @@ class SedeController extends Controller
     public function index( ){
 
       
-         $sede = Sede::latest()->paginate();
+         $sede = Sede::all();
 
         return view('sedes.index', ['sedes' =>$sede ]);
     }

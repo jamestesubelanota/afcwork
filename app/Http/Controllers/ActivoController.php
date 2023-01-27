@@ -43,7 +43,7 @@ class ActivoController extends Controller
     $marcas  = Marca::all();
     $proveedor          = Proveedores::all();
     $estados     =  Estados::all();
-    $propietarios = Propietarios::all();
+    $propietarios= Propietarios::all();
     $tipoEquipo         = TipoDeEquipo::all();
     $cliente            = Clientes::get(["nombre_cliente", "id_cliente"]);
     $sede               = Sede::where('cliente_id', $request->cliente_id)->get();
@@ -111,7 +111,7 @@ class ActivoController extends Controller
     $activo->serial            =   $request->serial;
     $activo->costo             =   $request->costo;
     $activo->modelo            =   ucfirst(strtolower($request->modelo));
-    $activo->propietario       =   ucfirst(strtolower( $request->propietario));
+    $activo->id_propietario     =    $request->propietario;
     $activo->id_proveedor      =   $request->id_proveedor;
     $activo->id_estado         =   $request->id_estado;
     $activo->id_tipoEquipo     =   $request->tipo_de_equipo;
@@ -168,11 +168,13 @@ class ActivoController extends Controller
     $equipos      = Equipo::all();
     $proveedor    = Proveedores::all();
     $estados      =  Estados::all();
-    $tipoEquipo   = TipoDeEquipo::all();
-    $marcas       = Marca::all();
+    $tipoEquipo   = TipoDeEquipo::where('id_equipo' ,'=', $activo->id_equipo);
+    $tipoEquipo2 = TipoDeEquipo::all();
+    $marcas       = Marca::where('id_marca','=',  $activo->id_marca)->get();
+    $marcas2       = Marca::all();
     $cliente      = Clientes::get(["nombre_cliente", "id_cliente"]);
     $sede         = Sede::where('cliente_id', $request->cliente_id)->get();
-    $propietarios = Propietarios::all();
+    $propietarios = Propietarios::where('id_propietario',$activo->id_propietario)->get();
     $user         = User::all();
 
 
@@ -190,22 +192,23 @@ class ActivoController extends Controller
         'clientes'    => $cliente,
         'sedes'       => $sede,
         'propietario' =>     $propietarios,
+        'marcas2' =>  $marcas2,
+        'tipoEquipo2 ' =>  $tipoEquipo2   
       ]
     );
   }
-
 
 
   public function update(Request $request, $activo)
   {
 
     $request->validate([
-      'foto' => 'required',
-      'activo' => 'required | unique:activos,activo',
-      'activocontable' => 'required | unique:activos,activocontable',
+      
+      'activo' => 'required ',
+      'activocontable' => 'required ',
       'equipo' => 'required ',
       'marca' => 'required',
-      'serial' => 'required | unique:activos,serial',
+      'serial' => 'required ',
       'costo' => 'required',
       'modelo' => 'required',
       'propietario' => 'required',
@@ -233,7 +236,7 @@ class ActivoController extends Controller
     $activos->serial            =  $request->serial;
     $activos->costo             =  $request->costo;
     $activos->modelo            =  $request->modelo;
-    $activos->propietario          =  $request->propietario;
+   
     $activos->id_proveedor      =  $request->id_proveedor;
     $activos->id_estado         =  $request->id_estado;
     $activos->id_tipoEquipo     =  $request->tipo_de_equipo;

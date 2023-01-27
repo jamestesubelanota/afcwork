@@ -15,7 +15,7 @@ class MarcaController extends Controller
     public function index(){
 
 
-        return view('marcas.index', ['marcas' => $marcas = Marca::latest()->paginate() ]);
+        return view('marcas.index', ['marcas' => $marcas = Marca::all() ]);
     
     }
 

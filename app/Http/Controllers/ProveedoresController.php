@@ -14,7 +14,7 @@ class ProveedoresController extends Controller
     }
 
     public function index(){
-        $proveedores = Proveedores::latest()->paginate();
+        $proveedores = Proveedores::all();
          return view('proveedores.index', ['proveedores' => $proveedores  ]);
 
     }
@@ -38,7 +38,7 @@ class ProveedoresController extends Controller
         $proveedores->nombre_proveedor = $request->nombre_proveedor;
         $proveedores->nit= $request->nit;
         $proveedores->direccion = $request->direccion;
-        $proveedores->Razon_social = $request->razon_social;
+        $proveedores->razon_social = $request->razon_social;
         $proveedores->numero = $request->numero;
         $proveedores->save();
 
@@ -64,7 +64,7 @@ class ProveedoresController extends Controller
       $proveedorUpdate->nombre_proveedor = $request->nombre_proveedor;
       $proveedorUpdate->nit = $request->nit;
       $proveedorUpdate->direccion = $request->direccion;
-      $proveedorUpdate->Razon_social = $request->razon_social;
+      $proveedorUpdate->razon_social = $request->razon_social;
       $proveedorUpdate->numero = $request->numero;
       
       $proveedorUpdate->save();

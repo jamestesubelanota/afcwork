@@ -36,7 +36,7 @@
 <br>
 
 <!--INICIO IMPUT  EQUIPO -->
-<label class="uppercase text-gray-700 text-xs">Equipo </label>
+<label class="uppercase text-gray-700 text-xs">Seleccione Equipo </label>
 
 
 <br>
@@ -44,7 +44,7 @@
         {{ $message }}
     @enderror </span>
 <select class="form-select" id="equipo" name="equipo">
-    <option value="">Seleccione el equipo </option>
+ 
     @foreach ($equipos as $equipo)
     @if(old('equipo') == $equipo->id_equipo)
     <option value="{{$equipo->id_equipo}}" selected> {{ $equipo->equipo }}</option>
@@ -54,6 +54,11 @@
     @endif
        
     @endforeach
+
+    @if ( isset($tipoEquipo2) )
+ 
+   
+    @endif
 </select>
 <br>
 <!--FIN IMPUT  EQUIPO -->
@@ -68,15 +73,31 @@
         {{ $message }}
     @enderror </span>
 <select class="form-select" id="marca" name="marca">
-    <option value="">Seleccione La marca </option>
+   
+    
     @foreach ($marcas as $marca)
+ 
     @if(old('marca') == $marca->id_marca)
-    <option value="{{$marca->id_marca}}" selected> {{ $marca->marca }}</option>
+    
+    <option value="{{$marca->id_marca}}" > {{ $marca->marca }}</option>
 @else
     <option value="{{$marca->id_marca}}"> {{ $marca->marca }}</option>
 @endif
       
     @endforeach
+@if (isset($marcas2))
+@foreach ($marcas2 as $marca)
+ 
+@if(old('marca') == $marca->id_marca)
+
+<option value="{{$marca->id_marca}}" > {{ $marca->marca }}</option>
+@else
+<option value="{{$marca->id_marca}}"> {{ $marca->marca }}</option>
+@endif
+  
+@endforeach
+@endif
+   
 </select>
 <br>
 <!--FIN IMPUT  MARCA -->
@@ -130,10 +151,11 @@
 <option value="">Seleccione el propietario </option>
 
 @foreach ($propietario as $propietario)
-@if(old('equipo') == $propietario->id_propiestario)
-<option value="{{$propietario->id_propiestario}}" selected> {{ $propietario->nombre_propietario }}</option>
+
+@if(old('propietario') == $propietario->id_propietario)
+<option value="{{$propietario->id_propietario}}" selected> {{ $propietario->nombre_propietario }}</option>
 @else
-<option value="{{$propietario->id_propiestario}}"> {{$propietario->nombre_propietario }}</option>
+<option value="{{$propietario->id_propietario}}"> {{$propietario->nombre_propietario }}</option>
 
 @endif
    

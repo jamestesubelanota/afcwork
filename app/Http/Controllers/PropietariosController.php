@@ -12,7 +12,7 @@ class PropietariosController extends Controller
 
     public function index(){
 
-        return view('propietarios.index', [ 'propietarios' => $propietarios = Propietarios::latest()->paginate() ] );
+        return view('propietarios.index', [ 'propietarios' => $propietarios = Propietarios::all() ] );
 
     }
 

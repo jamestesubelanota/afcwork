@@ -49,7 +49,7 @@
                                 <td>{{  $proveedor->nombre_proveedor}}</td>
                             <td>{{  $proveedor->nit}}</td>
                             <td>{{  $proveedor->direccion}}</td>
-                            <td>{{  $proveedor->Razon_social}}</td>
+                            <td>{{  $proveedor->razon_social}}</td>
                             
 
 

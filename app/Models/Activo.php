@@ -19,7 +19,7 @@ class Activo extends Model
     "serial",
     "costo",
     "modelo",
-    "propietario",
+    "id_propietario",
     "id_proveedor",
      "id_estado",
      "id_tipoEquipo",
@@ -61,6 +61,10 @@ class Activo extends Model
     public  function usuario(){
 
         return $this->belongsTo(User::class, "id_usuario");
+    }
+    public  function propietario(){
+
+        return $this->belongsTo(Propietarios::class, "id_propietario");
     }
 
 }
