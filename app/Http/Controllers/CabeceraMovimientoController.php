@@ -18,23 +18,13 @@ class CabeceraMovimientoController extends Controller
     }
     public function index( Request $request)
     {
-        // $prosimoMovimientop =  CabezeraMovimiento::orderBy('id_cabezera', 'desc')->first();
-       //   if( $prosimoMovimientop != null){
-      //    $prosimoMovimientop->id_cabezera += 1 ;
-     //    $proximoMovi=  $prosimoMovimientop  ;
-    // }
-        
+
        
        $cliente            = Clientes::get(["nombre_cliente", "id_cliente"]);
        $sede               = Sede::where('cliente_id', $request->cliente_id)->get();
-   
-       if (count($sede) > 0) {
-         return response()->json($sede);
-       }
-      
-     
- 
-        $movimientos = CabeceraMovimiento::latest()->paginate();
+
+        $movimientos = CabeceraMovimiento::orderBy('id_cabecera', 'ASC')->get(['id_cabecera', 'id_cliente','id_sede', 'id_tmovimiento','inicio' , 'created_at']);
+
         return view(
             'movimientos.index',
             [
@@ -73,6 +63,16 @@ class CabeceraMovimientoController extends Controller
 
     public function store(Request $request)
     {
+
+        $request->validate([
+
+            'cliente' => 'required',
+            'sede' => 'required',
+            'inicio' => 'required',
+            'id_movimiento' => 'required',
+            'detalle' => 'required',
+
+        ]);
         
         $cabeceraMovimiento  = new CabeceraMovimiento();
         $cabeceraMovimiento->id_cliente = $request->cliente;
@@ -90,7 +90,7 @@ class CabeceraMovimientoController extends Controller
                 $detalleMovimiento = new DetalleMovimiento();
                 $detalleMovimiento->id_activo =  $check;
                 $detalleMovimiento->id_cabecera =   $cabeceraMovimiento->id_cabecera;
-                $detalleMovimiento->detalle =  $request->detalle;
+                $detalleMovimiento->detalle =  ucfirst(strtolower( $request->detalle));
                 $detalleMovimiento->save();
 
                 if ($detalleMovimiento) 

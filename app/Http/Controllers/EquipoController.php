@@ -33,7 +33,7 @@ class EquipoController extends Controller
          'equipo' => 'required'
 
         ]);
-        $equipo->equipo = $request->equipo;
+        $equipo->equipo =  ucfirst(strtolower($request->equipo));
         $equipo->save();
         return redirect()->route('equipos.index');
 

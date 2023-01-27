@@ -43,21 +43,28 @@
                                        <input type="text" id="identificacion"  name ="identificacion" class="form-control" value=""
                                          >
                                          <br>
+                                         <span class="text-xs" style="color: red">@error('estado') {{$message}} @enderror  </span>
+                                        
+                                    
                                        <label class="uppercase text-gray-700 text-xs" >Estado</label>
-                                    <span class="text-xs" style="color: red">@error('estado') {{$message}} @enderror  </span>
-                                    <input type="text" id="estado"  name ="estado" class="form-control" value=""  >
-                                    <br>
+                                       <select name="estado" id="estado"  class="form-select">
+                                        <option value="">Seleccione estado </option>
+                                         <option value="Activo">Activo</option>
+                                         <option value="Inactivo">Inactivo</option>
+
+                                       </select>
+                                  
                                     <label class="uppercase text-gray-700 text-xs" >Email</label>
                                     <span class="text-xs" style="color: red">@error('email') {{$message}} @enderror  </span>
                                     <input type="text" id="email"  name ="email" class="form-control" value=""  >
                                   <br>
                                   <label class="uppercase text-gray-700 text-xs" >Contraseña</label>
                                   <span class="text-xs" style="color: red">@error('password') {{$message}} @enderror  </span>
-                                  <input type="text" id="password"  name ="password" class="form-control" value="" 
+                                  <input type="password" id="password"  name ="password" class="form-control" value="" 
                                    >
                                    <label class="uppercase text-gray-700 text-xs" >Verificacion de contraseña</label>
                                    <span class="text-xs" style="color: red">@error('password_confirmation') {{$message}} @enderror  </span>
-                                   <input type="text" id="password_confirmation"  name ="password_confirmation" class="form-control" value="" >
+                                   <input type="password" id="password_confirmation"  name ="password_confirmation" class="form-control" value="" >
                                   <hr>
                                   <input class="btn btn-primary" type="submit" value="Guardar">
                                 </form> 

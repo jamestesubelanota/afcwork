@@ -32,6 +32,7 @@
                     <thead>
                         <tr>
                             <th>Contrato</th>
+                            <th>Codigo </th>
                             <th>inicio de contrato</th>
                             <th>Fin de contrato</th>
                             <th>Estado </th>
@@ -47,6 +48,7 @@
                       @foreach ($contratos as $contrato)
                       <tr>
                         <td>{{ $contrato->tipo_de_contrato}}</td>
+                        <td> {{ $contrato->codigo }}
                         <td>{{ $contrato->inicio}}</td>
                         <td>{{ $contrato->fin}}</td>
                         <td>{{ $contrato->estado}}</td>

@@ -18,10 +18,26 @@
 
 <label class="uppercase text-gray-700 text-xs">Cargo </label>
 <br>
-<span style="color:red">@error('cargo') {{$message}}
-    
-    @enderror</span>
-<input type="text" id="cargo" name ="cargo" class="form-control" value="{{ old('telefono',$colaboradores->cargo) }}" >
+
+
+
+<span style="color: red"> @error('cargo')
+    {{ $message }}
+@enderror </span>
+<select class="form-select" id="cargo" name="cargo">
+<option value="">Seleccione el cargo </option>
+
+@foreach ($roles as $rol)
+@if(old('cargo') == $rol->id)
+<option value="{{$rol->id}}" selected> {{ $rol->name }}</option>
+@else
+<option value="{{$rol->id}}"> {{$rol->name }}</option>
+
+@endif
+   
+@endforeach
+</select>
+
 <br>
 <hr>
 

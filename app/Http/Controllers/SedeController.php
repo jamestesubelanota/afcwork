@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Ciudades;
 use App\Models\Clientes;
+use App\Models\Colaboradores;
 use App\Models\Sede;
 use Illuminate\Http\Request;
 
@@ -25,8 +26,9 @@ class SedeController extends Controller
     public function create( Sede $sede ){
         $ciudad =  Ciudades::all();
         $cliente = Clientes::all();
-    
-        return view('sedes.create', [ 'ciudad'=> $ciudad, 'sede' => $sede ,'cliente'=> $cliente ]);
+        $bacteriologo = Colaboradores::where('id_rol', '=', 5)->get();
+        $ingeniero = Colaboradores::where('id_rol', '=', 4)->get();
+        return view('sedes.create', [ 'ciudad'=> $ciudad, 'sede' => $sede ,'cliente'=> $cliente ,  'bacteriologo' =>   $bacteriologo , 'ingeniero' => $ingeniero ]);
     }
 
     public function store(Request $request){
@@ -47,6 +49,8 @@ class SedeController extends Controller
             $sede->ciudad_id = $request->ciudad_id;
             $sede->cliente_id = $request->cliente_id;
             $sede->zona = $request->zona;
+            $sede->id_colaborador = $request->bat;
+            $sede->id_colaborador2 = $request->ing;
             $sede->save();
         return redirect()->route('sedes.index');
     }
@@ -55,8 +59,9 @@ class SedeController extends Controller
         $sede = Sede::find($sede);
         $ciudad =  Ciudades::all();
         $cliente = Clientes::all();
-        
-        return view('sedes.create', [ 'sede'=> $sede , 'ciudad'=> $ciudad, 'cliente'=> $cliente ]);
+        $bacteriologo = Colaboradores::where('id_rol', '=', 5)->get();
+        $ingeniero = Colaboradores::where('id_rol', '=', 4)->get();
+        return view('sedes.create', [ 'sede'=> $sede , 'ciudad'=> $ciudad, 'cliente'=> $cliente, 'bacteriologo' =>   $bacteriologo , 'ingeniero' => $ingeniero ]);
     }
 
     public function update(Request $request, $sede){
@@ -68,14 +73,19 @@ class SedeController extends Controller
             'telefono'=>'required',
             'ciudad_id'=>'required',
             'cliente_id'=>'required',
-            'zona' =>'required']);
-        $sede->nombre_sede = $request->nombre_sede;
-        $sede->direccion = $request->direccion;
-        $sede->contacto = $request->contacto;
+            'zona' =>'required',
+        'bat'=> 'required',
+         'ing' => 'ing'
+    ]);
+        $sede->nombre_sede = ucfirst(strtolower( $request->nombre_sede));
+        $sede->direccion = ucfirst(strtolower($request->direccion));
+        $sede->contacto = ucfirst(strtolower($request->contacto));
         $sede->telefono = $request->telefono;
         $sede->ciudad_id = $request->ciudad_id;
         $sede->cliente_id = $request->cliente_id;
         $sede->zona = $request->zona;
+        $sede->id_colaborador = $request->bat;
+        $sede->id_colaborador2 = $request->ing;
         $sede->save();
 
     }

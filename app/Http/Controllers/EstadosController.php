@@ -28,7 +28,7 @@ class EstadosController extends Controller
 
             'estado'=> 'required | unique:estados,estado'
         ]);
-        $estado->estado = $request->estado;
+        $estado->estado = ucfirst(strtolower($request->estado));
         $estado->save();
         
         return redirect()->route('estados.index');

@@ -321,6 +321,9 @@ return [
                 [
                     'text' => 'Agregar estado',
                     'url'  => 'estados',
+                ],  [
+                    'text' => 'Agregar propietarios',
+                    'url'  => 'propietarios',
                 ],
                 [
                     'text' => 'Agregar Colaborador',
@@ -365,10 +368,7 @@ return [
             'text'    => 'Activos',
             'icon'    => 'fas fa-laptop-code fa-lg',
             'submenu' => [
-                [
-                    'text' => 'Fotos',
-                    'url'  => 'foto',
-                ],
+              
                 [
                     'text' => 'activos',
                     'url'  => 'activos',

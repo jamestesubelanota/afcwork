@@ -62,13 +62,13 @@ class RoleSeeder extends Seeder
                               ,'descripcion' =>'Eliminar un colaborador']))->syncRoles([  $role1,  $role2,  ]);
         //
         Permission::create((['name'=> 'contratos.index'
-                              ,'descripcion' =>'Ver informacion de contratos']))->syncRoles([  $role1,  $role2,     ]);
+                              ,'descripcion' =>'Ver informacion de contratos']))->syncRoles([  $role1,  $role2,  ]);
         Permission::create((['name'=> 'contratos.create'
-                              ,'descripcion' =>'Crear contrato']))->syncRoles([  $role1,  $role2,     ]);
+                              ,'descripcion' =>'Crear contrato']))->syncRoles([  $role1,  $role2,  ]);
         Permission::create((['name'=> 'contratos.edit'
-                              ,'descripcion' =>'editar contrato']))->syncRoles([  $role1,  $role2,    ]);
+                              ,'descripcion' =>'editar contrato']))->syncRoles([  $role1,  $role2,  ]);
         Permission::create((['name'=> 'contratos.destroy'
-                              ,'descripcion' =>'Eliminar contrato']))->syncRoles([  $role1,  $role2,     ]);
+                              ,'descripcion' =>'Eliminar contrato']))->syncRoles([  $role1,  $role2,  ]);
         //
         Permission::create((['name'=> 'equipos.index'
                               ,'descripcion' =>'Ver informaqcion de  equipos']))->syncRoles([  $role1,  $role2,  $role3,   ]);

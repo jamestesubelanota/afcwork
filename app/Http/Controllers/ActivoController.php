@@ -12,6 +12,7 @@ use App\Models\DetalleMovimiento;
 use App\Models\Equipo;
 use App\Models\Fotos;
 use App\Models\Marca;
+use App\Models\Propietarios;
 use App\Models\User;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
@@ -42,6 +43,7 @@ class ActivoController extends Controller
     $marcas  = Marca::all();
     $proveedor          = Proveedores::all();
     $estados     =  Estados::all();
+    $propietarios = Propietarios::all();
     $tipoEquipo         = TipoDeEquipo::all();
     $cliente            = Clientes::get(["nombre_cliente", "id_cliente"]);
     $sede               = Sede::where('cliente_id', $request->cliente_id)->get();
@@ -64,7 +66,7 @@ class ActivoController extends Controller
         'tipoEquipo'     => $tipoEquipo,
         'clientes'        => $cliente,
         'sedes'  => $sede,
-
+        'propietario' =>     $propietarios,
         'user'           => $user
       ]
     );
@@ -92,6 +94,8 @@ class ActivoController extends Controller
       'id_proveedor' => 'required',
       'id_estado' => 'required',
       'tipo_de_equipo' => 'required',
+      'cliente' => 'required',
+      'sede' => 'required',
     ]);
 
     #fin validadacion
@@ -100,17 +104,17 @@ class ActivoController extends Controller
 
   
     
-    $activo->activo            =  $request->activo;
-    $activo->activocontable  =  $request->activocontable;
-    $activo->id_equipo         =  $request->equipo;
-    $activo->id_marca          =  $request->marca;
-    $activo->serial            =  $request->serial;
-    $activo->costo             =  $request->costo;
-    $activo->modelo            =  $request->modelo;
-    $activo->propietario          =  $request->propietario;
-    $activo->id_proveedor      =  $request->id_proveedor;
-    $activo->id_estado         =  $request->id_estado;
-    $activo->id_tipoEquipo     =  $request->tipo_de_equipo;
+    $activo->activo            =   $request->activo;
+    $activo->activocontable    =   $request->activocontable;
+    $activo->id_equipo         =   $request->equipo;
+    $activo->id_marca          =   $request->marca;
+    $activo->serial            =   $request->serial;
+    $activo->costo             =   $request->costo;
+    $activo->modelo            =   ucfirst(strtolower($request->modelo));
+    $activo->propietario       =   ucfirst(strtolower( $request->propietario));
+    $activo->id_proveedor      =   $request->id_proveedor;
+    $activo->id_estado         =   $request->id_estado;
+    $activo->id_tipoEquipo     =   $request->tipo_de_equipo;
     $activo->id_sede    =  $request->sede;
     $activo->id_user =  Auth::id('id_user');
 
@@ -168,6 +172,7 @@ class ActivoController extends Controller
     $marcas       = Marca::all();
     $cliente      = Clientes::get(["nombre_cliente", "id_cliente"]);
     $sede         = Sede::where('cliente_id', $request->cliente_id)->get();
+    $propietarios = Propietarios::all();
     $user         = User::all();
 
 
@@ -184,6 +189,7 @@ class ActivoController extends Controller
         'marcas'      => $marcas,
         'clientes'    => $cliente,
         'sedes'       => $sede,
+        'propietario' =>     $propietarios,
       ]
     );
   }
@@ -193,19 +199,74 @@ class ActivoController extends Controller
   public function update(Request $request, $activo)
   {
 
+    $request->validate([
+      'foto' => 'required',
+      'activo' => 'required | unique:activos,activo',
+      'activocontable' => 'required | unique:activos,activocontable',
+      'equipo' => 'required ',
+      'marca' => 'required',
+      'serial' => 'required | unique:activos,serial',
+      'costo' => 'required',
+      'modelo' => 'required',
+      'propietario' => 'required',
+      'id_proveedor' => 'required',
+      'id_estado' => 'required',
+      'tipo_de_equipo' => 'required',
+      'cliente' => 'required',
+      'sede' => 'required',
+    ]);
+   #fin validadacion
+  
+
     $activos = Activo::find($activo);
 
-    $activos->activo             =  $request->activo;
-    $activos->equipo             =  $request->equipo;
-    $activos->marca              =  $request->marca;
-    $activos->serial             =  $request->serial;
-    $activos->costo              =  $request->costo;
-    $activos->id_proveedor       =  $request->id_proveedor;
-    $activo->id_estado           =  $request->id_estado;
-    $activos->id_tipoEquipo      =  $request->tipo_de_equipo;
-    $activo->id_sede             =  $request->sede;
+
+  
+   
+
+  
+    
+    $activos->activo            =  $request->activo;
+    $activos->activocontable  =  $request->activocontable;
+    $activos->id_equipo         =  $request->equipo;
+    $activos->id_marca          =  $request->marca;
+    $activos->serial            =  $request->serial;
+    $activos->costo             =  $request->costo;
+    $activos->modelo            =  $request->modelo;
+    $activos->propietario          =  $request->propietario;
+    $activos->id_proveedor      =  $request->id_proveedor;
+    $activos->id_estado         =  $request->id_estado;
+    $activos->id_tipoEquipo     =  $request->tipo_de_equipo;
+    $activos->id_sede    =  $request->sede;
+    $activos->id_user =  Auth::id('id_user');
 
     $activos->save();
+    
+
+      if( $activos){
+
+        
+        $request->hasFile('foto');
+        $archivo = $request->file('foto'); 
+
+        foreach($archivo as $file){
+
+          $type  = pathinfo(  $file , PATHINFO_EXTENSION);
+  
+          $data = file_get_contents(  $file);
+          $imagenBase64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
+         
+          $foto = new Fotos();
+  
+          $foto->foto =  $imagenBase64;
+          $idAc = $activos;
+          $foto->id_activo =   $idAc->id_activo;
+          $foto->save();
+
+        }
+      
+        
+    }
 
 
 

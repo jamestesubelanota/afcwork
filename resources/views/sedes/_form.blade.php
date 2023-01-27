@@ -60,7 +60,54 @@
 <span> @error('zona') {{$message}}
     
 @enderror</span>
-<input type="text" id="zona" name ="zona" class="form-control" value="{{ old( 'telefono',$sede->zona)}}"  >
+<input type="text" id="zona" name ="zona" class="form-control" value="{{ old( 'zona',$sede->zona)}}"  >
+
+
+
+<label class="uppercase text-gray-700 text-xs">Cientifico encargado</label>
+<br>
+<span style="color:red">@error('bat') {{$message}}
+    
+    @enderror</span>
+
+
+
+<select class="form-select" id="bat" name="bat">
+<option value="">Seleccione el bacteriologo </option>
+
+@foreach ($bacteriologo as $bat)
+@if(old('bat') == $bat->id_colaborador)
+<option value="{{ $bat->id_colaborador}}" selected> {{ $bat->nombre_colaborador }}</option>
+@else
+<option value="{{ $bat->id_colaborador}}"> {{ $bat->nombre_colaborador }}</option>
+
+@endif
+   
+@endforeach
+</select>
+ <br>
+
+ <label class="uppercase text-gray-700 text-xs">Ingeniero encargado</label>
+<br>
+<span style="color:red">@error('ing') {{$message}}
+    
+    @enderror</span>
+
+
+
+<select class="form-select" id="ing" name="ing">
+<option value="">Seleccione el ingeniero </option>
+
+@foreach ($ingeniero as $ing)
+@if(old('ing') == $ing->id_colaborador)
+<option value="{{ $ing->id_colaborador}}" selected> {{$ing->nombre_colaborador }}</option>
+@else
+<option value="{{ $ing->id_colaborador}}"> {{ $ing->nombre_colaborador }}</option>
+
+@endif
+   
+@endforeach
+</select>
 <hr>
 <div>
 <a   class="bg-gray-800 text-white rounded px-4 py-2"  href="{{route('clientes.index')}}">volver</a>

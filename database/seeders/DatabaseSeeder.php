@@ -30,40 +30,7 @@ class DatabaseSeeder extends Seeder
         'nombre_ciudad' => 'Bogota'
         
         ]);
-      \App\Models\Clientes::factory()->create([
-         'nombre_cliente'=> 'Comprolab S.A.S',
-         'nit' => '860350711',
-         'razon_social' =>'Comerzialisadora de laboraboratorio',
-         'detalle' => 'Comprolab S.A.S',
-    
-    
-    ]);
-    \App\Models\Sede::factory()->create([
-      'nombre_sede' => 'Bodega',
-      'direccion'   => 'calle 106 54-63',
-      'contacto'    => 'Resepcion',
-      'zona'        => '1',
-      'telefono'    => '17426486',
-      'ciudad_id'   => '1',
-      'cliente_id'  => '1'
-      
-      ]);
-      
-      \App\Models\Sede::factory()->create([
-        'nombre_sede' => 'Principal',
-        'direccion'   => 'calle 106 54-63',
-        'contacto'    => 'Resepcion',
-        'zona'        => '1',
-        'telefono'    => '17426486',
-        'ciudad_id'   => '1',
-        'cliente_id'  => '1'
-        
-        ]);
-        
-
-      
-  
-    $this->call(RoleSeeder::class);
+        $this->call(RoleSeeder::class);
 
         \App\Models\User::factory()->create([
              'name' => 'James Arturo Maldonado',
@@ -81,5 +48,53 @@ class DatabaseSeeder extends Seeder
           'estado' => 'activo',
           
       ])->assignRole('Tecnico');
+    \App\Models\Colaboradores::factory()->create([
+      'nombre_colaborador' =>'compro',
+      'identificacion' =>'123',
+      'telefono' =>'123',
+      'cargo' =>'ing',
+      'id_rol' => 2
+
+
+    ]);
+
+      \App\Models\Clientes::factory()->create([
+         'nombre_cliente'=> 'Comprolab S.A.S',
+         'nit' => '860350711',
+         'razon_social' =>'Comerzialisadora de laboraboratorio',
+         'detalle' => 'Comprolab S.A.S',
+    
+    
+    ]);
+    \App\Models\Sede::factory()->create([
+      'nombre_sede' => 'Bodega',
+      'direccion'   => 'calle 106 54-63',
+      'contacto'    => 'Resepcion',
+      'zona'        => '1',
+      'telefono'    => '17426486',
+      'ciudad_id'   => '1',
+      'cliente_id'  => '1',
+      'id_colaborador'  => '1',
+      'id_colaborador2'  => '1',
+      
+      ]);
+      
+      \App\Models\Sede::factory()->create([
+        'nombre_sede' => 'Principal',
+        'direccion'   => 'calle 106 54-63',
+        'contacto'    => 'Resepcion',
+        'zona'        => '1',
+        'telefono'    => '17426486',
+        'ciudad_id'   => '1',
+        'cliente_id'  => '1',
+        'id_colaborador'  => '1',
+        'id_colaborador2'  => '1',
+        
+        ]);
+        
+
+      
+  
+  
     }
 }

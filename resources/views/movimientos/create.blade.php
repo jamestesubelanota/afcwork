@@ -45,7 +45,25 @@
 <script>
  
     $(document).ready(function () {
-        $('#example').DataTable();
+        $('#example').DataTable({
+
+language: {
+    "search": "Buscar:",
+
+        //
+    "info": "Mostrando _START_ a _END_ de _TOTAL_ ciudades",
+
+
+    "paginate": {
+"first": "Primero",
+"last": "Ultimo",
+"next": "Siguiente",
+"previous": "Anterior"
+}
+}
+
+}
+   );
     });
     </script>
 

@@ -19,7 +19,8 @@
     class="vh-100 gradient-custom">
     <br>
     <div class="row">
-
+        @csrf
+  
     
         <div class="card border-black mb-3" >
             <div class="card-header"> <nav class="navbar bg-light">

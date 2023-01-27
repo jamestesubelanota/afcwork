@@ -35,8 +35,8 @@ class CiudadesController extends Controller
 
 
         ]);
-        $ciudad->departamento  = $request->departamento;
-        $ciudad->nombre_ciudad = $request->nombre_ciudad ;
+        $ciudad->departamento  =ucfirst(strtolower($request->departamento));
+        $ciudad->nombre_ciudad = ucfirst(strtolower($request->nombre_ciudad ));
         $ciudad->save();
 
        return redirect()->route('ciudades.index', []);

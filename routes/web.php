@@ -19,6 +19,7 @@ use App\http\Controllers\FotosController;
 use App\http\Controllers\CartaEnvioController;
 use App\http\Controllers\EntradaController;
 use App\Http\Controllers\ContratoController;
+use App\Http\Controllers\PropietariosController;
 use App\Http\Controllers\UsuariosController;
 use App\Models\Usuarios;
 
@@ -138,6 +139,11 @@ Route::controller(FotosController::class)->group(function(){
 
     Route::resource('foto', FotosController::class);
 });
+Route::controller(PropietariosController::class)->group(function(){
+
+    Route::resource('propietarios', PropietariosController::class);
+});
+
 
 
 

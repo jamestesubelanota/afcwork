@@ -24,7 +24,7 @@
             <div class="card-header">
                 <nav class="navbar bg-light">
                     <div class="container-fluid">
-                        <a class="btn btn-primary" href="{{ route('proveedores.create') }}"> Agregar caracteristica de equipos </a>
+                        <a class="btn btn-primary" href="{{ route('proveedores.create') }}"> Agregar Proveedor </a>
                     </div>
                 </nav>
 
@@ -126,7 +126,7 @@ language: {
     "search": "Buscar:",
 
         //
-    "info": "Mostrando _START_ a _END_ de _TOTAL_ ciudades",
+    "info": "Mostrando _START_ a _END_ de _TOTAL_ proveedores",
 
 
     "paginate": {

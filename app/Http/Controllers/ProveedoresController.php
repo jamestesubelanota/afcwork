@@ -33,11 +33,13 @@ class ProveedoresController extends Controller
         'nombre_proveedor' =>'required',
         'nit' =>'required',
         'direccion' =>'required',
-        'razon_social' =>'required',]);
+        'razon_social' =>'required',
+        'numero' =>'required',]);
         $proveedores->nombre_proveedor = $request->nombre_proveedor;
         $proveedores->nit= $request->nit;
         $proveedores->direccion = $request->direccion;
         $proveedores->Razon_social = $request->razon_social;
+        $proveedores->numero = $request->numero;
         $proveedores->save();
 
         return redirect()->route('proveedores.index',[ 'proveedores' => $proveedores] );
@@ -56,11 +58,15 @@ class ProveedoresController extends Controller
         'nombre_proveedor' =>'required',
         'nit' =>'required',
         'direccion' =>'required',
-        'razon_social' =>'required',]);
+        'razon_social' =>'required',
+        'numero' =>'required',
+    ]);
       $proveedorUpdate->nombre_proveedor = $request->nombre_proveedor;
       $proveedorUpdate->nit = $request->nit;
       $proveedorUpdate->direccion = $request->direccion;
       $proveedorUpdate->Razon_social = $request->razon_social;
+      $proveedorUpdate->numero = $request->numero;
+      
       $proveedorUpdate->save();
       return redirect()->route('proveedores.index');
     }

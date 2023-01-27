@@ -28,8 +28,8 @@ class MarcaController extends Controller
     public function store( Request $request){
 
         $marca = new Marca();
-        $request->validate(['marca' => 'required']);
-        $marca->marca = $request->marca;
+        $request->validate(['marca' => 'required | unique:marcas,marca']);
+        $marca->marca =  ucfirst(strtolower($request->marca));
         $marca->save();
 
          return redirect()->route('marcas.index');
@@ -47,8 +47,9 @@ class MarcaController extends Controller
     }
 
     public function update(Request $request, $marca){
+       
         $marca = Marca::find($marca);
-
+        $request->validate(['marca' => 'required | unique:marcas,marca']);
         $marca->marca = $request->marca;
         $marca->save();
         return redirect()->route('marcas.index');

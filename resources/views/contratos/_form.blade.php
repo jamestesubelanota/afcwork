@@ -1,7 +1,7 @@
 @csrf
 
 
-<label class="form-label">Contrato</label>
+<label class="form-label"> Tipo de contrato</label>
 <br>
 <span style="color: red">
     @error('tipo_de_contrato')
@@ -10,6 +10,16 @@
 </span>
 <input type="text" id="tipo_de_contrato" name="tipo_de_contrato" class="form-control"
     value="{{ $contrato->tipo_de_contrato }}">
+<br>
+
+<label class="form-label">Codigo de contrato</label>
+<br>
+<span style="color: red">
+    @error('codigo')
+        {{ $message }}
+    @enderror
+</span>
+<input type="text" id="codigo" name="codigo" class="form-control" value="{{ $contrato->codigo  }}">
 <br>
 <label class="form-label">Inicio de contrato</label>
 <br>
@@ -20,6 +30,9 @@
 </span>
 <input type="date" id="inicio" name="inicio" class="form-control" value="{{ $contrato->inicio }}">
 <br>
+
+
+
 
 <label class="form-label">Fin de contrato</label>
 <br>
@@ -41,7 +54,14 @@
 </span>
 <select class="form-select" name="cliente" id="cliente">
     @foreach ($cliente as $cliente)
-        <option value="{{ $cliente->id_cliente }}"> {{ $cliente->nombre_cliente }} </option>
+
+    @if(old('cliente') == $cliente->id_cliente )
+    <option value="{{$cliente->id_cliente }}" selected> {{ $cliente->nombre_cliente }}</option>
+@else
+    <option value="{{$cliente->id_cliente }}"> {{$cliente->nombre_cliente }}</option>
+
+    @endif
+        
     @endforeach
 </select>
 <br>

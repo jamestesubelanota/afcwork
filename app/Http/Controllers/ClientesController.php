@@ -37,10 +37,10 @@ class ClientesController extends Controller
             'detalle' => 'required',
             
         ]);
-         $clientes->nombre_cliente = $request->nombre_cliente;
+         $clientes->nombre_cliente =  ucfirst(strtolower( $request->nombre_cliente));
          $clientes->nit = $request->nit;
-         $clientes->razon_social = $request->razon_social;
-         $clientes->detalle = $request->detalle;
+         $clientes->razon_social =  ucfirst(strtolower($request->razon_social));
+         $clientes->detalle =  ucfirst(strtolower($request->detalle));
        
          $clientes->save();
 

@@ -10,7 +10,11 @@ class TipoMovimientoController extends Controller
 {
     
 
-  
+    public function __construct()
+  {
+      $this->middleware('can:tipoMovimiento.index');
+  }
+
     public function index(){
 
         $movimiento = TipoMovimiento::latest()->paginate();
@@ -28,7 +32,7 @@ class TipoMovimientoController extends Controller
     public function store(Request $request){
           $movimiento = new TipoMovimiento();
           $request->validate(['movimiento' => 'required | unique:tipo_movimientos,movimiento' ]);
-          $movimiento->movimiento = $request->movimiento;
+          $movimiento->movimiento = ucfirst(strtolower($request->movimiento));
           $movimiento->save();
           return redirect()->route( 'tipoMovimiento.index' , ['movimiento' => $movimiento] );
     } 

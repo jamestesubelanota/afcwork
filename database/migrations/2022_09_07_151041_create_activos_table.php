@@ -26,7 +26,10 @@ return new class extends Migration
             $table->string('activocontable', 4);
             $table->double('costo',100);
             $table->string('modelo', 50);
-            $table->string('propietario', 100);
+            // se hace la relacion de la tabla
+            $table->unsignedBigInteger('id_propietario');
+            // se hace la relacion de la tabla
+            $table->foreign('id_propietario')->references('id_propietario')->on('propietarios');
             $table->unsignedBigInteger('id_proveedor');
             // se hace la relacion de la tabla
             $table->foreign('id_proveedor')->references('id_proveedor')->on('proveedores');

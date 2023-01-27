@@ -10,9 +10,8 @@ class ContratoController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('can:contrato.index');
+        $this->middleware('can:contratos.index');
     }
-    
     public function index(){
 
 
@@ -40,14 +39,16 @@ return view('contratos.index',[
 
          $request->validate(
             [
-                'tipo_de_contrato' => 'required',
+                'tipo_de_contrato' => 'required ',
                 'inicio'           => 'required',
                 'fin'              => 'required',
-                'cliente'          => 'required'
+                'cliente'          => 'required',
+                'codigo' => 'required | unique:contratos,codigo'
             ]
          );
         $contrato = new Contrato();
         $contrato->tipo_de_contrato = $request->tipo_de_contrato;
+        $contrato->codigo           = $request->codigo;
         $contrato->inicio           = $request->inicio;
         $contrato->fin              = $request->fin;
         $contrato->id_cliente       = $request->cliente;
@@ -70,23 +71,25 @@ return view('contratos.index',[
 
     public function update( Request $request, $contrato ){
 
-
-
-         $request->validate(
+        $request->validate(
             [
-                'tipo_de_contrato'   => 'required',
-                'inicio'             => 'required',
-                'fin'                => 'required',
-                'cliente'            => 'required'
+                'tipo_de_contrato' => 'required',
+                'inicio'           => 'required',
+                'fin'              => 'required',
+                'cliente'          => 'required',
+                'codigo'           => 'required'
             ]
          );
-        $contrato =  Contrato::find($contrato);
-        $contrato->tipo_de_contrato  = $request->tipo_de_contrato;
-        $contrato->inicio            = $request->inicio;
-        $contrato->fin               = $request->fin;
-        $contrato->id_cliente        = $request->cliente;
-        $contrato->estado            = $request->estado;
+         $contrato =  Contrato::find($contrato);
+        $contrato->tipo_de_contrato = ucfirst(strtolower($request->tipo_de_contrato));
+        $contrato->codigo           = $request->codigo;
+        $contrato->inicio           = $request->inicio;
+        $contrato->fin              = $request->fin;
+        $contrato->id_cliente       = $request->cliente;
+        $contrato->estado           = ucfirst(strtolower($request->estado));
         $contrato->save();
+
+    
 
         return redirect()->route('contratos.index');
 

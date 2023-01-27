@@ -17,6 +17,12 @@ use Spatie\Permission\Models\Role;
 
 class UsuariosController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('can:usuarios.index');
+    }
+  
     public function index(){
          
 
@@ -42,9 +48,9 @@ class UsuariosController extends Controller
         ]);
     
         $user = new User();
-        $user->name = $request->name;
+        $user->name =  ucfirst(strtolower($request->name));
         $user->identificacion = $request->identificacion;
-        $user->estado = $request->estado;
+        $user->estado = ucfirst(strtolower($request->estado));
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
         $user->save();

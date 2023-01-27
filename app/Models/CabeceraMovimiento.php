@@ -25,5 +25,9 @@ class CabeceraMovimiento extends Model
 
         return $this->belongsTo(TipoMovimiento::class, "id_tmovimiento");
     }
+    public  function detalle(){
+
+        return $this->belongsTo(DetalleMovimiento::class, "id_cabecera");
+    }
 
 }

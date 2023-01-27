@@ -103,7 +103,7 @@
     <div style="text-align: left" class="card-footer text-muted">
            
       @foreach ($movimientos as $movimiento)
-      <li class="list-group-item "> Activo: {{$movimiento->activo->activo}}  <p >Ubicacion  :{{$movimiento->cabecera->sedes->nombre_sede}} </p> </li>
+      <li class="list-group-item "> Activo: {{$movimiento->activo->activo}}  <br> <p >Ubicacion  :{{$movimiento->cabecera->sedes->nombre_sede}}  <br> {{$movimiento->cabecera->inicio}} </p> </li>
       
         @endforeach
     </div>

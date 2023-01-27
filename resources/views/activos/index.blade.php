@@ -61,11 +61,12 @@
 
                         @foreach ($activos as $activo)
                             <tr>
-                                <td>{{ $activo->activo }}</td>
+                                <td>   <a href="{{ route('activos.show', $activo->id_activo) }}"
+                                    class="btn btn-light">{{ $activo->activo}}</a></td>
                                 <td>{{ $activo->equipo->equipo }}</td>
                                 <td>{{ $activo->marca->marca }}</td>
                                 <td>{{ $activo->serial }}</td>
-                                <td>{{ $activo->costo }}</td>
+                                <td>{{number_format($activo->costo)  }}</td>
                                 <td>{{ $activo->sede->nombre_sede }}</td>
                                 <td>{{ $activo->proveedor->nombre_proveedor }}</td>
                                 <td>{{ $activo->estado->estado }}</td>

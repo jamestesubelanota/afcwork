@@ -29,7 +29,7 @@ class TipoDeEquipoController extends Controller
 
       $equipo = new TipoDeEquipo();
       $request->validate([ 'tipo_equipo'=> 'required']);
-      $equipo->tipo_de_equipo = $request->tipo_equipo;
+      $equipo->tipo_de_equipo = ucfirst(strtolower($request->tipo_equipo));
       $equipo->save();
              
 

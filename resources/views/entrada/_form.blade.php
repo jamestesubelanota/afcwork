@@ -14,10 +14,10 @@ class="vh-100 gradient-custom">
 
                         <div class="card">
                             <div class="card-header">
-                                Featured
+                          
                             </div>
                             <div class="card-body">
-                                <div class="row">
+                                <div class="">
 
                                     <div class="col-md-6">
         
@@ -78,21 +78,20 @@ class="vh-100 gradient-custom">
         
                                 </div>
                                 <hr>
-                                <div class="row">
-        
-                                    <div style="text-align: center" class="col-md-12">
-                                        <button type="sutmit" name="Submit" class="btn btn-primary">Registrar
-                                            movimiento</button>
-                                    </div>
-                                </div>
+                                
                             </div>
                         </div>
                      
 
                     </div>
-                    <div class="col-md-6">
+                    <div>
+                        <hr>
+                        <h2>Seleccione activos</h2>
+                        <hr>
+                    </div>
+                    <div class="col-md-12">
                         
-                        <table id="example" class="table table-striped table-bordered" style="width:100%">
+                        <table id="example" class="table table-striped table-bordered" style="background-color:rgb(185, 186, 189)">
                             <thead>
                                 <tr>
                                     <th>Activo</th>
@@ -124,7 +123,13 @@ class="vh-100 gradient-custom">
                         </table>
                     </div>
                     <!---segunda secciom--->
-                  
+                    <div class="row">
+        
+                        <div style="text-align: center" class="col-md-12">
+                            <button type="sutmit" name="Submit" class="btn btn-primary">Registrar
+                                movimiento</button>
+                        </div>
+                    </div>
 
                 </div>
             </div>

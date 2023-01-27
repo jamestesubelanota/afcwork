@@ -5,22 +5,23 @@ namespace App\Http\Controllers;
 use App\Models\Colaboradores;
 use App\Models\Roles;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 class ColaboradoresController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('can:colaboradores.index');
+        $this->middleware('can:contratos.index');
     }
     public function index(){
-
-
-        return view('colaboradores.index', ['colaboradores' => Colaboradores::latest()->paginate()]);
+      
+        return view('colaboradores.index', ['colaboradores' => Colaboradores::all() ]);
     }
 
     public function create(Colaboradores $colaboradores){
 
-          $roles = Roles::all();
+          $roles = Role::all();
 
         return view('colaboradores.create', [ 'colaboradores' =>$colaboradores , 'roles'=> $roles
 
@@ -38,10 +39,10 @@ class ColaboradoresController extends Controller
             'cargo' => 'required'
            
         ]);
-        $colaboradores->nombre_colaborador = $request->nombre;
-        $colaboradores->identificacion = $request->identificacion;
-        $colaboradores->telefono = $request->telefono;
-        $colaboradores->cargo = $request->cargo;
+        $colaboradores->nombre_colaborador =  ucfirst(strtolower($request->nombre));
+        $colaboradores->identificacion     = $request->identificacion;
+        $colaboradores->telefono           = $request->telefono;
+        $colaboradores->id_rol              = $request->cargo;
         $colaboradores->save();
            
         return redirect()->route('colaboradores.index');
@@ -65,7 +66,7 @@ class ColaboradoresController extends Controller
         $colaboradores->nombre_colaborador = $request->nombre;
         $colaboradores->identificacion = $request->identificacion;
         $colaboradores->telefono = $request->telefono;
-        $colaboradores->cargo = $request->cargo;
+        $colaboradores->id_rol = $request->cargo;
         $colaboradores->save();
            
         return redirect()->route('colaboradores.index');

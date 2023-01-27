@@ -48,6 +48,8 @@
                             <th>Cliente</th>
                             <th>Sede</th>
                             <th>Movimiento</th>
+                            <th>Detalle</th>
+                            <th>Fecha</th>
                             <th>Opciones</th>
                           
                            
@@ -58,10 +60,12 @@
                       @foreach ( $movimientos as $movimiento)
                       <tr>
                     
-                        <td>{{ $movimiento->clientes->nombre_cliente}}</td>
-                        <td>{{ $movimiento->sedes->nombre_sede}}</td>
-                        <td>{{ $movimiento->tipoMovimiento->movimiento}}</td>
-                        <td class=" px-6 py-6">
+                        <td>{{ $movimiento->clientes->nombre_cliente    }}</td>
+                        <td>{{ $movimiento->sedes->nombre_sede          }}</td>
+                        <td>{{ $movimiento->tipoMovimiento->movimiento  }}</td>
+                        <td>{{ $movimiento->detalle->detalle ?? ''    }}</td>
+                        <td>{{ $movimiento->inicio                      }}</td>
+                        <td class="">
                           
                             <div class="dropdown">
                                 <a class="btn btn-secondary dropdown-toggle" href="#" role="button"
@@ -201,7 +205,25 @@
 </script>
 <script>
   $(document).ready(function() {
-      $('#clientes').DataTable();
+      $('#clientes').DataTable({
+         order: [[3, 'desc']],
+language: {
+    "search": "Buscar:",
+
+        //
+    "info": "Mostrando _START_ a _END_ de _TOTAL_ ciudades",
+
+
+    "paginate": {
+"first": "Primero",
+"last": "Ultimo",
+"next": "Siguiente",
+"previous": "Anterior"
+}
+}
+
+}
+   );
   });
 </script>
 

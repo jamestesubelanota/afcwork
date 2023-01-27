@@ -13,13 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('proveedores', function (Blueprint $table) {
-            $table->id('id_proveedor',4);
-            $table->String('nombre_proveedor',30);
-            $table->double('nit',20);
-            $table->String('direccion',50);
-            $table->String('Razon_social',50); 
-            $table->String('numero_telefono',16); 
+        Schema::create('propietarios', function (Blueprint $table) {
+            $table->id('id_propietario');
+            $table->string('nombre_propietario');
+            $table->string('razon_social');
+            $table->string('numero_telefono');
             $table->timestamps();
         });
     }
@@ -31,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('_proveedores');
+        Schema::dropIfExists('propietarios');
     }
 };
