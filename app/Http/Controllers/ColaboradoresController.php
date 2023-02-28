@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cargo;
 use App\Models\Colaboradores;
 use App\Models\Roles;
 use Illuminate\Http\Request;
@@ -21,7 +22,7 @@ class ColaboradoresController extends Controller
 
     public function create(Colaboradores $colaboradores){
 
-          $roles = Role::all();
+          $roles = Cargo::all();
 
         return view('colaboradores.create', [ 'colaboradores' =>$colaboradores , 'roles'=> $roles
 
@@ -42,7 +43,7 @@ class ColaboradoresController extends Controller
         $colaboradores->nombre_colaborador =  ucfirst(strtolower($request->nombre));
         $colaboradores->identificacion     = $request->identificacion;
         $colaboradores->telefono           = $request->telefono;
-        $colaboradores->id_rol              = $request->cargo;
+        $colaboradores->id_cargo              = $request->cargo;
         $colaboradores->save();
            
         return redirect()->route('colaboradores.index');
@@ -66,7 +67,7 @@ class ColaboradoresController extends Controller
         $colaboradores->nombre_colaborador = $request->nombre;
         $colaboradores->identificacion = $request->identificacion;
         $colaboradores->telefono = $request->telefono;
-        $colaboradores->id_rol = $request->cargo;
+        $colaboradores->id_cargo = $request->cargo;
         $colaboradores->save();
            
         return redirect()->route('colaboradores.index');

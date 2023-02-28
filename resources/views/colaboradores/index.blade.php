@@ -50,7 +50,7 @@
                                 <td>{{ $colaboradores->nombre_colaborador }}</td>
                                 <td>{{ $colaboradores->identificacion }}</td>
                                 <td>{{$colaboradores->telefono}} </td>
-                                <td> {{$colaboradores->roles->name }} </td>
+                                <td> {{$colaboradores->cargos->cargo }} </td>
 
 
 

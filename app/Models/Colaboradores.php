@@ -14,10 +14,10 @@ class Colaboradores extends Model
     use HasFactory;
 
     protected $primaryKey = "id_colaborador";
-    protected $fillable =['nombre_colaborador', 'identificacion', 'telefono', 'id_rol'];
+    protected $fillable =['nombre_colaborador', 'identificacion', 'telefono', 'id_cargo'];
 
    
-    public function roles(){
-        return $this->belongsTo( Role::class , 'id_rol');
+    public function cargos(){
+        return $this->belongsTo( Cargo::class, 'id_cargo');
     }
 }

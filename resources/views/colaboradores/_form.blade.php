@@ -28,10 +28,10 @@
 <option value="">Seleccione el cargo </option>
 
 @foreach ($roles as $rol)
-@if(old('cargo') == $rol->id)
-<option value="{{$rol->id}}" selected> {{ $rol->name }}</option>
+@if(old('cargo') == $rol->id_cargo)
+<option value="{{$rol->id_cargo}}" selected> {{ $rol->cargo }}</option>
 @else
-<option value="{{$rol->id}}"> {{$rol->name }}</option>
+<option value="{{$rol->id_cargo}}"> {{$rol->cargo }}</option>
 
 @endif
    

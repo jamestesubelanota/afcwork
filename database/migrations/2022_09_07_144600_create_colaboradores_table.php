@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('nombre_colaborador',100);
             $table->string('identificacion' ,50);
             $table->double('telefono',16);
-            $table->unsignedBigInteger('id_rol');
-            $table->foreign('id_rol')->references('id')->on('roles');
+            $table->unsignedBigInteger('id_cargo');
+            $table->foreign('id_cargo')->references('id_cargo')->on('cargos');
           
             $table->timestamps();
         });
