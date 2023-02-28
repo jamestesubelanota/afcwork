@@ -37,26 +37,27 @@ class PropietariosController extends Controller
         return redirect()->route('propietarios.index');
 
     }
-    public function edit(   $propietarios){
+    public function edit( $propietarios){
 
         $propietarios = Propietarios::find($propietarios);
 
 
 
-        return view('propietarios.create' ,[ 'propietario'=>  $propietarios]);
+        return view('propietarios.edit' ,[ 'propietario'=>  $propietarios]);
     }
-    public function update( Request $request ,  Propietarios $propietarios){
+    public function update( Request $request ,   $propietario){
 
 
-        $propietarios = Propietarios::find($propietarios);
+        
         
         
         $request->validate([
-            'nombre'=> 'required | unique:propietarios,nombre_propiestario',
+            'nombre'=> 'required ',
             'razon'=> 'required',
             'numero'=> 'required'
 ]);
-$propietarios->nombre_propiestario = $request->nombre;
+$propietarios = Propietarios::find($propietario);
+$propietarios->nombre_propietario = $request->nombre;
 $propietarios->razon_social = $request->razon;
 $propietarios->numero_telefono = $request->numero;
 $propietarios->save();

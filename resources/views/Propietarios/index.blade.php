@@ -10,7 +10,7 @@
     <x-app-layout>
         <x-slot name="header">
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                {{ __('propietarios') }}
+                {{ __('Propietarios') }}
                 <a class="bg-gray-800 text-white rounded px-4 py-2" href="{{ route('propietarios.create') }}"> crear</a>
             </h2>
         </x-slot>

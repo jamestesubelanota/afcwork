@@ -315,46 +315,46 @@ return [
             'icon'    => 'fas fa-pen-nib fa-lg',
             'submenu' => [
                 [
-                    'text' => 'Ciudad',
+                    'text' => 'Ciudades',
                     'url'  => 'ciudades',
                 ],
                 [
-                    'text' => 'Agregar estado',
+                    'text' => ' Estados',
                     'url'  => 'estados',
                 ],  [
-                    'text' => 'Agregar propietarios',
+                    'text' => ' Propietarios',
                     'url'  => 'propietarios',
                 ],
                 [
-                    'text' => 'Agregar Colaborador',
+                    'text' => 'Colaboradores',
                     'url'  => 'colaboradores',
                 ],
                   [
-                    'text' => 'Agregar equipo',
+                    'text' => 'Equipos',
                     'url'  => 'equipos',
                 ],
                 [
-                    'text' => 'Agregar Marca',
+                    'text' => 'Marcas',
                     'url'  => 'marcas',
                 ],
                 [
-                    'text' => 'Agregar tipo de equipo',
+                    'text' => 'Caracteristicas de equipo',
                     'url'  => 'tipoEquipo',
                 ],
                 [
-                    'text' => 'Agregar proveedor',
+                    'text' => 'Proveedor',
                     'url'  => 'proveedores',
                 ],
                 [
-                    'text' => 'Tipo de movimiento',
+                    'text' => 'Movimiento',
                     'url'  => 'tipoMovimiento',
                 ],
         
                 [
-                    'text' => 'Agregar rol',
+                    'text' => 'Roles',
                     'url'  => 'roles',
                 ],  [
-                    'text' => 'Agregar contratos',
+                    'text' => 'Contratos',
                     'url'  => 'contratos',
                 ],
 
@@ -370,7 +370,7 @@ return [
             'submenu' => [
               
                 [
-                    'text' => 'activos',
+                    'text' => 'Activos',
                     'url'  => 'activos',
                 ],
 
@@ -379,7 +379,7 @@ return [
        
       
         [
-            'text'        => 'usuarios',
+            'text'        => 'Usuarios',
             'url'         => 'usuarios',
             'icon'        => 'fas fa-user-friends',
             'label'       => 4,
@@ -402,11 +402,11 @@ return [
             'icon'    => 'fas fa-users fa-lg',
             'submenu' => [
                 [
-                    'text' => 'cliente',
+                    'text' => 'Cliente',
                     'url'  => 'clientes',
                 ],
                 [
-                    'text' => 'sedes',
+                    'text' => 'Sedes',
                     'url'  => 'sedes',
                 ],
 

@@ -10,7 +10,7 @@
     <x-app-layout>
         <x-slot name="header">
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                {{ __('Crear un Propiestario') }}
+                {{ __('Crear un Propietario') }}
             </h2>
         </x-slot>
         <div class="container"style="background:linear-gradient(30deg, white,#004593, white, #004593, white);"
@@ -20,7 +20,7 @@
 
             <div class="col-md-4"></div>
             <div class="card border-black mb-3" style="max-width: 20rem;">
-                <div class="card-header">Agregar un propiestario</div>
+                <div class="card-header">Agregar un propietario</div>
                 <div class="card-body text-primary">
 
                     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">

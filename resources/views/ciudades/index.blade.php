@@ -128,7 +128,7 @@
     <script>
         $(document).ready(function() {
             $('#ciudad').DataTable({
-
+     
                 language: {
                     "search": "Buscar:",
 
@@ -137,11 +137,14 @@
 
                 
                     "paginate": {
-            "first": "Primero",
-            "last": "Ultimo",
-            "next": "Siguiente",
-            "previous": "Anterior"
-        }
+            "first"      : "Primero",
+            "last"       : "Ultimo",
+            "next"       : "Siguiente",
+            "previous"   : "Anterior",
+            "Show"       :"mostrar", "infoFiltered": "(Filtrado de _MAX_ total entradas)"
+         
+        },
+     
                 }
                 
             });
