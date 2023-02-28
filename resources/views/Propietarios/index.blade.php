@@ -120,7 +120,7 @@ language: {
     "search": "Buscar:",
 
         //
-    "info": "Mostrando _START_ a _END_ de _TOTAL_ propietarios",
+    "info": "Mostrando _START_ a _END_ de _TOTAL_ Propietarios",
 
 
     "paginate": {

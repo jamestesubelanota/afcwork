@@ -28,6 +28,7 @@ return new class extends Migration
             // se hace la relacion de la tabla
             $table->foreign('id_user')->references('id_user')->on('users');
             $table->date('inicio');
+            $table->string('detalle',150);
             $table->timestamps();
         });
     }

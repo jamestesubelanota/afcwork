@@ -131,7 +131,7 @@ language: {
     "search": "Buscar:",
 
         //
-    "info": "Mostrando _START_ a _END_ de _TOTAL_ ciudades",
+    "info": "Mostrando _START_ a _END_ de _TOTAL_ Contratos",
 
 
     "paginate": {

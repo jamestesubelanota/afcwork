@@ -16,7 +16,7 @@ class CiudadesController extends Controller
     public function index(){
 
 
-        return view('ciudades.index', [ 'ciudad' =>  Ciudades::latest()->paginate()]);
+        return view('ciudades.index', [ 'ciudad' =>  Ciudades::all()]);
     }
 
     //metodo de crear es pasarle nuestra ciudad  basia 

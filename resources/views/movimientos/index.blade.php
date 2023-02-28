@@ -25,7 +25,7 @@
 
                 <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                     Genear movimientos
+                     Generar movimientos
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                       <a class="dropdown-item " href="{{ route('movimientos.create') }}"> Generar un proximo movimiento  </a>
@@ -63,7 +63,7 @@
                         <td>{{ $movimiento->clientes->nombre_cliente    }}</td>
                         <td>{{ $movimiento->sedes->nombre_sede          }}</td>
                         <td>{{ $movimiento->tipoMovimiento->movimiento  }}</td>
-                        <td>{{ $movimiento->detalle->detalle ?? ''    }}</td>
+                        <td>{{ $movimiento->detalle ?? ''    }}</td>
                         <td>{{ $movimiento->inicio                      }}</td>
                         <td class="">
                           
@@ -211,7 +211,7 @@ language: {
     "search": "Buscar:",
 
         //
-    "info": "Mostrando _START_ a _END_ de _TOTAL_ ciudades",
+    "info": "Mostrando _START_ a _END_ de _TOTAL_ Movimientos",
 
 
     "paginate": {

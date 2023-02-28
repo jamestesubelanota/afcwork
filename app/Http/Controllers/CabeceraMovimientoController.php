@@ -23,7 +23,7 @@ class CabeceraMovimientoController extends Controller
        $cliente            = Clientes::get(["nombre_cliente", "id_cliente"]);
        $sede               = Sede::where('cliente_id', $request->cliente_id)->get();
 
-        $movimientos = CabeceraMovimiento::orderBy('id_cabecera', 'ASC')->get(['id_cabecera', 'id_cliente','id_sede', 'id_tmovimiento','inicio' , 'created_at']);
+        $movimientos = CabeceraMovimiento::all();
 
         return view(
             'movimientos.index',
@@ -78,7 +78,9 @@ class CabeceraMovimientoController extends Controller
         $cabeceraMovimiento->id_cliente = $request->cliente;
         $cabeceraMovimiento->id_sede = $request->sede;
         $cabeceraMovimiento->inicio =  $request->inicio;
+        $cabeceraMovimiento->detalle =  $request->detalle;
         $cabeceraMovimiento->id_tmovimiento = $request->id_movimiento;
+        
         $cabeceraMovimiento->id_user =  Auth::id('id_user');
         $cabeceraMovimiento->save();
 
@@ -98,6 +100,7 @@ class CabeceraMovimientoController extends Controller
                 {
                     $activoActualizarSedeActual = $detalleMovimiento->id_activo =  $check;
                     $activoActualizarSedeActual = Activo::find($activoActualizarSedeActual);
+                    $activoActualizarSedeActual->id_cliente =  $cabeceraMovimiento->id_cliente = $request->cliente;
                     $activoActualizarSedeActual->id_sede =  $cabeceraMovimiento->id_sede = $request->sede;
                     $activoActualizarSedeActual->save();
                 }

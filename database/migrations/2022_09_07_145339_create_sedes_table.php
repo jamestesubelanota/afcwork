@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('direccion',100);
             $table->string('contacto',100);
             $table->string('zona',50);
-            $table->double('telefono');
+            $table->string('telefono');
             //se crea campo a relacionar
             $table->unsignedBigInteger('ciudad_id');
             // se hace la relacion de la tabla

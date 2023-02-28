@@ -39,7 +39,7 @@ class ProveedoresController extends Controller
         $proveedores->nit= $request->nit;
         $proveedores->direccion = $request->direccion;
         $proveedores->razon_social = $request->razon_social;
-        $proveedores->numero = $request->numero;
+        $proveedores->numero_telefono = $request->numero;
         $proveedores->save();
 
         return redirect()->route('proveedores.index',[ 'proveedores' => $proveedores] );

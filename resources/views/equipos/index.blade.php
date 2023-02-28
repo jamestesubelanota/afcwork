@@ -116,7 +116,7 @@ language: {
     "search": "Buscar:",
 
         //
-    "info": "Mostrando _START_ a _END_ de _TOTAL_ Marcas",
+    "info": "Mostrando _START_ a _END_ de _TOTAL_ Equipos",
 
 
     "paginate": {

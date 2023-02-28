@@ -140,7 +140,7 @@
     "infoFiltered": "(Filtrado de _MAX_ total entradas)",
 
         //
-    "info": "Mostrando _START_ a _END_ de _TOTAL_ ciudades",
+    "info": "Mostrando _START_ a _END_ de _TOTAL_ Usuarios",
 
 
     "paginate": {

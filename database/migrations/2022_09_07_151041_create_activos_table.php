@@ -41,6 +41,11 @@ return new class extends Migration
             $table->unsignedBigInteger('id_tipoEquipo');
             // se hace la relacion de la tabla
             $table->foreign('id_tipoEquipo')->references('id_equipo')->on('tipo_de_equipos');
+           
+            $table->unsignedBigInteger('id_cliente');
+            // se hace la relacion de la tabla
+            $table->foreign('id_cliente')->references('id_cliente')->on('clientes');
+           
             $table->unsignedBigInteger('id_sede');
             // se hace la relacion de la tabla
             $table->foreign('id_sede')->references('id_sede')->on('sedes');

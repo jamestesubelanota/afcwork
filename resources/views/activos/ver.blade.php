@@ -59,7 +59,7 @@
                 <div class="alert alert-primary" role="alert">
                     <p class="">Equipo {{$activo->tipoEquipo->tipo_de_equipo}}</p></div>
                     <div class="alert alert-success" role="alert">
-                    <p class="lead">Este equipo se encuentra en la sede {{$activo->sede->nombre_sede}}</p></div>
+                    <p class="lead">Este equipo se encuentra en el cliente  {{$activo->cliente->nombre_cliente}} en la sede {{$activo->sede->nombre_sede}}</p></div>
                
             </div>
               <div class="input-group mb-3">
@@ -103,7 +103,7 @@
     <div style="text-align: left" class="card-footer text-muted">
            
       @foreach ($movimientos as $movimiento)
-      <li class="list-group-item "> Activo: {{$movimiento->activo->activo}}  <br> <p >Ubicacion  :{{$movimiento->cabecera->sedes->nombre_sede}}  <br> {{$movimiento->cabecera->inicio}} </p> </li>
+      <li class="list-group-item "> Activo: {{$movimiento->activo->activo}}  <br> <p >Ubicacion  :{{$movimiento->cabecera->sedes->nombre_sede}}  <br> {{$movimiento->cabecera->inicio}} </p>  {{$movimiento->cabecera->tipoMovimiento->movimiento}} </p></li>
       
         @endforeach
     </div>

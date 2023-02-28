@@ -142,13 +142,13 @@
 
 
 
-<label class="uppercase text-gray-700 text-xs">Propietario</label>
+<label class="uppercase text-gray-700 text-xs"> Selcciones Propietario</label>
 <br>
 <span style="color: red"> @error('propietario')
     {{ $message }}
 @enderror </span>
 <select class="form-select" id="propietario" name="propietario">
-<option value="">Seleccione el propietario </option>
+
 
 @foreach ($propietario as $propietario)
 
@@ -160,19 +160,33 @@
 @endif
    
 @endforeach
+
+@if (isset($propietarios))
+    
+@foreach ($propietarios as $propietario)
+
+@if(old('propietario') == $propietario->id_propietario)
+<option value="{{$propietario->id_propietario}}" selected> {{ $propietario->nombre_propietario }}</option>
+@else
+<option value="{{$propietario->id_propietario}}"> {{$propietario->nombre_propietario }}</option>
+
+@endif
+   
+@endforeach
+@endif
 </select>
 <br>
 
 
 
 <!--INICIO IMPUT  PROVEEDOR -->
-<label class="uppercase text-gray-700 text-xs">Proveedor </label>
+<label class="uppercase text-gray-700 text-xs">Seleccione Proveedor </label>
 <br>
 <span style="color: red"> @error('id_proveedor')
         {{ $message }}
     @enderror </span>
 <select class="form-select" id="id_proveedor" name="id_proveedor">
-    <option value="">Seleccione el proveedor </option>
+   
     @foreach ($proveedor as $proveedor)
     @if(old('id_proveedor') == $proveedor->id_proveedor)
     <option value="{{$proveedor->id_proveedor}}" selected> {{ $proveedor->nombre_proveedor }}</option>
@@ -182,6 +196,17 @@
     @endif
        
     @endforeach
+    @if (isset($proveedores ))
+    @foreach ($proveedores as $proveedor)
+    @if(old('id_proveedor') == $proveedor->id_proveedor)
+    <option value="{{$proveedor->id_proveedor}}" selected> {{ $proveedor->nombre_proveedor }}</option>
+@else
+    <option value="{{ $proveedor->id_proveedor}}"> {{ $proveedor->nombre_proveedor }}</option>
+
+    @endif
+       
+    @endforeach
+    @endif
 </select>
 
 <!--FINIMPUT  MARCA -->
@@ -196,9 +221,30 @@
         {{ $message }}
     @enderror </span>
 <select class="form-select" id="id_estado" name="id_estado">
+
     @foreach ($estados as $estado)
-        <option value=" {{ $estado->id_estado }}">{{ $estado->estado }}</option>
+    @if(old('id_estado') == $proveedor->id_proveedor)
+    <option value="{{$estado->id_estado}}" selected> {{ $estado->estado }}</option>
+@else
+    <option value="{{ $estado->id_estado}}"> {{$estado->estado }}</option>
+
+    @endif
+       
     @endforeach
+   
+    @if (isset($estados2 ))
+    
+    @foreach ($estados2 as $estado)
+ 
+    @if(old('id_estado') == $proveedor->id_proveedor)
+    <option value="{{$estado->id_estado}}" selected> {{ $estado->estado }}</option>
+@else
+    <option value="{{ $estado->id_estado}}"> {{$estado->estado }}</option>
+
+    @endif
+       
+    @endforeach
+    @endif
 </select>
 
 
@@ -211,28 +257,31 @@
 <label class="uppercase text-gray-700 text-xs">Caracteristica de equipo </label>
 <br>
 <span style="color: red"> @error('tipo_de_equipo')
-        {{ $message }}
-    @enderror
-</span>
+    {{ $message }}
+@enderror </span>
+<select class="form-select" id="tipo_de_equipo" name="tipo_de_equipo">
+
+    
+
+@foreach ($tipoEquipo as $tipoEquipos)
+@if(old('tipo_de_equipo') == $tipoEquipos->id_equipo)
+<option value="{{ $tipoEquipos->id_equipo}}" selected> {{ $tipoEquipos->tipo_de_equipo }}</option>
+@else
+<option value="{{  $tipoEquipos->id_equipo}}"> {{ $tipoEquipos->tipo_de_equipo }}</option>
+
+@endif
+   
+@endforeach
+
+
+
+</select>
 
 <!--- FIN IMPUT  CARACTERISTICA -->
-<br>
 
 
 <!---INICIO DE SELEC TIPO DE EQUIPO-->
-<select class="form-select" id="tipo_de_equipo" name="tipo_de_equipo">
-    <option value="">Seleccione Caracteristica</option>
-    @foreach ($tipoEquipo as $tipoEquipo)
 
-    @if(old('tipo_de_equipo') == $tipoEquipo->id_equipo)
-    <option value="{{$tipoEquipo->id_equipo}}" selected> {{ $tipoEquipo->tipo_de_equipo}}</option>
-@else
-    <option value="{{$tipoEquipo->id_equipo}}"> {{$tipoEquipo->tipo_de_equipo }}</option>
-
-    @endif
-       
-    @endforeach
-</select>
 
 <!---FINDE SELEC TIPO DE EQUIPO-->
 <br>

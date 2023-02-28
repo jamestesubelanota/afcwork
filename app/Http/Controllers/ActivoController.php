@@ -45,7 +45,7 @@ class ActivoController extends Controller
     $estados     =  Estados::all();
     $propietarios= Propietarios::all();
     $tipoEquipo         = TipoDeEquipo::all();
-    $cliente            = Clientes::get(["nombre_cliente", "id_cliente"]);
+    $cliente            = Clientes::where('id_cliente','=',1)->get();
     $sede               = Sede::where('cliente_id', $request->cliente_id)->get();
 
     if (count($sede) > 0) {
@@ -115,6 +115,7 @@ class ActivoController extends Controller
     $activo->id_proveedor      =   $request->id_proveedor;
     $activo->id_estado         =   $request->id_estado;
     $activo->id_tipoEquipo     =   $request->tipo_de_equipo;
+    $activo->id_cliente   =  $request->cliente;
     $activo->id_sede    =  $request->sede;
     $activo->id_user =  Auth::id('id_user');
 
@@ -166,14 +167,17 @@ class ActivoController extends Controller
 
     $activo       = Activo::find($activo);
     $equipos      = Equipo::all();
-    $proveedor    = Proveedores::all();
+    $proveedor    = Proveedores::where('id_proveedor', $activo->id_proveedor)->get();
+    $proveedores = Proveedores::all();
     $estados      =  Estados::all();
-    $tipoEquipo   = TipoDeEquipo::where('id_equipo' ,'=', $activo->id_equipo);
-    $tipoEquipo2 = TipoDeEquipo::all();
+    $estados2 = Estados::where('id_estado', '=' ,$activo->id_estado)->get();  
+    $tipoEquipo   = TipoDeEquipo::where('id_equipo' ,'=', $activo-> id_tipoEquipo)->get();
+    $tipoEquipos = TipoDeEquipo::all();
     $marcas       = Marca::where('id_marca','=',  $activo->id_marca)->get();
     $marcas2       = Marca::all();
-    $cliente      = Clientes::get(["nombre_cliente", "id_cliente"]);
+    $cliente      = Clientes::where('id_cliente','=',$activo->id_cliente)->get();
     $sede         = Sede::where('cliente_id', $request->cliente_id)->get();
+    $propietarios2 = Propietarios::all();
     $propietarios = Propietarios::where('id_propietario',$activo->id_propietario)->get();
     $user         = User::all();
 
@@ -184,16 +188,19 @@ class ActivoController extends Controller
 
       [
         'activo'      => $activo, 
-        'proveedor'   => $proveedor, 
+        'proveedor'   => $proveedor,
+        'proveedores' =>   $proveedores, 
         'estados'     => $estados, 
+        'estados2' =>  $estados2,
         'tipoEquipo'  =>  $tipoEquipo,
         'equipos'     => $equipos,
         'marcas'      => $marcas,
         'clientes'    => $cliente,
         'sedes'       => $sede,
         'propietario' =>     $propietarios,
+        'propietarios' =>  $propietarios2 ,
         'marcas2' =>  $marcas2,
-        'tipoEquipo2 ' =>  $tipoEquipo2   
+        'tipoEquipos' =>   $tipoEquipos 
       ]
     );
   }
@@ -240,6 +247,7 @@ class ActivoController extends Controller
     $activos->id_proveedor      =  $request->id_proveedor;
     $activos->id_estado         =  $request->id_estado;
     $activos->id_tipoEquipo     =  $request->tipo_de_equipo;
+    $activo->id_cliente   =  $request->cliente;
     $activos->id_sede    =  $request->sede;
     $activos->id_user =  Auth::id('id_user');
 

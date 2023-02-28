@@ -23,7 +23,7 @@ return new class extends Migration
             $table->foreign('id_cabecera')->references('id_cabecera')->on('cabecera_movimientos');
            
            
-            $table->string('detalle',30);
+            $table->string('detalle',150);
             $table->timestamps();
 
         });

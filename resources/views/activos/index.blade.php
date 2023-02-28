@@ -43,6 +43,7 @@
                             <th>Marca</th>
                             <th>Serial</th>
                             <th>Costo</th>
+                            <th>Cliente</th>
                             <th>Ubicacion Actual</th>
                             <th>Proveedor</th>
                             <th>Estado</th>
@@ -67,6 +68,7 @@
                                 <td>{{ $activo->marca->marca }}</td>
                                 <td>{{ $activo->serial }}</td>
                                 <td>{{number_format($activo->costo)  }}</td>
+                                <td>{{$activo->cliente->nombre_cliente ?? ''  }}</td>
                                 <td>{{ $activo->sede->nombre_sede }}</td>
                                 <td>{{ $activo->proveedor->nombre_proveedor }}</td>
                                 <td>{{ $activo->estado->estado }}</td>
