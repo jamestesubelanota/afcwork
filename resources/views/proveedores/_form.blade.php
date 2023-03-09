@@ -25,7 +25,7 @@
 <span style="color: red" > @error('razon_social') {{$message}}
     
     @enderror </span>
-<input type="text" id="razon_social" name ="razon_social" class="form-control" value="{{ old('razon_social', $proveedores->Razon_social)}}"  >
+<input type="text" id="razon_social" name ="razon_social" class="form-control" value="{{ old('razon_social', $proveedores->razon_social)}}"  >
  <br>
 
  <label class="form-label" >Numero</label>
@@ -33,7 +33,7 @@
 <span style="color: red" > @error('numero') {{$message}}
     
     @enderror </span>
-<input type="text" id="numero" name ="numero" class="form-control" value="{{ old('numero', $proveedores->numero)}}"  >
+<input type="text" id="numero" name ="numero" class="form-control" value="{{ old('numero', $proveedores->numero_telefono)}}"  >
 
 
 <div>

@@ -4,7 +4,7 @@
 @section('title', 'Editar Equipo')
 
 @section('content_header')
-    <h1>Activos fijos</h1>
+  
 @stop
 
 @section('content')
@@ -22,7 +22,7 @@
 
         <div class="col-md-4"></div>
         <div class="card border-black mb-3" style="max-width: 20rem;">
-            <div class="card-header">Agregar un equipo</div>
+            <div class="card-header">Editar un equipo</div>
             <div class="card-body text-primary">
 
                 <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">

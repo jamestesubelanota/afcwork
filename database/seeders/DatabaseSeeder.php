@@ -25,7 +25,7 @@ class DatabaseSeeder extends Seeder
       \App\Models\TipoMovimiento::factory()->create([ 'movimiento'=> 'Salida']);
       \App\Models\TipoMovimiento::factory()->create([ 'movimiento'=> 'Traslado']);
       \App\Models\Ciudades::factory()->create([
-        
+        'cod_dane'  => 'prueba',
         'departamento'  => 'Districo capital',
         'nombre_ciudad' => 'Bogota'
         
@@ -48,12 +48,20 @@ class DatabaseSeeder extends Seeder
           'estado' => 'activo',
           
       ])->assignRole('Tecnico');
+      \App\Models\Cargo::factory()->create([
+        'cargo' =>'Bacteriologo Asesor',
+       
+     
+  
+  
+      ]);
+  
+
     \App\Models\Colaboradores::factory()->create([
       'nombre_colaborador' =>'compro',
       'identificacion' =>'123',
       'telefono' =>'123',
-      'cargo' =>'ing',
-      'id_rol' => 2
+      'id_cargo' => 1
 
 
     ]);

@@ -50,9 +50,13 @@ class ColaboradoresController extends Controller
     }
 
     public function edit( $colaboradores ){
+        
+       
          $colaborador = Colaboradores::find( $colaboradores);
-        $roles = Roles::all();
-        return view('colaboradores.edit' , ['colaboradores' => $colaborador , 'roles' => $roles ]);
+         $cargo = Cargo::where('id_cargo','=',$colaboradores->id_cargo)->get();
+      
+        $roles = Cargo::all();
+        return view('colaboradores.edit' , ['colaboradores' => $colaborador , 'roles' => $roles ,  'cargo' => $cargo]);
     }
 
     public function update(  Request $request  , $colaboradores  ){

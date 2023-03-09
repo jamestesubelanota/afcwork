@@ -27,15 +27,27 @@
 <select class="form-select" id="cargo" name="cargo">
 <option value="">Seleccione el cargo </option>
 
-@foreach ($roles as $rol)
-@if(old('cargo') == $rol->id_cargo)
-<option value="{{$rol->id_cargo}}" selected> {{ $rol->cargo }}</option>
+@if (isset($cargo))
+    @foreach ($cargo as $cl)
+    @if(old('cargo') == $cl->id_cargo)
+    <option value="{{$cl->id_cargo}}" selected> {{$cl->cargo }}</option>
 @else
-<option value="{{$rol->id_cargo}}"> {{$rol->cargo }}</option>
+    <option value="{{ $cl->id_cargo}}"> {{ $cl->cargo }}</option>
 
-@endif
-   
-@endforeach
+    @endif
+       
+    @endforeach
+    @endif
+    @foreach ($roles as $cl)
+    @if(old('cargo') == $cl['id_cargo'])  
+    <option value="{{$cl['id_cargo']}}" selected> {{$cl->cargo }}</option>
+@else
+    <option value="{{ $cl['id_cargo']}}"> {{ $cl->cargo }}</option>
+
+    @endif
+       
+    @endforeach
+
 </select>
 
 <br>
