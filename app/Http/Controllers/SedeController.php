@@ -59,8 +59,8 @@ class SedeController extends Controller
         $sede = Sede::find($sede);
         $ciudad =  Ciudades::all();
         $cliente = Clientes::all();
-        $bacteriologo = Colaboradores::where('id_rol', '=', 5)->get();
-        $ingeniero = Colaboradores::where('id_rol', '=', 4)->get();
+        $bacteriologo = Colaboradores::where('id_cargo', '=', 1)->get();
+        $ingeniero = Colaboradores::where('id_cargo', '=', 2)->get();
         return view('sedes.create', [ 'sede'=> $sede , 'ciudad'=> $ciudad, 'cliente'=> $cliente, 'bacteriologo' =>   $bacteriologo , 'ingeniero' => $ingeniero ]);
     }
 
