@@ -283,7 +283,7 @@
 <!---INICIO DE SELEC TIPO DE EQUIPO-->
 
 
-<!---FINDE SELEC TIPO DE EQUIPO-->
+<!---FINDE SELEC TIPO DE EQUIPO
 <br>
 <label class="uppercase text-gray-700 text-xs">Cliente</label>
 <br>
@@ -292,9 +292,10 @@
     @enderror
 </span>
 <br>
-<!---INICIO DE SELEC TIPO DE CLIENTE-->
+-->
+<!---INICIO DE SELEC TIPO DE CLIENTE
 
-<select class="form-select" id="cliente" name="cliente">
+ <select class="form-select" id="cliente" name="cliente">
     <option value=" ">Seleccione el cliente </option>
     @foreach ($clientes as $cliente)
 
@@ -307,12 +308,12 @@
      
     @endforeach
 </select>
-<!---FIN DE SELEC TIPO DE CLIENTE-->
+-->
 <br>
 
 
 
-<!---INICIO DE SELEC TIPO DE SEDE-->
+<!---INICIO DE SELEC TIPO DE SEDE
 
 <span style="color: red"> @error('sede')
     {{ $message }}
@@ -334,7 +335,7 @@
 </select>
 <br>
 
-<!---FIN DE SELEC TIPO DE SEDE-->
+-->
 
 
 

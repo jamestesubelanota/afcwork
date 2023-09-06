@@ -222,8 +222,8 @@ class ActivoController extends Controller
       'id_proveedor' => 'required',
       'id_estado' => 'required',
       'tipo_de_equipo' => 'required',
-      'cliente' => 'required',
-      'sede' => 'required',
+    //  'cliente' => 'required',
+      //'sede' => 'required',
     ]);
    #fin validadacion
   
@@ -247,41 +247,20 @@ class ActivoController extends Controller
     $activos->id_proveedor      =  $request->id_proveedor;
     $activos->id_estado         =  $request->id_estado;
     $activos->id_tipoEquipo     =  $request->tipo_de_equipo;
-    $activo->id_cliente   =  $request->cliente;
-    $activos->id_sede    =  $request->sede;
+   // $activo->id_cliente   =  $request->cliente;
+   //  $activos->id_sede    =  $request->sede;
     $activos->id_user =  Auth::id('id_user');
 
     $activos->save();
     
 
-      if( $activos){
-
-        
-        $request->hasFile('foto');
-        $archivo = $request->file('foto'); 
-
-        foreach($archivo as $file){
-
-          $type  = pathinfo(  $file , PATHINFO_EXTENSION);
-  
-          $data = file_get_contents(  $file);
-          $imagenBase64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
-         
-          $foto = new Fotos();
-  
-          $foto->foto =  $imagenBase64;
-          $idAc = $activos;
-          $foto->id_activo =   $idAc->id_activo;
-          $foto->save();
-
-        }
       
-        
-    }
 
+      
 
-
-    return redirect()->route('activos.index');
+   
+   
+       return redirect()->route('activos.index');
   }
 
 
