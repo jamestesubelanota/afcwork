@@ -18,7 +18,7 @@ return new class extends Migration
             $table->String('nombre_proveedor',30);
             $table->double('nit',20);
             $table->String('direccion',50);
-            $table->String('Razon_social',50); 
+            $table->String('razon_social',50); 
             $table->String('numero_telefono',16); 
             $table->timestamps();
         });
