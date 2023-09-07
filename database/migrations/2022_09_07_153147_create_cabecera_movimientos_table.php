@@ -14,17 +14,17 @@ return new class extends Migration
     public function up()
     {
         Schema::create('cabecera_movimientos', function (Blueprint $table) {
-            $table->id('id_cabecera');
-            $table->unsignedBigInteger('id_cliente');
+            $table->unsignedInteger('id_cabecera', 11);
+            $table->unsignedInteger('id_cliente');
             // se hace la relacion de la tabla
             $table->foreign('id_cliente')->references('id_cliente')->on('clientes');
-            $table->unsignedBigInteger('id_sede');
+            $table->unsignedInteger('id_sede');
             // se hace la relacion de la tabla
             $table->foreign('id_sede')->references('id_sede')->on('sedes');
-            $table->unsignedBigInteger('id_tmovimiento');
+            $table->unsignedInteger('id_tmovimiento');
             // se hace la relacion de la tabla
             $table->foreign('id_tmovimiento')->references('id_tmovimiento')->on('tipo_movimientos');
-            $table->unsignedBigInteger('id_user');
+            $table->unsignedInteger('id_user');
             // se hace la relacion de la tabla
             $table->foreign('id_user')->references('id_user')->on('users');
             $table->date('inicio');

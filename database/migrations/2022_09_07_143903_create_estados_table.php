@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('estados', function (Blueprint $table) {
-            $table->id('id_estado',1);
+            $table->unsignedInteger('id_estado',1);
             $table->string('estado',20);
             $table->timestamps();
         });

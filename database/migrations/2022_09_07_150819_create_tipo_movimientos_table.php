@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('tipo_movimientos', function (Blueprint $table) {
-            $table->id('id_tmovimiento',11);
+            $table->unsignedInteger('id_tmovimiento',11);
             $table->String('movimiento',30);
             $table->timestamps();
         });

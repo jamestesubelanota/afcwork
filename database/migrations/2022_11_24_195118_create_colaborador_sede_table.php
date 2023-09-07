@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('colaborador_sede', function (Blueprint $table) {
             $table->id('id_colaborador_sede');
-           
-            $table->unsignedBigInteger('id_colaborador');
+
+            $table->unsignedInteger('id_colaborador');
             $table->foreign('id_colaborador')->references('id_colaborador')->on('colaboradores');
-            $table->unsignedBigInteger('id_sede');
+            $table->unsignedInteger('id_sede');
             $table->foreign('id_sede')->references('id_sede')->on('sedes');
             $table->timestamps();
         });

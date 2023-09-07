@@ -14,12 +14,12 @@ return new class extends Migration
     public function up()
     {
         Schema::create('proveedores', function (Blueprint $table) {
-            $table->id('id_proveedor',4);
+            $table->unsignedInteger('id_proveedor',4);
             $table->String('nombre_proveedor',30);
             $table->double('nit',20);
             $table->String('direccion',50);
-            $table->String('razon_social',50); 
-            $table->String('numero_telefono',16); 
+            $table->String('razon_social',50);
+            $table->String('numero_telefono',16);
             $table->timestamps();
         });
     }

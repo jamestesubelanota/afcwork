@@ -14,8 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('cargos', function (Blueprint $table) {
-            $table->id('id_cargo');
-            $table->string('cargo', 30); 
+            $table->unsignedInteger('id_cargo',4);
+            $table->string('cargo', 30);
             $table->timestamps();
         });
     }
