@@ -7,7 +7,7 @@ use App\Models\Ciudades;
 
 class CiudadesController extends Controller
 {
-   
+
 
     public function __construct()
     {
@@ -19,7 +19,7 @@ class CiudadesController extends Controller
         return view('ciudades.index', [ 'ciudad' =>  Ciudades::all()]);
     }
 
-    //metodo de crear es pasarle nuestra ciudad  basia 
+    //metodo de crear es pasarle nuestra ciudad  basia
     public function create( Ciudades $ciudad ){
 
         return view('ciudades.create' ,[ 'ciudad' => $ciudad]);
@@ -30,11 +30,14 @@ class CiudadesController extends Controller
         //
         $ciudad = new Ciudades();
         $request->validate([
+
+                    'cod_dane' => 'required',
                     'departamento' => 'required',
                     'nombre_ciudad' => 'required | unique:ciudades,nombre_ciudad',
 
 
         ]);
+        $ciudad->cod_dane  =ucfirst(strtolower($request->cod_dane));
         $ciudad->departamento  =ucfirst(strtolower($request->departamento));
         $ciudad->nombre_ciudad = ucfirst(strtolower($request->nombre_ciudad ));
         $ciudad->save();
@@ -42,31 +45,33 @@ class CiudadesController extends Controller
        return redirect()->route('ciudades.index', []);
     }
 
-    //metodo para actualizar 
-    //metodo edit paramos a la ciudad  que queremos editar 
+    //metodo para actualizar
+    //metodo edit paramos a la ciudad  que queremos editar
      public function edit(  $ciudad ){
         $ciudad = Ciudades::find($ciudad);
         return view('ciudades.edit' ,[ 'ciudad' => $ciudad]);
      }
 
      public function update(Request $request,  $ciudad)
-    
+
         {
             $ciudad = Ciudades::find($ciudad);
             $request->validate([
+                'cod_dane' => 'required',
                 'departamento' => 'required',
                 'nombre_ciudad' => 'required '
 
 
     ]);
+            $ciudad->cod_dane  =ucfirst(strtolower($request->cod_dane));
             $ciudad->departamento  = $request->departamento;
             $ciudad->nombre_ciudad = $request->nombre_ciudad ;
             $ciudad->save();
-      
+
         return  redirect()->route('ciudades.index', $ciudad );
         }
 
-        //metodo eliminar 
+        //metodo eliminar
         public function destroy($ciudad){
             $ciudad = Ciudades::find($ciudad);
              $ciudad->delete();
@@ -74,5 +79,5 @@ class CiudadesController extends Controller
 
 
         }
-   
+
 }

@@ -31,7 +31,7 @@
                                 @can('ciudades.create')
                                 <a class="btn btn-primary" href="{{ route('ciudades.create') }}"> Agregar una ciudad </a>
                                 @endcan
-                             
+
                             </div>
                         </nav>
 
@@ -41,6 +41,7 @@
 
                             <thead>
                                 <tr>
+                                    <th>Codigo dane</th>
                                     <th>Departamento</th>
                                     <th>Ciudad</th>
                                     <th>Opcciones</th>
@@ -52,6 +53,7 @@
 
                                 @foreach ($ciudad as $ciudad)
                                     <tr>
+                                         <td>{{ $ciudad->cod_dane }}</td>
                                         <td>{{ $ciudad->departamento }}</td>
                                         <td>{{ $ciudad->nombre_ciudad }}</td>
 
@@ -95,10 +97,10 @@
 
                     </div>
                     <div class="card-footer text-muted">
-                
+
                     </div>
                 </div>
-                
+
         </div>
 
         </section>
@@ -128,25 +130,25 @@
     <script>
         $(document).ready(function() {
             $('#ciudad').DataTable({
-     
+
                 language: {
                     "search": "Buscar:",
 
                         //
                     "info": "Mostrando _START_ a _END_ de _TOTAL_ ciudades",
 
-                
+
                     "paginate": {
             "first"      : "Primero",
             "last"       : "Ultimo",
             "next"       : "Siguiente",
             "previous"   : "Anterior",
             "Show"       :"mostrar", "infoFiltered": "(Filtrado de _MAX_ total entradas)"
-         
+
         },
-     
+
                 }
-                
+
             });
         });
     </script>

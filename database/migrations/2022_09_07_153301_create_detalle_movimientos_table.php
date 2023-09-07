@@ -19,7 +19,7 @@ return new class extends Migration
             $table->unsignedInteger('id_activo');
             $table->foreign('id_activo')->references('id_activo')->on('activos');
          // se hace la relacion de la tabla
-            $table->unsignedInteger('id_cabecera');
+            $table->unsignedInteger('id_cabecera',11);
             $table->foreign('id_cabecera')->references('id_cabecera')->on('cabecera_movimientos');
 
 
