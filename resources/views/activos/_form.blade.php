@@ -31,7 +31,7 @@
         @enderror </span>
     <input type="text" id="activocontable" name="activocontable" class="form-control"
         value="{{ old('activo', $activo->activocontable) }}">
-    
+
     <!-- FIN IMPUT  ACTIVO CONTABLE -->
 <br>
 
@@ -44,7 +44,7 @@
         {{ $message }}
     @enderror </span>
 <select class="form-select" id="equipo" name="equipo">
- 
+
     @foreach ($equipos as $equipo)
     @if(old('equipo') == $equipo->id_equipo)
     <option value="{{$equipo->id_equipo}}" selected> {{ $equipo->equipo }}</option>
@@ -52,12 +52,12 @@
     <option value="{{$equipo->id_equipo}}"> {{$equipo->equipo }}</option>
 
     @endif
-       
+
     @endforeach
 
     @if ( isset($tipoEquipo2) )
- 
-   
+
+
     @endif
 </select>
 <br>
@@ -73,31 +73,31 @@
         {{ $message }}
     @enderror </span>
 <select class="form-select" id="marca" name="marca">
-   
-    
+
+
     @foreach ($marcas as $marca)
- 
+
     @if(old('marca') == $marca->id_marca)
-    
+
     <option value="{{$marca->id_marca}}" > {{ $marca->marca }}</option>
 @else
     <option value="{{$marca->id_marca}}"> {{ $marca->marca }}</option>
 @endif
-      
+
     @endforeach
 @if (isset($marcas2))
 @foreach ($marcas2 as $marca)
- 
+
 @if(old('marca') == $marca->id_marca)
 
 <option value="{{$marca->id_marca}}" > {{ $marca->marca }}</option>
 @else
 <option value="{{$marca->id_marca}}"> {{ $marca->marca }}</option>
 @endif
-  
+
 @endforeach
 @endif
-   
+
 </select>
 <br>
 <!--FIN IMPUT  MARCA -->
@@ -158,11 +158,11 @@
 <option value="{{$propietario->id_propietario}}"> {{$propietario->nombre_propietario }}</option>
 
 @endif
-   
+
 @endforeach
 
 @if (isset($propietarios))
-    
+
 @foreach ($propietarios as $propietario)
 
 @if(old('propietario') == $propietario->id_propietario)
@@ -171,7 +171,7 @@
 <option value="{{$propietario->id_propietario}}"> {{$propietario->nombre_propietario }}</option>
 
 @endif
-   
+
 @endforeach
 @endif
 </select>
@@ -186,7 +186,7 @@
         {{ $message }}
     @enderror </span>
 <select class="form-select" id="id_proveedor" name="id_proveedor">
-   
+
     @foreach ($proveedor as $proveedor)
     @if(old('id_proveedor') == $proveedor->id_proveedor)
     <option value="{{$proveedor->id_proveedor}}" selected> {{ $proveedor->nombre_proveedor }}</option>
@@ -194,7 +194,7 @@
     <option value="{{ $proveedor->id_proveedor}}"> {{ $proveedor->nombre_proveedor }}</option>
 
     @endif
-       
+
     @endforeach
     @if (isset($proveedores ))
     @foreach ($proveedores as $proveedor)
@@ -204,7 +204,7 @@
     <option value="{{ $proveedor->id_proveedor}}"> {{ $proveedor->nombre_proveedor }}</option>
 
     @endif
-       
+
     @endforeach
     @endif
 </select>
@@ -229,20 +229,20 @@
     <option value="{{ $estado->id_estado}}"> {{$estado->estado }}</option>
 
     @endif
-       
+
     @endforeach
-   
+
     @if (isset($estados2 ))
-    
+
     @foreach ($estados2 as $estado)
- 
+
     @if(old('id_estado') == $proveedor->id_proveedor)
     <option value="{{$estado->id_estado}}" selected> {{ $estado->estado }}</option>
 @else
     <option value="{{ $estado->id_estado}}"> {{$estado->estado }}</option>
 
     @endif
-       
+
     @endforeach
     @endif
 </select>
@@ -261,7 +261,7 @@
 @enderror </span>
 <select class="form-select" id="tipo_de_equipo" name="tipo_de_equipo">
 
-    
+
 
 @foreach ($tipoEquipo as $tipoEquipos)
 @if(old('tipo_de_equipo') == $tipoEquipos->id_equipo)
@@ -270,7 +270,7 @@
 <option value="{{  $tipoEquipos->id_equipo}}"> {{ $tipoEquipos->tipo_de_equipo }}</option>
 
 @endif
-   
+
 @endforeach
 
 
@@ -283,7 +283,7 @@
 <!---INICIO DE SELEC TIPO DE EQUIPO-->
 
 
-<!---FINDE SELEC TIPO DE EQUIPO
+<!---FINDE SELEC TIPO DE EQUIPO-->
 <br>
 <label class="uppercase text-gray-700 text-xs">Cliente</label>
 <br>
@@ -292,8 +292,8 @@
     @enderror
 </span>
 <br>
--->
-<!---INICIO DE SELEC TIPO DE CLIENTE
+
+<!---INICIO DE SELEC TIPO DE CLIENTE-->
 
  <select class="form-select" id="cliente" name="cliente">
     <option value=" ">Seleccione el cliente </option>
@@ -305,15 +305,15 @@
     <option value="{{$cliente->id_cliente}}"> {{$cliente->nombre_cliente }}</option>
 
     @endif
-     
+
     @endforeach
 </select>
--->
+
 <br>
 
 
 
-<!---INICIO DE SELEC TIPO DE SEDE
+<!---INICIO DE SELEC TIPO DE SEDE-->
 
 <span style="color: red"> @error('sede')
     {{ $message }}
@@ -330,12 +330,12 @@
     <option value="{{ $sede->id_sede}}"> {{$sede->nombre_sede }}</option>
 
     @endif
-        
+
     @endforeach
 </select>
 <br>
 
--->
+
 
 
 

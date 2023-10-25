@@ -21,7 +21,10 @@ use App\http\Controllers\EntradaController;
 use App\Http\Controllers\ContratoController;
 use App\Http\Controllers\PropietariosController;
 use App\Http\Controllers\UsuariosController;
+use App\Http\Controllers\ReporteCartaDeEnvioController;
 use App\Models\Usuarios;
+use App\Models\DetalleMovimiento;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -38,7 +41,7 @@ use App\Models\Usuarios;
 
 
 Route::controller(ActivoController::class)->group(function(){
- 
+
     Route::resource('activos', ActivoController::class);
 
 });
@@ -55,8 +58,8 @@ Route::controller(ContratoController::class)->group(function(){
 
 
     Route::resource('contratos', ContratoController::class);
-  
-  
+
+
   });
 
 Route::controller(RolesController::class)->group( function(){
@@ -76,13 +79,13 @@ Route::resource('tipoMovimiento', TipoMovimientoController::class);
 
 
 Route::controller(CiudadesController::class)->group(function()
-{  
+{
     Route::resource('ciudades', CiudadesController::class);
 
 });
 
 Route::controller(EstadosController::class)->group(function()
-{  
+{
     Route::resource('estados', EstadosController::class);
 
 });
@@ -90,13 +93,13 @@ Route::controller(EstadosController::class)->group(function()
 Route::controller(TipoDeEquipoController::class)->group(function(){
 
     Route::resource('tipoEquipo', TipoDeEquipoController::class);
-    
+
 });
 
 Route::controller(ProveedoresController::class)->group(function(){
 
     Route::resource('proveedores', ProveedoresController::class);
-    
+
 });
 
 Route::controller(SedeController::class)->group(function(){
@@ -107,12 +110,12 @@ Route::controller(SedeController::class)->group(function(){
 Route::controller(CabeceraMovimientoController::class)->group(function(){
 
     Route::resource('movimientos', CabeceraMovimientoController::class);
-    
+
 });
 Route::controller(EntradaController::class)->group(function(){
 
     Route::resource('entrada', EntradaController::class);
-    
+
 });
 Route::controller(UsuariosController::class)->group(function(){
 
@@ -144,6 +147,12 @@ Route::controller(PropietariosController::class)->group(function(){
     Route::resource('propietarios', PropietariosController::class);
 });
 
+Route::controller(ReporteCartaDeEnvioController::class)->group(function(){
+
+    Route::resource('reportes',ReporteCartaDeEnvioController::class);
+});
+
+Route::get('ReporteCarta/{otro}',[App\Http\Controllers\ReporteCartaDeEnvioController::class,'pdf'])->name('reportes.show');
 
 
 

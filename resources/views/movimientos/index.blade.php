@@ -4,7 +4,7 @@
 @section('title', 'Movimientos')
 
 @section('content_header')
-   
+
 @stop
 
 @section('content')
@@ -12,12 +12,12 @@
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Movimientos') }}
-            <a  class="bg-gray-800 text-white rounded px-4 py-2" 
+            <a  class="bg-gray-800 text-white rounded px-4 py-2"
             href="{{route('movimientos.create')}}"> Generar movimientos</a>
-          
+
         </h2>
     </x-slot>
-   
+
 
     <section>
         <div class="card ">
@@ -30,43 +30,43 @@
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                       <a class="dropdown-item " href="{{ route('movimientos.create') }}"> Generar un proximo movimiento  </a>
                        <button type="button" class="dropdown-item" data-toggle="modal" data-target="#exampleModal" data-whatever="@fat">movimiento de entrada</button>
-            
+
                     </div>
                   </div>
-                
-                    
-                    
-              
+
+
+
+
 
             </div>
             <div class="card-body">
                 <table id="movimientos" class="table table-striped" style="width:80%">
-                     
+
                     <thead>
                         <tr>
-                           
+
                             <th>Cliente</th>
                             <th>Sede</th>
                             <th>Movimiento</th>
                             <th>Detalle</th>
                             <th>Fecha</th>
                             <th>Opciones</th>
-                          
-                           
+
+
                         </tr>
                     </thead>
                     <tbody>
 
                       @foreach ( $movimientos as $movimiento)
                       <tr>
-                    
+
                         <td>{{ $movimiento->clientes->nombre_cliente    }}</td>
                         <td>{{ $movimiento->sedes->nombre_sede          }}</td>
                         <td>{{ $movimiento->tipoMovimiento->movimiento  }}</td>
                         <td>{{ $movimiento->detalle ?? ''    }}</td>
                         <td>{{ $movimiento->inicio                      }}</td>
                         <td class="">
-                          
+
                             <div class="dropdown">
                                 <a class="btn btn-secondary dropdown-toggle" href="#" role="button"
                                     id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
@@ -76,21 +76,22 @@
 
                                 <div class="dropdown-menu dropdown-menu-dark"
                                 aria-labelledby="dropdownMenuLink">
-                                <li>  <a href="{{route('movimientos.edit',  $movimiento )}}"   class="dropdown-item active" >Generar carta para cliente</a></li>
+
+                                <li>  <a href="{{route('reportes.show',  $movimiento )}}"   class="dropdown-item " >Generar carta</a></li>
                                 <li>  <a href="{{route('movimientos.edit',  $movimiento )}}"   class="dropdown-item " >Generar formato de prestamo</a></li>
                                 <li>  <a href="{{route('movimientos.edit',  $movimiento )}}"   class="dropdown-item " >Generar Boleta</a></li>
 
 
-                                
+
 
 
 
                             </div>
-                                
+
                             </div>
                         </td>
-                         
-                           
+
+
                     </tr>
                       @endforeach
 
@@ -99,7 +100,7 @@
 
             </div>
             <div class="card-footer text-muted">
-               
+
             </div>
         </div>
 
@@ -107,7 +108,7 @@
     </section>
 <hr>
 </div>
- 
+
 <!----nodal-->
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -120,11 +121,11 @@
           </button>
         </div>
         <div class="modal-body">
-           
+
            <form action="{{route('entrada.create')}}">
           @csrf
             <div class="col-md-6">
-        
+
               <div class="input-group-prepend">
 
                   <label class="input-group-text" for="inputGroupSelect01">Cliente</label>
@@ -153,11 +154,11 @@
    <input class="btn btn-primary" type="submit" value="generar movmiento de entrada">
 
            </form>
-        
+
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-       
+
         </div>
       </div>
     </div>
@@ -177,7 +178,7 @@
     <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
     <script src="   https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
   <script>
-   
+
   </script>
   <script>
     $(document).ready(function() {
@@ -191,7 +192,7 @@
 
 
     "paginate": {
-       
+
 "first": "Primero",
 "last": "Ultimo",
 "next": "Siguiente",
@@ -238,26 +239,26 @@ language: {
                       type: 'get',
                       success: function (res) {
                           $('#sede').html('<option value="">Seleccione sede</option>');
-            
+
                           $.each(res, function (key, value) {
                               $('#sede').append('<option value="' + value
                                   .id_sede + '">' + value.nombre_sede + '</option>');
                           });
-                         
-                        
-                         
-                         
+
+
+
+
                       }
                   });
-              }); 
-          
-          });  
-          
-  
-        
-   
-         
+              });
+
+          });
+
+
+
+
+
            </script>
-    
+
 
 @stop

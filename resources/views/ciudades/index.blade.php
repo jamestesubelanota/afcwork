@@ -29,7 +29,7 @@
                         <nav class="navbar bg-light">
                             <div class="container-fluid">
                                 @can('ciudades.create')
-                                <a class="btn btn-primary" href="{{ route('ciudades.create') }}"> Agregar una ciudad </a>
+                                    <a class="btn btn-primary" href="{{ route('ciudades.create') }}"> Agregar una ciudad </a>
                                 @endcan
 
                             </div>
@@ -53,7 +53,7 @@
 
                                 @foreach ($ciudad as $ciudad)
                                     <tr>
-                                         <td>{{ $ciudad->cod_dane }}</td>
+                                        <td>{{ $ciudad->cod_dane }}</td>
                                         <td>{{ $ciudad->departamento }}</td>
                                         <td>{{ $ciudad->nombre_ciudad }}</td>
 
@@ -134,18 +134,19 @@
                 language: {
                     "search": "Buscar:",
 
-                        //
+                    //
                     "info": "Mostrando _START_ a _END_ de _TOTAL_ ciudades",
 
 
                     "paginate": {
-            "first"      : "Primero",
-            "last"       : "Ultimo",
-            "next"       : "Siguiente",
-            "previous"   : "Anterior",
-            "Show"       :"mostrar", "infoFiltered": "(Filtrado de _MAX_ total entradas)"
+                        "first": "Primero",
+                        "last": "Ultimo",
+                        "next": "Siguiente",
+                        "previous": "Anterior",
+                        "Show": "mostrar",
+                        "infoFiltered": "(Filtrado de _MAX_ total entradas)"
 
-        },
+                    },
 
                 }
 

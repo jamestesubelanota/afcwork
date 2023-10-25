@@ -38,7 +38,7 @@ class ActivoController extends Controller
   public function create(Request $request,  Activo $activo)
   {
 
-    // se imboca un objeto basio 
+    // se imboca un objeto basio
     $equipos = Equipo::all();
     $marcas  = Marca::all();
     $proveedor          = Proveedores::all();
@@ -99,11 +99,11 @@ class ActivoController extends Controller
     ]);
 
     #fin validadacion
-  
-   
 
-  
-    
+
+
+
+
     $activo->activo            =   $request->activo;
     $activo->activocontable    =   $request->activocontable;
     $activo->id_equipo         =   $request->equipo;
@@ -120,44 +120,44 @@ class ActivoController extends Controller
     $activo->id_user =  Auth::id('id_user');
 
     $activo->save();
-    
+
 
       if( $activo){
 
-        
+
         $request->hasFile('foto');
-        $archivo = $request->file('foto'); 
+        $archivo = $request->file('foto');
 
         foreach($archivo as $file){
 
           $type  = pathinfo(  $file , PATHINFO_EXTENSION);
-  
+
           $data = file_get_contents(  $file);
           $imagenBase64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
-         
+
           $foto = new Fotos();
-  
+
           $foto->foto =  $imagenBase64;
           $idAc = Activo::latest('id_activo')->first();
           $foto->id_activo =   $idAc->id_activo;
           $foto->save();
 
         }
-      
-        
+
+
     }
-      
 
 
 
-  
-         
-  
+
+
+
+
 
     return redirect()->route('activos.index');
   }
 
- 
+
 
 
 
@@ -170,7 +170,7 @@ class ActivoController extends Controller
     $proveedor    = Proveedores::where('id_proveedor', $activo->id_proveedor)->get();
     $proveedores = Proveedores::all();
     $estados      =  Estados::all();
-    $estados2 = Estados::where('id_estado', '=' ,$activo->id_estado)->get();  
+    $estados2 = Estados::where('id_estado', '=' ,$activo->id_estado)->get();
     $tipoEquipo   = TipoDeEquipo::where('id_equipo' ,'=', $activo-> id_tipoEquipo)->get();
     $tipoEquipos = TipoDeEquipo::all();
     $marcas       = Marca::where('id_marca','=',  $activo->id_marca)->get();
@@ -187,10 +187,10 @@ class ActivoController extends Controller
       'activos.edit',
 
       [
-        'activo'      => $activo, 
+        'activo'      => $activo,
         'proveedor'   => $proveedor,
-        'proveedores' =>   $proveedores, 
-        'estados'     => $estados, 
+        'proveedores' =>   $proveedores,
+        'estados'     => $estados,
         'estados2' =>  $estados2,
         'tipoEquipo'  =>  $tipoEquipo,
         'equipos'     => $equipos,
@@ -200,7 +200,7 @@ class ActivoController extends Controller
         'propietario' =>     $propietarios,
         'propietarios' =>  $propietarios2 ,
         'marcas2' =>  $marcas2,
-        'tipoEquipos' =>   $tipoEquipos 
+        'tipoEquipos' =>   $tipoEquipos
       ]
     );
   }
@@ -210,7 +210,7 @@ class ActivoController extends Controller
   {
 
     $request->validate([
-      
+
       'activo' => 'required ',
       'activocontable' => 'required ',
       'equipo' => 'required ',
@@ -226,16 +226,16 @@ class ActivoController extends Controller
       //'sede' => 'required',
     ]);
    #fin validadacion
-  
+
 
     $activos = Activo::find($activo);
 
 
-  
-   
 
-  
-    
+
+
+
+
     $activos->activo            =  $request->activo;
     $activos->activocontable  =  $request->activocontable;
     $activos->id_equipo         =  $request->equipo;
@@ -243,7 +243,7 @@ class ActivoController extends Controller
     $activos->serial            =  $request->serial;
     $activos->costo             =  $request->costo;
     $activos->modelo            =  $request->modelo;
-   
+
     $activos->id_proveedor      =  $request->id_proveedor;
     $activos->id_estado         =  $request->id_estado;
     $activos->id_tipoEquipo     =  $request->tipo_de_equipo;
@@ -252,14 +252,14 @@ class ActivoController extends Controller
     $activos->id_user =  Auth::id('id_user');
 
     $activos->save();
-    
 
-      
 
-      
 
-   
-   
+
+
+
+
+
        return redirect()->route('activos.index');
   }
 
@@ -279,9 +279,9 @@ class ActivoController extends Controller
   {
     $activo = Activo::find($activo);
     $foto = Fotos::where('id_activo', $activo->id_activo)->get(['id_activo', 'foto']);
-   
+
     $movimientos = DetalleMovimiento::where('id_activo', $activo->id_activo)->get(['id_activo', 'id_cabecera']);
-    
+
     return view('activos.ver', ['activo' =>  $activo, 'movimientos' =>  $movimientos, 'fotos' => $foto ]);
   }
 }
