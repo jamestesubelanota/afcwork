@@ -26,9 +26,9 @@ class DatabaseSeeder extends Seeder
       \App\Models\TipoMovimiento::factory()->create([ 'movimiento'=> 'Traslado']);
       \App\Models\Ciudades::factory()->create([
         'cod_dane'  => 'prueba',
-        'departamento'  => 'Districo capital',
+        'departamento'  => 'Distrito capital',
         'nombre_ciudad' => 'Bogota'
-        
+
         ]);
         $this->call(RoleSeeder::class);
 
@@ -38,7 +38,7 @@ class DatabaseSeeder extends Seeder
              'identificacion'=> '1018495835',
              'password'  => bcrypt('123456'),
              'estado' => 'activo',
-             
+
          ])->assignRole('MasterDeveloment');
          \App\Models\User::factory()->create([
           'name' => 'el pruebitas',
@@ -46,16 +46,16 @@ class DatabaseSeeder extends Seeder
           'identificacion'=> '1018',
           'password'  => bcrypt('123456'),
           'estado' => 'activo',
-          
+
       ])->assignRole('Tecnico');
       \App\Models\Cargo::factory()->create([
         'cargo' =>'Bacteriologo Asesor',
-       
-     
-  
-  
+
+
+
+
       ]);
-  
+
 
     \App\Models\Colaboradores::factory()->create([
       'nombre_colaborador' =>'compro',
@@ -71,8 +71,8 @@ class DatabaseSeeder extends Seeder
          'nit' => '860350711',
          'razon_social' =>'Comerzialisadora de laboraboratorio',
          'detalle' => 'Comprolab S.A.S',
-    
-    
+
+
     ]);
     \App\Models\Sede::factory()->create([
       'nombre_sede' => 'Bodega',
@@ -84,9 +84,9 @@ class DatabaseSeeder extends Seeder
       'cliente_id'  => '1',
       'id_colaborador'  => '1',
       'id_colaborador2'  => '1',
-      
+
       ]);
-      
+
       \App\Models\Sede::factory()->create([
         'nombre_sede' => 'Principal',
         'direccion'   => 'calle 106 54-63',
@@ -97,12 +97,12 @@ class DatabaseSeeder extends Seeder
         'cliente_id'  => '1',
         'id_colaborador'  => '1',
         'id_colaborador2'  => '1',
-        
-        ]);
-        
 
-      
-  
-  
+        ]);
+
+
+
+
+
     }
 }
