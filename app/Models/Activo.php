@@ -11,7 +11,7 @@ class Activo extends Model
     use HasFactory;
 
     protected $primaryKey = "id_activo";
-    protected $fillable = 
+    protected $fillable =
     ["activo",
     "activocontable",
     "id_equipo",
@@ -26,7 +26,7 @@ class Activo extends Model
      "id_cliente",
      "id_sede",
      "id_usuario",
-     "foto", 
+     "foto",
      "foto2"
     ];
 
@@ -65,6 +65,11 @@ class Activo extends Model
     public  function propietario(){
 
         return $this->belongsTo(Propietarios::class, "id_propietario");
+    }
+
+    public function fotos()
+    {
+        return $this->hasMany(Foto::class);
     }
 
 }

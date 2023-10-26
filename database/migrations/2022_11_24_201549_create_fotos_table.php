@@ -18,7 +18,7 @@ return new class extends Migration
 
             $table->string('foto');
             $table->unsignedInteger('id_activo');
-            $table->foreign('id_activo')->references('id_activo')->on('activos');
+            $table->foreign('id_activo')->references('id_activo')->on('activos')->onDelete('cascade');
             $table->timestamps();
         });
     }

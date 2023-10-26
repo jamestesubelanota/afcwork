@@ -82,20 +82,20 @@ class ActivoController extends Controller
     $activo = new Activo();
     #validacion
     $request->validate([
-      'foto' => 'required',
-      'activo' => 'required | unique:activos,activo',
+      'foto'           => 'required',
+      'activo'         => 'required | unique:activos,activo',
       'activocontable' => 'required | unique:activos,activocontable',
-      'equipo' => 'required ',
-      'marca' => 'required',
-      'serial' => 'required | unique:activos,serial',
-      'costo' => 'required',
-      'modelo' => 'required',
-      'propietario' => 'required',
-      'id_proveedor' => 'required',
-      'id_estado' => 'required',
+      'equipo'         => 'required ',
+      'marca'          => 'required',
+      'serial'         => 'required | unique:activos,serial',
+      'costo'          => 'required',
+      'modelo'         => 'required',
+      'propietario'    => 'required',
+      'id_proveedor'   => 'required',
+      'id_estado'      => 'required',
       'tipo_de_equipo' => 'required',
-      'cliente' => 'required',
-      'sede' => 'required',
+      'cliente'        => 'required',
+      'sede'           => 'required',
     ]);
 
     #fin validadacion
