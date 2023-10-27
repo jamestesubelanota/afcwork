@@ -247,8 +247,8 @@ class ActivoController extends Controller
     $activos->id_proveedor      =  $request->id_proveedor;
     $activos->id_estado         =  $request->id_estado;
     $activos->id_tipoEquipo     =  $request->tipo_de_equipo;
-   // $activo->id_cliente   =  $request->cliente;
-   //  $activos->id_sede    =  $request->sede;
+    $activo->id_cliente   =  $request->id_cliente;
+    $activos->id_sede    =  $request->id_sede;
     $activos->id_user =  Auth::id('id_user');
 
     $activos->save();

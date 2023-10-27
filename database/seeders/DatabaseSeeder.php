@@ -82,8 +82,6 @@ class DatabaseSeeder extends Seeder
       'telefono'    => '17426486',
       'ciudad_id'   => '1',
       'cliente_id'  => '1',
-      'id_colaborador'  => '1',
-      'id_colaborador2'  => '1',
 
       ]);
 
@@ -95,8 +93,7 @@ class DatabaseSeeder extends Seeder
         'telefono'    => '17426486',
         'ciudad_id'   => '1',
         'cliente_id'  => '1',
-        'id_colaborador'  => '1',
-        'id_colaborador2'  => '1',
+
 
         ]);
 

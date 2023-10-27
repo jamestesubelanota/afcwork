@@ -28,10 +28,7 @@ return new class extends Migration
             $table->unsignedInteger('cliente_id');
             // se hace la relacion de la tabla
             $table->foreign('cliente_id')->references('id_cliente')->on('clientes');
-            $table->unsignedInteger('id_colaborador');
-            // se hace la relacion de la tabla
-            $table->foreign('id_colaborador')->references('id_colaborador')->on('colaboradores');
-            $table->integer('id_colaborador2');
+
             // se hace la relacion de la tabla
 
 

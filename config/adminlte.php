@@ -349,7 +349,11 @@ return [
                     'text' => 'Movimiento',
                     'url'  => 'tipoMovimiento',
                 ],
-        
+                [
+                    'text' => 'Cargos',
+                    'url'  => 'cargos',
+                ],
+
                 [
                     'text' => 'Roles',
                     'url'  => 'roles',
@@ -368,7 +372,7 @@ return [
             'text'    => 'Activos',
             'icon'    => 'fas fa-laptop-code fa-lg',
             'submenu' => [
-              
+
                 [
                     'text' => 'Activos',
                     'url'  => 'activos',
@@ -376,15 +380,15 @@ return [
 
             ],
         ],
-       
-      
+
+
         [
             'text'        => 'Usuarios',
             'url'         => 'usuarios',
             'icon'        => 'fas fa-user-friends',
             'label'       => 4,
             'label_color' => 'success',
-        ],   
+        ],
          [
             'text'        => 'Movimientos',
             'url'         => 'movimientos',
@@ -395,7 +399,7 @@ return [
 
 
 
-      
+
 
         [
             'text'    => 'Clientes',
@@ -408,13 +412,16 @@ return [
                 [
                     'text' => 'Sedes',
                     'url'  => 'sedes',
+                ], [
+                    'text' => 'Asignar Colaborador',
+                    'url'  => 'asignarColaborador',
                 ],
 
             ],
         ],
 
         ['header' => 'Comprolab S.A.S'],
-       
+
     ],
 
     /*

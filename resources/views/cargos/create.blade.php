@@ -34,7 +34,7 @@
                                     <form action=" {{ route('ciudades.store') }}" method="POST">
                                         <!--esitar methodo put-->
                                         @csrf
-                                        @include('ciudades._form')
+                                        @include('cargos._form')
 
                                     </form>
 

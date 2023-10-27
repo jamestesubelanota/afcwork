@@ -10,9 +10,9 @@
 @section('content')
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+        <h2 class="text-xl font-semibold leading-tight text-gray-800">
             {{ __('Movimientos') }}
-            <a  class="bg-gray-800 text-white rounded px-4 py-2"
+            <a  class="px-4 py-2 text-white bg-gray-800 rounded"
             href="{{route('movimientos.create')}}"> Generar movimientos</a>
 
         </h2>
@@ -20,149 +20,105 @@
 
 
     <section>
-        <div class="card ">
+        <div class="card">
             <div class="card-header">
-
                 <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                     Generar movimientos
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Generar Movimientos
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                      <a class="dropdown-item " href="{{ route('movimientos.create') }}"> Generar un proximo movimiento  </a>
-                       <button type="button" class="dropdown-item" data-toggle="modal" data-target="#exampleModal" data-whatever="@fat">movimiento de entrada</button>
-
+                        <a class="dropdown-item" href="{{ route('movimientos.create') }}">Generar un próximo movimiento</a>
+                        <button type="button" class="dropdown-item" data-toggle="modal" data-target="#exampleModal"
+                            data-whatever="@fat">Movimiento de Entrada</button>
                     </div>
-                  </div>
-
-
-
-
-
+                </div>
             </div>
             <div class="card-body">
-                <table id="movimientos" class="table table-striped" style="width:80%">
-
+                <table id="movimientos" class="table table-striped" style="width:100%">
                     <thead>
                         <tr>
-
                             <th>Cliente</th>
                             <th>Sede</th>
                             <th>Movimiento</th>
                             <th>Detalle</th>
                             <th>Fecha</th>
                             <th>Opciones</th>
-
-
                         </tr>
                     </thead>
                     <tbody>
-
-                      @foreach ( $movimientos as $movimiento)
-                      <tr>
-
-                        <td>{{ $movimiento->clientes->nombre_cliente    }}</td>
-                        <td>{{ $movimiento->sedes->nombre_sede          }}</td>
-                        <td>{{ $movimiento->tipoMovimiento->movimiento  }}</td>
-                        <td>{{ $movimiento->detalle ?? ''    }}</td>
-                        <td>{{ $movimiento->inicio                      }}</td>
-                        <td class="">
-
-                            <div class="dropdown">
-                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button"
-                                    id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
-                                    aria-expanded="false">
-                                    Acciones
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-dark"
-                                aria-labelledby="dropdownMenuLink">
-
-                                <li>  <a href="{{route('reportes.show',  $movimiento )}}"   class="dropdown-item " >Generar carta</a></li>
-                                <li>  <a href="{{route('movimientos.edit',  $movimiento )}}"   class="dropdown-item " >Generar formato de prestamo</a></li>
-                                <li>  <a href="{{route('movimientos.edit',  $movimiento )}}"   class="dropdown-item " >Generar Boleta</a></li>
-
-
-
-
-
-
-                            </div>
-
-                            </div>
-                        </td>
-
-
-                    </tr>
-                      @endforeach
-
+                        @foreach ($movimientos as $movimiento)
+                            <tr>
+                                <td>{{ $movimiento->clientes->nombre_cliente }}</td>
+                                <td>{{ $movimiento->sedes->nombre_sede }}</td>
+                                <td>{{ $movimiento->tipoMovimiento->movimiento }}</td>
+                                <td>{{ $movimiento->detalle ?? '' }}</td>
+                                <td>{{ $movimiento->inicio }}</td>
+                                <td class="options">
+                                    <div class="dropdown">
+                                        <a class="btn btn-secondary dropdown-toggle" href="#" role="button"
+                                            id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                                            aria-expanded="false">
+                                            Acciones
+                                        </a>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                            <a href="{{ route('reportes.show', $movimiento) }}" class="dropdown-item">Generar carta</a>
+                                            <a href="{{ route('movimientos.edit', $movimiento) }}" class="dropdown-item">Generar formato de prestamo</a>
+                                            <a href="{{ route('movimientos.edit', $movimiento) }}" class="dropdown-item">Generar Boleta</a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
-
             </div>
             <div class="card-footer text-muted">
-
             </div>
         </div>
-
-
     </section>
-<hr>
 </div>
 
-<!----nodal-->
-
+<!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Selecciona hospital y sede</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Selecciona hospital y sede</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="{{ route('entrada.create') }}">
+                    @csrf
+                    <div class="form-group">
+                        <label for="cliente">Cliente</label>
+                        <select class="form-control" name="cliente" id="cliente">
+                            <option value="" selected>Seleccione el cliente</option>
+                            @foreach ($clientes as $cliente)
+                                <option value="{{ $cliente->id_cliente }}">{{ $cliente->nombre_cliente }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="sede">Sede</label>
+                        <select class="form-control" name="sede" id="sede">
+                            <option value="" selected>Seleccione la sede</option>
+                        </select>
+                    </div>
+                    <hr>
+                    <div class="text-center">
+                        <button class="btn btn-primary btn-round" type="submit">Generar movimiento de entrada</button>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
         </div>
-        <div class="modal-body">
-
-           <form action="{{route('entrada.create')}}">
-          @csrf
-            <div class="col-md-6">
-
-              <div class="input-group-prepend">
-
-                  <label class="input-group-text" for="inputGroupSelect01">Cliente</label>
-              </div>
-              <select name="cliente" class="custom-select" id="cliente">
-                  <option selected>Selecione el cliente</option>
-                  @foreach ($clientes as $cliente)
-                      <option value="{{ $cliente->id_cliente }}" selected>
-                          {{ $cliente->nombre_cliente }}</option>
-                  @endforeach
-              </select>
-          </div>
-          <div class="col-md-6">
-              <label class="input-group-text" for="inputGroupSelect01">Sedes</label>
-
-              <select class="custom-select" name="sede" id="sede">
-                  <option selected>Seleccione la sede </option>
-                  @foreach ($sedes as $sede)
-                      <option value="{{ $sede->id_sede }}" selected>{{ $sede->nombre_sede }}</option>
-                  @endforeach
-              </select>
-          </div>
-<hr>
-
-
-   <input class="btn btn-primary" type="submit" value="generar movmiento de entrada">
-
-           </form>
-
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-
-        </div>
-      </div>
     </div>
-  </div>
+</div>
 </x-app-layout>
 @stop
 
