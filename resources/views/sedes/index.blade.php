@@ -9,14 +9,14 @@
 @section('content')
     <x-app-layout>
         <x-slot name="header">
-          
+
         </x-slot>
 
 
         <div class="container"style="background:linear-gradient(30deg, white,#004593, white, #004593, white);"
         class="vh-100 gradient-custom">
         <br>
-    
+
         <section>
             <div class="card ">
                 <div class="card-header">
@@ -25,7 +25,7 @@
                             <a class="btn btn-primary" href="{{ route('sedes.create') }}"> Agregar una sede </a>
                         </div>
                     </nav>
-    
+
                 </div>
                 <div class="card-body">
                     <table id="Proveedores" class="table table-striped" style="width:80%">
@@ -55,7 +55,7 @@
                                     <td> <Span>{{ $sede->cliente->nombre_cliente }}</Span> </td>
 
 
-                                    <td class=" px-6 py-6">
+                                    <td class="px-6 py-6 ">
 
                                         <div class="dropdown">
                                             <a class="btn btn-secondary dropdown-toggle" href="#" role="button"
@@ -66,7 +66,7 @@
 
                                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                               <li><a href="{{ route('sedes.edit', $sede->id_sede) }}"
-                                                class="dropdown-item active">Editar</a></li>  
+                                                class="dropdown-item active">Editar</a></li>
 
                                                 <form action="   {{ route('sedes.destroy', $sede->id_sede) }}"
                                                     method="POST">
@@ -90,18 +90,18 @@
 
                         </tbody>
                     </table>
-    
+
                 </div>
                 <div class="card-footer text-muted">
-                  
+
                 </div>
             </div>
-    
-    
+
+
         </section>
     <hr>
     </div>
-     
+
     </x-app-layout>
 @stop
 

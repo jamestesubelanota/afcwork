@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CiudadesController;
 use App\Http\Controllers\ClientesController;
 use App\Http\Controllers\ColaboradoresController;
+use App\Http\Controllers\ColaboradorSedesController;
 use App\Http\Controllers\CargoController;
 use App\Http\Controllers\EstadosController;
 use App\Http\Controllers\TipoDeEquipoController;
@@ -155,6 +156,10 @@ Route::controller(ReporteCartaDeEnvioController::class)->group(function(){
 Route::controller(CargoController::class)->group(function(){
 
     Route::resource('cargos',CargoController::class);
+});
+Route::controller(ColaboradorSedesController::class)->group(function(){
+
+    Route::resource('asignarcolaborador',ColaboradorSedesController::class);
 });
 
 Route::get('ReporteCarta/{otro}',[App\Http\Controllers\ReporteCartaDeEnvioController::class,'pdf'])->name('reportes.show');

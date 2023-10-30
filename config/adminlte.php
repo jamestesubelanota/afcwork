@@ -413,8 +413,8 @@ return [
                     'text' => 'Sedes',
                     'url'  => 'sedes',
                 ], [
-                    'text' => 'Asignar Colaborador',
-                    'url'  => 'asignarColaborador',
+                    'text' => 'asignarcolaborador',
+                    'url'  => 'asignarcolaborador',
                 ],
 
             ],
