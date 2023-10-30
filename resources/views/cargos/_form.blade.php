@@ -1,5 +1,10 @@
 @csrf
 
+@if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
 <label class="text-xs text-gray-700 uppercase" >cargos-</label>
 <span class="text-xs" style="color: red">@error('cargo') {{$message}} @enderror  </span>
 
@@ -8,6 +13,8 @@
 <br>
 
 <div>
-<a   class="btn btn-dark"  href="{{route('ciudades.index')}}">volver</a>
+<a   class="btn btn-dark"  href="{{route('cargos.index')}}">volver</a>
 <input type="submit" value="Guardar "  class="btn btn-dark" >
 </div>
+
+

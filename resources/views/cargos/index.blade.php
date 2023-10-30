@@ -62,11 +62,11 @@
                                                 </a>
 
                                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                                    <li>   <a href="{{ route('equipos.edit', $cargos->id_cargo) }}"
+                                                    <li>   <a href="{{ route('cargos.edit', $cargos->id_cargo) }}"
                                                         class="dropdown-item active">editar</a></li>
 
 
-                                                    <form action="   {{ route('equipos.destroy', $cargos->id_cargo) }}"
+                                                    <form action="   {{ route('cargos.destroy', $cargos->id_cargo) }}"
                                                         method="POST">
 
                                                         @csrf

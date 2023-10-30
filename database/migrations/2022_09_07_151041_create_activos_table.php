@@ -50,7 +50,7 @@ return new class extends Migration
             // se hace la relacion de la tabla
             $table->foreign('id_sede')->references('id_sede')->on('sedes');
             // // se hace la relacion de la tabla
-            $table->integer('id_user');
+            $table->integergitgit('id_user');
             // se hace la relacion de la tabla
             $table->foreign('id_user')->references('id_user')->on('users');
             $table->timestamps();
