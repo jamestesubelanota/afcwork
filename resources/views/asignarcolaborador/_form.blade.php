@@ -5,6 +5,11 @@
         {{ session('success') }}
     </div>
 @endif
+@if(session('error'))
+    <div class="alert alert-danger">
+        {{ session('error') }}
+    </div>
+@endif
 <h4>Cliente</h4>
 <select class="form-select" id="cliente" name="cliente">
 

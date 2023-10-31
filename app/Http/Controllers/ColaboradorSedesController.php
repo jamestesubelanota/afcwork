@@ -33,14 +33,24 @@ class ColaboradorSedesController extends Controller
                                        ]
     );
     }
-    public function store( Request $request  ){
-        $asginacionDeColaborador = new ColaboradorSedes();
+    public function store(Request $request)
+    {
+        $sedeId = $request->sede;
+        $colaboradorId = $request->colaborador;
 
-        $asginacionDeColaborador->id_colaborador =  $request->colaborador;
-        $asginacionDeColaborador->id_sede = $request->sede;
-        $asginacionDeColaborador->save();
+        // Verifica cuántos colaboradores ya están registrados en la sede
+        $colaboradoresCount = ColaboradorSedes::where('id_sede', $sedeId)->count();
 
-return redirect()->route('asignarcolaborador.create')->with('success', 'Empleado asginado con éxito');
+        if ($colaboradoresCount >= 2) {
+            return redirect()->route('asignarcolaborador.create')->with('error', 'Ya hay dos colaboradores en esta sede.');
+        }
 
+        // Crea y guarda la nueva asignación de colaborador
+        $asignacionDeColaborador = new ColaboradorSedes();
+        $asignacionDeColaborador->id_colaborador = $colaboradorId;
+        $asignacionDeColaborador->id_sede = $sedeId;
+        $asignacionDeColaborador->save();
+
+        return redirect()->route('asignarcolaborador.create')->with('success', 'Empleado asignado con éxito');
     }
 }

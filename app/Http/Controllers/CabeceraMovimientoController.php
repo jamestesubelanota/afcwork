@@ -19,7 +19,7 @@ class CabeceraMovimientoController extends Controller
     public function index( Request $request)
     {
 
-       
+
        $cliente            = Clientes::get(["nombre_cliente", "id_cliente"]);
        $sede               = Sede::where('cliente_id', $request->cliente_id)->get();
 
@@ -30,8 +30,8 @@ class CabeceraMovimientoController extends Controller
             [
                 'movimientos' => $movimientos,
                 'clientes' =>  $cliente,
-                'sedes' =>     $sede  
-             
+                'sedes' =>     $sede
+
             ]
         );
     }
@@ -73,14 +73,14 @@ class CabeceraMovimientoController extends Controller
             'detalle' => 'required',
 
         ]);
-        
+
         $cabeceraMovimiento  = new CabeceraMovimiento();
         $cabeceraMovimiento->id_cliente = $request->cliente;
         $cabeceraMovimiento->id_sede = $request->sede;
         $cabeceraMovimiento->inicio =  $request->inicio;
         $cabeceraMovimiento->detalle =  $request->detalle;
         $cabeceraMovimiento->id_tmovimiento = $request->id_movimiento;
-        
+
         $cabeceraMovimiento->id_user =  Auth::id('id_user');
         $cabeceraMovimiento->save();
 
@@ -95,8 +95,8 @@ class CabeceraMovimientoController extends Controller
                 $detalleMovimiento->detalle =  ucfirst(strtolower( $request->detalle));
                 $detalleMovimiento->save();
 
-                if ($detalleMovimiento) 
-                
+                if ($detalleMovimiento)
+
                 {
                     $activoActualizarSedeActual = $detalleMovimiento->id_activo =  $check;
                     $activoActualizarSedeActual = Activo::find($activoActualizarSedeActual);
@@ -110,5 +110,5 @@ class CabeceraMovimientoController extends Controller
         return redirect()->route('movimientos.index');
     }
 
- 
+
 }
