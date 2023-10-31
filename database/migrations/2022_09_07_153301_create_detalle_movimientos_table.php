@@ -14,12 +14,12 @@ return new class extends Migration
     public function up()
     {
         Schema::create('detalle_movimientos', function (Blueprint $table) {
-            $table->unsignedInteger('id_detalle');
+            $table->increments('id_detalle');
             // se hace la relacion de la tabla
-            $table->unsignedInteger('id_activo');
+            $table->integer('id_activo');
             $table->foreign('id_activo')->references('id_activo')->on('activos');
          // se hace la relacion de la tabla
-            $table->unsignedInteger('id_cabecera',11);
+            $table->integer('id_cabecera');
             $table->foreign('id_cabecera')->references('id_cabecera')->on('cabecera_movimientos');
 
 

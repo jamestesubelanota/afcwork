@@ -16,7 +16,7 @@ class ColaboradoresController extends Controller
         $this->middleware('can:contratos.index');
     }
     public function index(){
-      
+
         return view('colaboradores.index', ['colaboradores' => Colaboradores::all() ]);
     }
 
@@ -38,25 +38,30 @@ class ColaboradoresController extends Controller
             'identificacion' => 'required',
             'telefono' => 'required',
             'cargo' => 'required'
-           
+
         ]);
         $colaboradores->nombre_colaborador =  ucfirst(strtolower($request->nombre));
         $colaboradores->identificacion     = $request->identificacion;
         $colaboradores->telefono           = $request->telefono;
         $colaboradores->id_cargo              = $request->cargo;
         $colaboradores->save();
-           
+
         return redirect()->route('colaboradores.index');
     }
 
     public function edit( $colaboradores ){
-        
-       
-         $colaborador = Colaboradores::find( $colaboradores);
-         $cargo = Cargo::where('id_cargo','=',$colaboradores->id_cargo)->get();
-      
+
+
+        $colaborador = Colaboradores::find($colaboradores); // Asumiendo que $colaboradores contiene el ID del colaborador que deseas encontrar
+
+        if (!$colaborador) {
+            // Manejar el caso en el que no se encuentra el colaborador
+        }
+
+        $cargo = Cargo::find($colaborador); // Supongo que el campo 'id_cargo' está en la tabla 'colaboradores'
+
         $roles = Cargo::all();
-        return view('colaboradores.edit' , ['colaboradores' => $colaborador , 'roles' => $roles ,  'cargo' => $cargo]);
+        return view('colaboradores.edit', ['colaboradores' => $colaborador, 'roles' => $roles, 'cargo' => $cargo]);
     }
 
     public function update(  Request $request  , $colaboradores  ){
@@ -66,14 +71,14 @@ class ColaboradoresController extends Controller
             'identificacion' => 'required',
             'telefono' => 'required',
             'cargo' => 'required'
-           
+
         ]);
         $colaboradores->nombre_colaborador = $request->nombre;
         $colaboradores->identificacion = $request->identificacion;
         $colaboradores->telefono = $request->telefono;
         $colaboradores->id_cargo = $request->cargo;
         $colaboradores->save();
-           
+
         return redirect()->route('colaboradores.index');
    }
 
@@ -81,7 +86,7 @@ class ColaboradoresController extends Controller
 
       $colaborador = Colaboradores::find($colaboradores);
        $colaborador->delete();
-       return back(); 
+       return back();
    }
 }
 

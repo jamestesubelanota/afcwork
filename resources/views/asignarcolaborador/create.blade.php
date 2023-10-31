@@ -1,13 +1,13 @@
 @extends('adminlte::page')
 
-@section('title', 'Crear un Ciudad')
+@section('title', 'Asgignar empleado')
 
 @section('content_header')
 
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Ciudades </a></li>
-            <li class="breadcrumb-item active" aria-current="page">Agregar ciudad</li>
+            <li class="breadcrumb-item"><a href="#">Asignar empleado a sedes</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Registro</li>
         </ol>
     </nav>
 @stop
@@ -25,16 +25,16 @@
 
                 <div class="col-md-4"></div>
                 <div class="mb-3 border-black card" style="max-width: 20rem;">
-                    <div class="card-header">Agregar una Ciudad</div>
+                    <div class="card-header">Asignar empleado a sedes</div>
                     <div class="card-body text-primary">
 
                         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
                             <div class="overflow-hidden bg-white shadow-sm sm:rounded-lg">
                                 <div class="p-6 bg-white border-b border-gray-200">
-                                    <form action=" {{ route('cargos.store') }}" method="POST">
+                                    <form action=" {{ route('asignarcolaborador.store') }}" method="POST">
                                         <!--esitar methodo put-->
                                         @csrf
-                                        @include('cargos._form')
+                                        @include('asignarcolaborador._form')
 
                                     </form>
 
@@ -60,7 +60,35 @@
 @stop
 
 @section('js')
-    <script>
-        console.log('Hi!');
-    </script>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+                $('#cliente').on('change', function () {
+                    var cliente_id = this.value;
+                    $('#sede').html('');
+                    $.ajax({
+                        url: '{{ route('movimientos.create') }}?cliente_id='+ cliente_id,
+                        type: 'get',
+                        success: function (res) {
+                            $('#sede').html('<option value="">Seleccione sede</option>');
+
+                            $.each(res, function (key, value) {
+                                $('#sede').append('<option value="' + value
+                                    .id_sede + '">' + value.nombre_sede + '</option>');
+                            });
+
+
+
+
+                        }
+                    });
+                });
+
+            });
+
+
+
+
+
+             </script>
 @stop

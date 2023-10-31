@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('cabecera_movimientos', function (Blueprint $table) {
-            $table->unsignedInteger('id_cabecera', 11);
+            $table->increments('id_cabecera', 11);
             $table->unsignedInteger('id_cliente');
             // se hace la relacion de la tabla
             $table->foreign('id_cliente')->references('id_cliente')->on('clientes');

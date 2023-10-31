@@ -17,7 +17,7 @@ class SedeController extends Controller
     }
     public function index( ){
 
-      
+
          $sede = Sede::all();
 
         return view('sedes.index', ['sedes' =>$sede ]);
@@ -45,12 +45,11 @@ class SedeController extends Controller
             $sede->nombre_sede = $request->nombre_sede;
             $sede->direccion = $request->direccion;
             $sede->contacto = $request->contacto;
+            $sede->zona = $request->zona;
             $sede->telefono = $request->telefono;
             $sede->ciudad_id = $request->ciudad_id;
             $sede->cliente_id = $request->cliente_id;
-            $sede->zona = $request->zona;
-            $sede->id_colaborador = $request->bat;
-            $sede->id_colaborador2 = $request->ing;
+
             $sede->save();
         return redirect()->route('sedes.index');
     }
@@ -74,20 +73,17 @@ class SedeController extends Controller
             'ciudad_id'=>'required',
             'cliente_id'=>'required',
             'zona' =>'required',
-        'bat'=> 'required',
-         'ing' => 'ing'
-    ]);
-        $sede->nombre_sede = ucfirst(strtolower( $request->nombre_sede));
-        $sede->direccion = ucfirst(strtolower($request->direccion));
-        $sede->contacto = ucfirst(strtolower($request->contacto));
-        $sede->telefono = $request->telefono;
-        $sede->ciudad_id = $request->ciudad_id;
-        $sede->cliente_id = $request->cliente_id;
-        $sede->zona = $request->zona;
-        $sede->id_colaborador = $request->bat;
-        $sede->id_colaborador2 = $request->ing;
-        $sede->save();
 
+    ]);
+         $sede->nombre_sede = $request->nombre_sede;
+            $sede->direccion = $request->direccion;
+            $sede->contacto = $request->contacto;
+            $sede->zona = $request->zona;
+            $sede->telefono = $request->telefono;
+            $sede->ciudad_id = $request->ciudad_id;
+            $sede->cliente_id = $request->cliente_id;
+
+            $sede->save();
     }
 
 
