@@ -27,7 +27,7 @@ return view('contratos.index',[
 
          $cliente = Clientes::all();
 
-         
+
           return view('contratos.create',[
              'cliente'  =>  $cliente ,
              'contrato' => $contrato ]);
@@ -63,8 +63,8 @@ return view('contratos.index',[
         $contrato          = Contrato::find($contrato);
          $cliente          = Clientes::all();
         return view('contratos.edit',
-    [ 
-        'cliente'    =>  $cliente, 
+    [
+        'cliente'    =>  $cliente,
         'contrato'   =>  $contrato
     ]);
     }
@@ -89,7 +89,7 @@ return view('contratos.index',[
         $contrato->estado           = ucfirst(strtolower($request->estado));
         $contrato->save();
 
-    
+
 
         return redirect()->route('contratos.index');
 
@@ -100,7 +100,7 @@ return view('contratos.index',[
 
     public function destroy($id_contrato){
 
-        $contratoEliminar   =   Contrato::find($id_contrato); 
+        $contratoEliminar   =   Contrato::find($id_contrato);
         $contratoEliminar->delete();
         return(back());
     }
@@ -108,4 +108,3 @@ return view('contratos.index',[
 
 
 
- 
