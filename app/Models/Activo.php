@@ -5,6 +5,9 @@ namespace App\Models;
 use App\Http\Controllers\EstadosController;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Logactivos;
+use App\Models\Activo;
 
 class Activo extends Model
 {
@@ -19,6 +22,7 @@ class Activo extends Model
     "serial",
     "costo",
     "modelo",
+    "fechaDeCompra",
     "id_propietario",
     "id_proveedor",
      "id_estado",
@@ -29,6 +33,7 @@ class Activo extends Model
      "foto",
      "foto2"
     ];
+
 
 
     public  function equipo(){
@@ -70,6 +75,56 @@ class Activo extends Model
     public function fotos()
     {
         return $this->hasMany(Foto::class);
+    }
+
+
+    protected static function boot() {
+
+
+
+        parent::boot();
+
+        static::created(function( $Activo) {
+            // Registrar en el log la creación del equipo
+            Logactivos::create([
+
+                'id_activo' => $Activo->id_activo,
+                'activo' =>  $Activo->activo,
+                'serial' =>  $Activo->serial,
+                'usuario' => Auth::user()->name,
+                 'accion' => 'insert',
+                 'tablaafectada' => 'activos',
+            ]);
+        });
+
+
+        static::updated(function($Activo) {
+            // Registrar en el log la actualización del equipo
+            Logactivos::create([
+                'id_activo' => $Activo->id_activo,
+                'activo' =>  $Activo->activo,
+                'serial' =>  $Activo->serial,
+                'usuario' => Auth::user()->name,
+                 'accion' => 'update',
+                 'tablaafectada' => 'activos',
+            ]);
+        });
+
+        static::deleted(function($Activo) {
+            // Registrar en el log la eliminación del activo
+            Logactivos::create([
+                'id_activo' => $Activo->getOriginal('id_activo'),
+                'activo' =>  $Activo->getOriginal('activo'),
+                'serial' =>  $Activo->getOriginal('serial'),
+                'usuario' => Auth::user()->name,
+                 'accion' => 'delete',
+                 'tablaafectada' => 'activos',
+            ]);
+        });
+
+
+
+
     }
 
 }

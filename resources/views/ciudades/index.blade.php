@@ -54,12 +54,12 @@
                                 @foreach ($ciudad as $ciudad)
                                     <tr>
                                         <td>{{ $ciudad->cod_dane }}</td>
-                                        <td>{{ $ciudad->departamento }}</td>
+                                        <td>{{ $ciudad->departamento->nombreDepartamento}}</td>
                                         <td>{{ $ciudad->nombre_ciudad }}</td>
 
 
 
-                                        <td class=" px-6 py-6">
+                                        <td class="px-6 py-6 ">
                                             <div class="dropdown">
                                                 <a class="btn btn-secondary dropdown-toggle" href="#" role="button"
                                                     id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"

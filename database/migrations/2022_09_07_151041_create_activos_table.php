@@ -26,6 +26,7 @@ return new class extends Migration
             $table->string('activocontable', 4);
             $table->double('costo',100);
             $table->string('modelo', 50);
+            $table->date('fechaDeCompra');
             // se hace la relacion de la tabla
             $table->unsignedInteger('id_propietario');
             // se hace la relacion de la tabla

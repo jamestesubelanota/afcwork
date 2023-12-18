@@ -5,11 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\Equipo;
 use Illuminate\Http\Request;
 use PhpParser\Node\Expr\BinaryOp\Equal;
+use Illuminate\Support\Facades\Auth;
 
 class EquipoController extends Controller
 {
     //
-    
+
     public function __construct()
     {
         $this->middleware('can:equipos.index');
@@ -21,11 +22,11 @@ class EquipoController extends Controller
 
 
     public function create( Equipo $equipo){
-  
+
 
        return view('equipos.create', ['equipos' =>$equipo]);
     }
-     
+
     public function store(Request $request ){
 
         $equipo = new Equipo();
@@ -43,8 +44,9 @@ class EquipoController extends Controller
     public function edit(  $equipo ){
 
         $equipo = Equipo::find( $equipo);
-      
+
         return view('equipos.edit', ['equipos' =>$equipo  ]);
+
 
 
     }
@@ -53,6 +55,9 @@ class EquipoController extends Controller
         $equipo = Equipo::find( $equipo);
         $equipo->equipo = $request->equipo;
         $equipo->save();
+
+
+
 
         return redirect()->route('equipos.index');
     }

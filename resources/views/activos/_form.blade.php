@@ -11,7 +11,7 @@
 <br>
 
 <!--INICIO IMPUT  ACTIVO -->
-<label class="uppercase text-gray-700 text-xs">Activo</label>
+<label class="text-xs text-gray-700 uppercase">Activo</label>
 <br>
 <span style="color: red"> @error('activo')
         {{ $message }}
@@ -24,7 +24,7 @@
 
 
     <!--INICIO IMPUT  ACTIVO CONTABLE-->
-    <label class="uppercase text-gray-700 text-xs">Activo  contable</label>
+    <label class="text-xs text-gray-700 uppercase">Activo  contable</label>
     <br>
     <span style="color: red"> @error('activo')
             {{ $message }}
@@ -34,9 +34,12 @@
 
     <!-- FIN IMPUT  ACTIVO CONTABLE -->
 <br>
-
+<label for=""></label>
+<label class="text-xs text-gray-700 uppercase">fecha de compra</label>
+<input type="date" id="ffechaDeCompra" name="fechaDeCompra" class="form-control" value="{{ $activo->fechaDeCompra }}">
+<br>
 <!--INICIO IMPUT  EQUIPO -->
-<label class="uppercase text-gray-700 text-xs">Seleccione Equipo </label>
+<label class="text-xs text-gray-700 uppercase">Seleccione Equipo </label>
 
 
 <br>
@@ -66,7 +69,7 @@
 
 
 <!--INICIO IMPUT  MARCA -->
-<label class="uppercase text-gray-700 text-xs">Marca </label>
+<label class="text-xs text-gray-700 uppercase">Marca </label>
 <br>
 
 <span style="color: red"> @error('marca')
@@ -107,7 +110,7 @@
 
 <!--INICIO IMPUT SERIAL-->
 
-<label class="uppercase text-gray-700 text-xs">Serial</label>
+<label class="text-xs text-gray-700 uppercase">Serial</label>
 <br>
 <span style="color: red"> @error('serial')
         {{ $message }}
@@ -118,7 +121,7 @@
     <!--FIN IMPUT  SERIAL   -->
 
     <!--INICIO IMPUT  Costo -->
-<label class="uppercase text-gray-700 text-xs">Costo</label>
+<label class="text-xs text-gray-700 uppercase">Costo</label>
 <br>
 <span style="color: red"> @error('costo')
         {{ $message }}
@@ -131,7 +134,7 @@
 
 
     <!--INICIO IMPUT  Modelo-->
-<label class="uppercase text-gray-700 text-xs">Modelo</label>
+<label class="text-xs text-gray-700 uppercase">Modelo</label>
 <br>
 <span style="color: red"> @error('modelo')
         {{ $message }}
@@ -142,7 +145,7 @@
 
 
 
-<label class="uppercase text-gray-700 text-xs"> Selcciones Propietario</label>
+<label class="text-xs text-gray-700 uppercase"> Selcciones Propietario</label>
 <br>
 <span style="color: red"> @error('propietario')
     {{ $message }}
@@ -180,11 +183,13 @@
 
 
 <!--INICIO IMPUT  PROVEEDOR -->
-<label class="uppercase text-gray-700 text-xs">Seleccione Proveedor </label>
+<label class="text-xs text-gray-700 uppercase">Seleccione Proveedor </label>
 <br>
 <span style="color: red"> @error('id_proveedor')
         {{ $message }}
     @enderror </span>
+
+
 <select class="form-select" id="id_proveedor" name="id_proveedor">
 
     @foreach ($proveedor as $proveedor)
@@ -215,7 +220,7 @@
 <br>
 
 <!--INICIO IMPUT  Estado -->
-<label class="uppercase text-gray-700 text-xs">Estado</label>
+<label class="text-xs text-gray-700 uppercase">Estado</label>
 <br>
 <span style="color: red"> @error('id_proveedor')
         {{ $message }}
@@ -254,7 +259,7 @@
 <br>
 
 <!--INICIO IMPUT  CARACTERISTICA -->
-<label class="uppercase text-gray-700 text-xs">Caracteristica de equipo </label>
+<label class="text-xs text-gray-700 uppercase">Caracteristica de equipo </label>
 <br>
 <span style="color: red"> @error('tipo_de_equipo')
     {{ $message }}
@@ -285,7 +290,7 @@
 
 <!---FINDE SELEC TIPO DE EQUIPO-->
 <br>
-<label class="uppercase text-gray-700 text-xs">Cliente</label>
+<label class="text-xs text-gray-700 uppercase">Cliente</label>
 <br>
 <span style="color:red"> @error('cliente')
         {{ $message }}
@@ -318,7 +323,7 @@
 <span style="color: red"> @error('sede')
     {{ $message }}
 @enderror </span>
-<label class="uppercase text-gray-700 text-xs">Sede </label>
+<label class="text-xs text-gray-700 uppercase">Sede </label>
 <br>
 <select class="form-select" id="sede" name="sede">
     <option value="">seleccione</option>
@@ -343,7 +348,7 @@
 
 
 <div>
-    <a class="bg-gray-800 text-white rounded px-4 py-2" href="{{ route('activos.index') }}">volver</a>
+    <a class="px-4 py-2 text-white bg-gray-800 rounded" href="{{ route('activos.index') }}">volver</a>
     <input type="submit" value="Guardar" class="btn btn-primary">
 </div>
 

@@ -24,9 +24,10 @@ class DatabaseSeeder extends Seeder
       \App\Models\TipoMovimiento::factory()->create([ 'movimiento'=> 'Entrada']);
       \App\Models\TipoMovimiento::factory()->create([ 'movimiento'=> 'Salida']);
       \App\Models\TipoMovimiento::factory()->create([ 'movimiento'=> 'Traslado']);
+      \App\Models\Departamentos::factory()->create([ 'nombreDepartamento'=> 'Cundinamarca']);
       \App\Models\Ciudades::factory()->create([
         'cod_dane'  => 'prueba',
-        'departamento'  => 'Distrito capital',
+        'id_departamento'  => 1,
         'nombre_ciudad' => 'Bogota'
 
         ]);

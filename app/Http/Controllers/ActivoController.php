@@ -90,6 +90,7 @@ class ActivoController extends Controller
       'serial'         => 'required | unique:activos,serial',
       'costo'          => 'required',
       'modelo'         => 'required',
+      'fechaDeCompra' => 'required',
       'propietario'    => 'required',
       'id_proveedor'   => 'required',
       'id_estado'      => 'required',
@@ -111,6 +112,7 @@ class ActivoController extends Controller
     $activo->serial            =   $request->serial;
     $activo->costo             =   $request->costo;
     $activo->modelo            =   ucfirst(strtolower($request->modelo));
+    $activo->fechaDeCompra =  $request->fechaDeCompra;
     $activo->id_propietario     =    $request->propietario;
     $activo->id_proveedor      =   $request->id_proveedor;
     $activo->id_estado         =   $request->id_estado;
@@ -218,6 +220,7 @@ class ActivoController extends Controller
       'serial' => 'required ',
       'costo' => 'required',
       'modelo' => 'required',
+      'fechaDeCompra' => 'required',
       'propietario' => 'required',
       'id_proveedor' => 'required',
       'id_estado' => 'required',
@@ -243,6 +246,7 @@ class ActivoController extends Controller
     $activos->serial            =  $request->serial;
     $activos->costo             =  $request->costo;
     $activos->modelo            =  $request->modelo;
+    $activo->fechaDeCompra =  $request->fechaDeCompra;
 
     $activos->id_proveedor      =  $request->id_proveedor;
     $activos->id_estado         =  $request->id_estado;

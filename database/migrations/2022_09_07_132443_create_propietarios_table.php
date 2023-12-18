@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('propietarios', function (Blueprint $table) {
             $table->unsignedInteger('id_propietario', 5);
-            $table->string('nombre_propietario');
-            $table->string('razon_social');
-            $table->string('numero_telefono');
+            $table->string('nombre_propietario',30);
+            $table->string('razon_social',40);
+            $table->string('numero_telefono',15);
             $table->timestamps();
         });
     }

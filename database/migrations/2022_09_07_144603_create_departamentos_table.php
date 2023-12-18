@@ -13,13 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('ciudades', function (Blueprint $table) {
-            $table->id('id_ciudad');
-            $table->string('cod_dane', 30);
-            $table->string('nombre_ciudad',30);
-
-            $table->integer('id_departamento');
-            $table->foreign('id_departamento')->references('id_departamento')->on('departamentos');
+        Schema::create('departamentos', function (Blueprint $table) {
+            $table->id('id_departamento');
+            $table->string('nombreDepartamento');
             $table->timestamps();
         });
     }
@@ -31,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ciudades');
+        Schema::dropIfExists('departamentos');
     }
 };
