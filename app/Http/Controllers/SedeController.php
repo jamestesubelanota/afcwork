@@ -56,11 +56,11 @@ class SedeController extends Controller
 
     public function edit( $sede){
         $sede = Sede::find($sede);
-        $ciudad =  Ciudades::all();
-        $cliente = Clientes::all();
+        $ciudad =  Ciudades::find($sede);
+        $cliente = Clientes::find($sede);
         $bacteriologo = Colaboradores::where('id_cargo', '=', 1)->get();
         $ingeniero = Colaboradores::where('id_cargo', '=', 2)->get();
-        return view('sedes.create', [ 'sede'=> $sede , 'ciudad'=> $ciudad, 'cliente'=> $cliente, 'bacteriologo' =>   $bacteriologo , 'ingeniero' => $ingeniero ]);
+        return view('sedes.edit', [ 'sede'=> $sede , 'ciudad'=> $ciudad, 'cliente'=> $cliente, 'bacteriologo' =>   $bacteriologo , 'ingeniero' => $ingeniero ]);
     }
 
     public function update(Request $request, $sede){
@@ -84,6 +84,8 @@ class SedeController extends Controller
             $sede->cliente_id = $request->cliente_id;
 
             $sede->save();
+
+            return redirect()->route('sedes.index');
     }
 
 

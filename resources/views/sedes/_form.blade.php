@@ -1,6 +1,6 @@
 @csrf
 <label class="form-label">
-    cliente</label>
+    clientes</label>
 <br>
 <span> @error('cliente_id')
         {{ $message }}
@@ -8,7 +8,7 @@
 </span>
 <br>
 <select class="form-select" id="cliente_id" name ="cliente_id">
-    <option value=" ">Selecione el cliente</option>
+
     @foreach ($cliente as $clientes)
         <option value=" {{ old('cliente_id', $clientes->id_cliente) }}">{{ $clientes->nombre_cliente }}</option>
     @endforeach
@@ -25,7 +25,6 @@
 </span>
 <br>
 <select class="form-select" id="ciudad_id" name ="ciudad_id">
-    <option value=" ">Selecione la ciudad</option>
     @foreach ($ciudad as $ciudades)
         <option value="{{ old('ciudad_id', $ciudades->id_ciudad) }}">{{ $ciudades->nombre_ciudad }} </option>
     @endforeach
