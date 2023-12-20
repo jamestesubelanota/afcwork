@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Ciudades;
+use App\Models\Departamentos;
 
 class CiudadesController extends Controller
 {
@@ -21,13 +22,14 @@ class CiudadesController extends Controller
 
     //metodo de crear es pasarle nuestra ciudad  basia
     public function create( Ciudades $ciudad ){
-
-        return view('ciudades.create' ,[ 'ciudad' => $ciudad]);
+        $departamento =  Departamentos::all();
+        return view('ciudades.create' ,[ 'ciudad' => $ciudad , 'departamento' =>  $departamento]);
      }
     // el meotod store es elm metodo de crear en laravel y le pasamos lo que viene de los imput con el metodo reque
     public function store( Request $request){
 
         //
+        $departamento =  Departamentos::all();
         $ciudad = new Ciudades();
         $request->validate([
 
@@ -38,11 +40,11 @@ class CiudadesController extends Controller
 
         ]);
         $ciudad->cod_dane  =ucfirst(strtolower($request->cod_dane));
-        $ciudad->departamento  =ucfirst(strtolower($request->departamento));
+        $ciudad->id_departamento  =ucfirst(strtolower($request->departamento));
         $ciudad->nombre_ciudad = ucfirst(strtolower($request->nombre_ciudad ));
         $ciudad->save();
 
-       return redirect()->route('ciudades.index', []);
+       return redirect()->route('ciudades.index', ['departamento' =>  $departamento]);
     }
 
     //metodo para actualizar

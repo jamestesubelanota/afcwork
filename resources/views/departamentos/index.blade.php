@@ -1,7 +1,7 @@
 
 @extends('adminlte::page')
 
-@section('title', 'Clientes')
+@section('title', 'Departamentos')
 
 @section('content_header')
 
@@ -20,28 +20,22 @@
                     <div class="card-header">
                         <nav class="navbar bg-light">
                             <div class="container-fluid">
-                                <a class="btn btn-primary" href="{{ route('clientes.create') }}"> Agregar un cliente </a>
+                                <a class="btn btn-primary" href="{{ route('departamentos.create') }}"> Agregar un departamento </a>
                             </div>
                         </nav>
                     </div>
                     <div class="card-body">
-                        <table id="ClientesTable" class="table table-striped">
+                        <table id="Table" class="table table-striped">
                             <thead>
                                 <tr>
-                                    <th>Nombre Cliente</th>
-                                    <th>NIT</th>
-                                    <th>Razón Social</th>
-                                    <th>Detalle</th>
-                                    <th>Opciones</th>
+                                    <th>Departamento</th>
+
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($clientes as $cliente)
+                                @foreach ($departamentos as $departamento)
                                     <tr>
-                                        <td>{{ $cliente->nombre_cliente }}</td>
-                                        <td>{{ $cliente->nit }}</td>
-                                        <td>{{ $cliente->razon_social }}</td>
-                                        <td>{{ $cliente->detalle }}</td>
+                                        <td>{{ $departamento->nombreDepartamento}}</td>
                                         <td class="options">
                                             <div class="dropdown">
                                                 <a class="btn btn-secondary dropdown-toggle" href="#" role="button"
@@ -50,9 +44,9 @@
                                                     Acciones
                                                 </a>
                                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                                    <li><a href="{{ route('clientes.edit', $cliente->id_cliente) }}"
+                                                    <li><a href="{{ route('departamentos.edit', $departamento->id_departamento) }}"
                                                             class="dropdown-item active">Editar</a></li>
-                                                    <form action="{{ route('clientes.destroy', $cliente->id_cliente) }}"
+                                                    <form action="{{ route('departamentos.destroy', $departamento->id_departamento) }}"
                                                         method="POST">
                                                         @csrf
                                                         @method('DELETE')
@@ -84,6 +78,7 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
 @stop
 
+
 @section('js')
     <script> console.log('Hi!'); </script>
     <script src=" https://code.jquery.com/jquery-3.5.1.js"></script>
@@ -91,28 +86,25 @@
     <script src="   https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
   <script>
       $(document).ready(function () {
-        $('#ClientesTable').DataTable(
+        $('#table').DataTable({
 
-        {
-            language: {
+language: {
     "search": "Buscar:",
-    "infoFiltered": "(Filtrado de _MAX_ total entradas)",
 
         //
-    "info": "Mostrando _START_ a _END_ de _TOTAL_ Clientes",
+    "info": "Mostrando _START_ a _END_ de _TOTAL_ Contratos",
 
 
     "paginate": {
-
 "first": "Primero",
 "last": "Ultimo",
 "next": "Siguiente",
 "previous": "Anterior"
 }
+}
 
 }
 
-        }
        );
     });
   </script>

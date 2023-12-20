@@ -1,13 +1,22 @@
 @csrf
-<label class="uppercase text-gray-700 text-xs" >Codigo dane</label>
+<label class="text-xs text-gray-700 uppercase" >Codigo dane</label>
 <span class="text-xs" style="color: red">@error('cod_dane') {{$message}} @enderror  </span>
 <input type="text" id="cod_dane"  name ="cod_dane" class="form-control" value="{{ old('cod_dane',$ciudad->cod_dane) }}"  >
 
-<label class="uppercase text-gray-700 text-xs" >Departamento</label>
+<label class="text-xs text-gray-700 uppercase" >Departamento</label>
 <span class="text-xs" style="color: red">@error('departamento') {{$message}} @enderror  </span>
-<input type="text" id="departamento"  name ="departamento" class="form-control" value="{{ old('departamento',$ciudad->departamento) }}"  >
 
-<label class="uppercase text-gray-700 text-xs" >Nombre ciudad</label>
+<select class="form-select" id="departamento" name ="departamento">
+
+    @foreach ($departamento as $departamentos)
+        <option value=" {{ old('departamento', $departamentos->id_departamento) }}">{{ $departamentos->nombreDepartamento }}</option>
+    @endforeach
+
+</select>
+<br>
+
+
+<label class="text-xs text-gray-700 uppercase" >Nombre ciudad</label>
 <span class="text-xs" style="color: red">@error('nombre_ciudad') {{$message}} @enderror  </span>
 
 <input type="text" id="nombre_ciudad"  name ="nombre_ciudad" class="form-control" value="{{ old('nombre_ciudad',$ciudad->nombre_ciudad) }}"  >

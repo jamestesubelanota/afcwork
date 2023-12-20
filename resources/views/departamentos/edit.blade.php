@@ -1,7 +1,7 @@
 
 @extends('adminlte::page')
 
-@section('title', 'Editar Cliente')
+@section('title', 'Editar departamento')
 
 @section('content_header')
     <h1>Activos fijos</h1>
@@ -10,8 +10,8 @@
 @section('content')
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Editar Cliente') }}
+        <h2 class="text-xl font-semibold leading-tight text-gray-800">
+            {{ __('Editar departamento') }}
         </h2>
     </x-slot>
     <div class="container"style="background:linear-gradient(30deg, white,#004593, white, #004593, white);"
@@ -20,19 +20,19 @@
     <div class="row">
 
         <div class="col-md-4"></div>
-        <div class="card border-black mb-3" style="max-width: 20rem;">
-            <div class="card-header">Editar un cliente</div>
+        <div class="mb-3 border-black card" style="max-width: 20rem;">
+            <div class="card-header">Editar un departamento</div>
             <div class="card-body text-primary">
 
-                <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                    <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
+                    <div class="overflow-hidden bg-white shadow-sm sm:rounded-lg">
                         <div class="p-6 bg-white border-b border-gray-200">
-                            <form action="   {{route('clientes.update',  $cliente)}}" method="POST" >
+                            <form action="   {{route('departamentos.update',  $departamento)}}" method="POST" >
                                 <!--esitar methodo put-->
                                 @csrf
                                   @method('PUT')
-                                  @include('clientes._form')
-                                  
+                                  @include('departamentos._form')
+
                                   </form>
 
                         </div>
@@ -45,7 +45,7 @@
     </div>
 
 </div>
- 
+
 </x-app-layout>
 
 @stop
