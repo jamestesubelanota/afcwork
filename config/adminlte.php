@@ -315,49 +315,65 @@ return [
             'icon'    => 'fas fa-pen-nib fa-lg',
             'submenu' => [
                 [
-                    'text' => 'Ciudades',
+                    'icon'    => 'fas fa-map-marker',
+                    'text' => 'Departamentos',
+                    'url'  => 'departamentos',
+                ],
+                [ 'icon'    => 'fas fa-map-marker-alt',
+                'text' => 'ciudades',
                     'url'  => 'ciudades',
                 ],
                 [
+                    'icon'    => 'fas fa-info',
                     'text' => ' Estados',
                     'url'  => 'estados',
                 ],  [
+                    'icon'    => 'fas fa-university',
                     'text' => ' Propietarios',
                     'url'  => 'propietarios',
                 ],
                 [
+                    'icon'    => 'fas fa-male',
                     'text' => 'Colaboradores',
                     'url'  => 'colaboradores',
                 ],
                   [
+                    'icon'    => 'fas fa-rocket',
                     'text' => 'Equipos',
                     'url'  => 'equipos',
                 ],
                 [
+                    'icon'    => 'fas fa-industry',
                     'text' => 'Marcas',
                     'url'  => 'marcas',
                 ],
                 [
+                    'icon'    => 'fas fa-crosshairs',
                     'text' => 'Caracteristicas de equipo',
                     'url'  => 'tipoEquipo',
                 ],
                 [
+                    'icon'    => 'fas fa-drafting-compass',
                     'text' => 'Proveedor',
                     'url'  => 'proveedores',
                 ],
                 [
+                    'icon'    => 'fas fa-rocket',
                     'text' => 'Movimiento',
                     'url'  => 'tipoMovimiento',
                 ],
                 [
+                    'icon'    => 'fas fa-hard-hat',
                     'text' => 'Cargos',
                     'url'  => 'cargos',
                 ],
 
                 [
+                    'icon'    => 'fas fa-ruler',
                     'text' => 'Roles',
                     'url'  => 'roles',
                 ],  [
+                    'icon'    => 'fas fa-book',
                     'text' => 'Contratos',
                     'url'  => 'contratos',
                 ],

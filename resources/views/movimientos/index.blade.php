@@ -67,7 +67,7 @@
                                             <a href="{{ route('movimientos.edit', $movimiento) }}" class="dropdown-item">Generar Boleta</a>
                                         </div>
                                     </div>
-                                </td>
+                                </td
                             </tr>
                         @endforeach
                     </tbody>

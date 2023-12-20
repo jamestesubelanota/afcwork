@@ -24,6 +24,7 @@ use App\Http\Controllers\ContratoController;
 use App\Http\Controllers\PropietariosController;
 use App\Http\Controllers\UsuariosController;
 use App\Http\Controllers\ReporteCartaDeEnvioController;
+use App\Http\Controllers\DepartamentosController;
 use App\Models\Usuarios;
 use App\Models\DetalleMovimiento;
 
@@ -162,6 +163,10 @@ Route::controller(ColaboradorSedesController::class)->group(function(){
     Route::resource('asignarcolaborador',ColaboradorSedesController::class);
 });
 
+Route::controller(DepartamentosController::class)->group(function(){
+
+    Route::resource('departamentos',DepartamentosController::class);
+});
 Route::get('ReporteCarta/{otro}',[App\Http\Controllers\ReporteCartaDeEnvioController::class,'pdf'])->name('reportes.show');
 
 

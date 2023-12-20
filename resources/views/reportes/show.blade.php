@@ -44,8 +44,9 @@
         Dir.: {{ $detalleCabeceras->sedes->direccion }}
         <br>
         Tel.:{{ $detalleCabeceras->sedes->telefono }}
+
         <br>
-        {{ $detalleCabeceras->sedes->ciudad->departamento }}, {{ $detalleCabeceras->sedes->ciudad->nombre_ciudad }}
+        {{ $detalleCabeceras->sedes->ciudad->nombre_ciudad }}
 
         <nav>
             <br>
@@ -98,7 +99,9 @@
                             <td style="border: black 1px solid"> $
                                 {{ number_format($DetalleMovimientos->activo->costo) }}</td>
                             <td style="border: black 1px solid">Por contrato</td>
+
                         </tr>
+                       ¡
                     @endforeach
 
                 </tbody>

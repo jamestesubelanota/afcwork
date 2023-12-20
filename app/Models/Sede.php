@@ -10,10 +10,10 @@ class Sede extends Model
     use HasFactory;
 
 
-    
+
     protected $primaryKey = 'id_sede';
     protected $fillable= [
-        'nombre_sede', 
+        'nombre_sede',
          'direccion',
          'contacto' ,
          'telefono',
@@ -29,6 +29,10 @@ class Sede extends Model
 
             return $this->belongsTo(Ciudades::class , 'ciudad_id');
         }
-    
-        
+        public  function departamento(){
+
+            return $this->belongsTo(Departamentos::class , 'id_departamento');
+        }
+
+
 }
