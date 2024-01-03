@@ -63,7 +63,7 @@
                                             </a>
                                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                                 <a href="{{ route('movimientos.edit', $movimiento) }}"
-                                                    class="dropdown-item">Editar movimiento</a>
+                                                    class="dropdown-item">Eliminar registro de activo del movimiento</a>
                                                 <a href="{{ route('reportes.show', $movimiento) }}"
                                                     class="dropdown-item">Generar carta</a>
                                                 <a href="{{ route('reportes.show', $movimiento) }}"
@@ -150,7 +150,7 @@
                     "infoFiltered": "(Filtrado de _MAX_ total entradas)",
 
                     //
-                    "info": "Mostrando _START_ a _END_ de _TOTAL_ ciudades",
+                    "info": "Mostrando _START_ a _END_ de _TOTAL_ de movimientos",
 
 
                     "paginate": {

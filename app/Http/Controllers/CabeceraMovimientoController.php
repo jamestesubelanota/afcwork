@@ -134,21 +134,25 @@ public function edit($id , Request $request){
 }
 
 
-public function destroy(Request $request ){
+public function destroy($id, Request $request){
+    $cabecera = CabeceraMovimiento::find($id);
 
+    if ($cabecera){
+        $detallesAEliminar = DetalleMovimiento::where('id_cabecera', $id)
+                            ->where('id_activo', $request->id_activo)
+                            ->get();
 
-        foreach ($request->id_activo as $check) {
-
-
-            $detalleMovimiento = new DetalleMovimiento();
-            $detalleMovimiento->id_activo =  $check;
-            $detalleMovimiento->id_cabecera =   $cabeceraMovimiento->id_cabecera;
-            $detalleMovimiento->detalle =  ucfirst(strtolower( $request->detalle));
-            $detalleMovimiento->delete();
-
-
+        // Verificamos si hay detalles a eliminar antes de proceder
+        if ($detallesAEliminar->isNotEmpty()) {
+            foreach ($detallesAEliminar as $detalle) {
+                $detalle->delete();
+            }
         }
+
+        return back();
     }
+}
+
 
 
 

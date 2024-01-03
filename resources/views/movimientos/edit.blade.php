@@ -18,10 +18,12 @@
             <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
                 <div class="overflow-hidden bg-white shadow-sm sm:rounded-lg">
                     <div class="p-6 bg-white border-b border-gray-200">
-                        <form action=" {{ route('movimientos.store') }}" method="POST">
+                        <form action="  {{ route('movimientos.destroy', $cabecera->id_cabecera) }}" method="POST">
                             <!--esitar methodo put-->
+
                             @csrf
-                            @csrf
+                            @method('delete')
+
                             <div class="container"style="background:linear-gradient(30deg, white,#004593, white, #004593, white);"
                                 class="vh-100 gradient-custom">
                                 <br>
@@ -204,20 +206,18 @@
                                                     <div class="row">
 
                                                         <div style="text-align: center" class="col-md-12">
-                                                            <button type="sutmit" name="Submit"
-                                                                class="btn btn-primary">Registrar
-                                                                movimiento</button>
+
                                                             <form
-                                                                action="   {{ route('movimientos.destroy', $destalle->activo->id_activo) }}"
+                                                                action="   {{ route('movimientos.destroy', $cabecera->id_cabecera) }}"
                                                                 method="POST">
 
                                                                 @csrf
-                                                                @method('POST')
+                                                                @method('delete')
                                                                 <button type="sutmit" name="Submit"
                                                                     class="btn btn-primary">Eliminar Activo</button>
                                                             </form>
 
-                                                        </div>
+                                                        </div
                                                     </div>
                                                     <!---segunda secciom--->
 

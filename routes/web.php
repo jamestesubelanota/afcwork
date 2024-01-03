@@ -170,7 +170,6 @@ Route::controller(DepartamentosController::class)->group(function(){
 Route::get('ReporteCarta/{otro}',[App\Http\Controllers\ReporteCartaDeEnvioController::class,'pdf'])->name('reportes.show');
 
 
-
 Route::get('/', function () {
     return view('auth.login');
 });
