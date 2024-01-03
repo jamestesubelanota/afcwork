@@ -18,11 +18,11 @@
             <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
                 <div class="overflow-hidden bg-white shadow-sm sm:rounded-lg">
                     <div class="p-6 bg-white border-b border-gray-200">
-                        <form action="  {{ route('movimientos.destroy', $cabecera->id_cabecera) }}" method="POST">
+                        <form action="  {{ route('movimientos.update', $cabecera->id_cabecera) }}" method="POST">
                             <!--esitar methodo put-->
 
                             @csrf
-                            @method('delete')
+                            @method('put')
 
                             <div class="container"style="background:linear-gradient(30deg, white,#004593, white, #004593, white);"
                                 class="vh-100 gradient-custom">
@@ -32,7 +32,7 @@
                                     <div class="card">
                                         <form action="">
 
-                                            <h5 class="card-header">Registrar movimiento </h5>
+                                            <h5 class="card-header">Registrar activo al movimiento movimiento </h5>
                                             <div class="card-body">
                                                 <div class="">
                                                     <div class="col-md-6 ">
@@ -189,13 +189,13 @@
                                                                     <tr>
                                                                         <td> <input type="checkbox"id="id_activo"
                                                                                 name="id_activo[]"
-                                                                                value="{{ $destalle->activo->id_activo }}">...{{ $destalle->activo->activo }}
+                                                                                value="{{ $destalle->id_activo }}">...{{ $destalle->activo }}
                                                                         </td>
-                                                                        <td>{{ $destalle->activo->sede->nombre_sede }}</td>
-                                                                        <td>{{ $destalle->activo->equipo->equipo }}</td>
-                                                                        <td>{{ $destalle->activo->marca->marca }}</td>
-                                                                        <td>{{ $destalle->activo->serial }}</td>
-                                                                        <td>{{ $destalle->activo->costo }}</td>
+                                                                        <td>{{ $destalle->sede->nombre_sede }}</td>
+                                                                        <td>{{ $destalle->equipo->equipo }}</td>
+                                                                        <td>{{ $destalle->marca->marca }}</td>
+                                                                        <td>{{ $destalle->serial }}</td>
+                                                                        <td>{{ $destalle->costo }}</td>
 
                                                                     </tr>
                                                                 @endforeach
@@ -208,13 +208,13 @@
                                                         <div style="text-align: center" class="col-md-12">
 
                                                             <form
-                                                                action="   {{ route('movimientos.destroy', $cabecera->id_cabecera) }}"
+                                                                action="   {{ route('movimientos.update', $cabecera->id_cabecera) }}"
                                                                 method="POST">
 
                                                                 @csrf
-                                                                @method('delete')
+                                                                @method('put')
                                                                 <button type="sutmit" name="Submit"
-                                                                    class="btn btn-primary">Eliminar Activo</button>
+                                                                    class="btn btn-primary">Agregar Activo</button>
                                                             </form>
 
                                                         </div

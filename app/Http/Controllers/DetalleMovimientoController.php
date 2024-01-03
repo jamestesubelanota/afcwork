@@ -16,6 +16,7 @@ class DetalleMovimientoController extends Controller
 
 
 
+
 public function edit($id , Request $request){
     $cabecera   =  CabeceraMovimiento::find($id);
     $destalles  =  DetalleMovimiento::where('id_cabecera', $id)->get();

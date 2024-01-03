@@ -64,6 +64,8 @@
                                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                                 <a href="{{ route('detalles.edit', $movimiento) }}"
                                                     class="dropdown-item">Eliminar registro de activo del movimiento</a>
+                                                    <a href="{{ route('movimientos.edit', $movimiento) }}"
+                                                    class="dropdown-item">Agregar registro de un activo al movimiento</a>
                                                 <a href="{{ route('reportes.show', $movimiento) }}"
                                                     class="dropdown-item">Generar carta</a>
                                                 <a href="{{ route('reportes.show', $movimiento) }}"
