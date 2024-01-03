@@ -66,15 +66,21 @@
                                                     class="dropdown-item">Eliminar registro de activo del movimiento</a>
                                                     <a href="{{ route('movimientos.edit', $movimiento) }}"
                                                     class="dropdown-item">Agregar registro de un activo al movimiento</a>
-                                                <a href="{{ route('reportes.show', $movimiento) }}"
+                                                    <form action="{{ route('movimientos.destroy', $movimiento) }}" method="POST">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="dropdown-item" onclick="return confirm('¿Estás seguro?')">Eliminar movimiento</button>
+                                                    </form>
+
+
+                                                    <a href="{{ route('reportes.show', $movimiento) }}"
                                                     class="dropdown-item">Generar carta</a>
-                                                <a href="{{ route('reportes.show', $movimiento) }}"
-                                                    class="dropdown-item">Generar formato de prestamo</a>
-                                                <a href="{{ route('reportes.show', $movimiento) }}"
-                                                    class="dropdown-item">Generar Boleta</a>
+
+
                                             </div>
                                         </div>
-                                    </td </tr>
+                                    </td>
+                                </tr>
                             @endforeach
                         </tbody>
                     </table>

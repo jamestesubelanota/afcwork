@@ -183,15 +183,20 @@ class CabeceraMovimientoController extends Controller
     }
 
 
-    public function destroy (){
+public function destroy($id){
+$eliminar = CabeceraMovimiento::find($id);
 
+if($eliminar){
+$eliminar->detalle()->where('id_cabecera', $id)->delete();
 
+ if($eliminar){
+    $eliminar->delete();
 
-    }
+ }
+}
+return back();
 
-
-
-
+}
 
 
 
