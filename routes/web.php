@@ -11,6 +11,7 @@ use App\Http\Controllers\ColaboradorSedesController;
 use App\Http\Controllers\CargoController;
 use App\Http\Controllers\EstadosController;
 use App\Http\Controllers\TipoDeEquipoController;
+use App\Http\Controllers\DetalleMovimientoController;
 use App\Http\Controllers\ProveedoresController;
 use App\Http\Controllers\RolesController;
 use App\Http\Controllers\SedeController;
@@ -161,6 +162,12 @@ Route::controller(CargoController::class)->group(function(){
 Route::controller(ColaboradorSedesController::class)->group(function(){
 
     Route::resource('asignarcolaborador',ColaboradorSedesController::class);
+});
+
+
+Route::controller( DetalleMovimientoController::class)->group(function(){
+
+    Route::resource('detalles', DetalleMovimientoController::class);
 });
 
 Route::controller(DepartamentosController::class)->group(function(){
