@@ -111,4 +111,45 @@ class CabeceraMovimientoController extends Controller
     }
 
 
+public function edit($id , Request $request){
+    $cabecera   =  CabeceraMovimiento::find($id);
+    $destalles  =  DetalleMovimiento::where('id_cabecera', $id)->get();
+    $movimiento =  TipoMovimiento::where('id_tmovimiento', $cabecera->id_tmovimiento)->get();
+    $cliente    =  Clientes::where('id_cliente', $cabecera->id_cliente)->get();
+
+    $sede =  Sede::where('id_sede', $cabecera->id_sede)->get();
+
+
+
+
+
+    return view('movimientos.edit', [
+        'destalles' => $destalles,
+         'clientes' => $cliente,
+        'sedes'  => $sede,
+        'movimientos' => $movimiento,
+        'cabecera' =>$cabecera
+    ]);
+
+}
+
+
+public function destroy(Request $request ){
+
+
+        foreach ($request->id_activo as $check) {
+
+
+            $detalleMovimiento = new DetalleMovimiento();
+            $detalleMovimiento->id_activo =  $check;
+            $detalleMovimiento->id_cabecera =   $cabeceraMovimiento->id_cabecera;
+            $detalleMovimiento->detalle =  ucfirst(strtolower( $request->detalle));
+            $detalleMovimiento->delete();
+
+
+        }
+    }
+
+
+
 }

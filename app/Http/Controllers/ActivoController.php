@@ -232,13 +232,6 @@ class ActivoController extends Controller
 
 
     $activos = Activo::find($activo);
-
-
-
-
-
-
-
     $activos->activo            =  $request->activo;
     $activos->activocontable  =  $request->activocontable;
     $activos->id_equipo         =  $request->equipo;
@@ -246,13 +239,10 @@ class ActivoController extends Controller
     $activos->serial            =  $request->serial;
     $activos->costo             =  $request->costo;
     $activos->modelo            =  $request->modelo;
-    $activo->fechaDeCompra =  $request->fechaDeCompra;
-
     $activos->id_proveedor      =  $request->id_proveedor;
     $activos->id_estado         =  $request->id_estado;
     $activos->id_tipoEquipo     =  $request->tipo_de_equipo;
-    $activo->id_cliente   =  $request->id_cliente;
-    $activos->id_sede    =  $request->id_sede;
+
     $activos->id_user =  Auth::id('id_user');
 
     $activos->save();

@@ -50,8 +50,9 @@ class CiudadesController extends Controller
     //metodo para actualizar
     //metodo edit paramos a la ciudad  que queremos editar
      public function edit(  $ciudad ){
+        $departamento =  Departamentos::all();
         $ciudad = Ciudades::find($ciudad);
-        return view('ciudades.edit' ,[ 'ciudad' => $ciudad]);
+        return view('ciudades.edit' ,[ 'ciudad' => $ciudad, 'departamento' =>  $departamento]);
      }
 
      public function update(Request $request,  $ciudad)
@@ -66,7 +67,7 @@ class CiudadesController extends Controller
 
     ]);
             $ciudad->cod_dane  =ucfirst(strtolower($request->cod_dane));
-            $ciudad->departamento  = $request->departamento;
+            $ciudad->id_departamento   = $request->departamento;
             $ciudad->nombre_ciudad = $request->nombre_ciudad ;
             $ciudad->save();
 
