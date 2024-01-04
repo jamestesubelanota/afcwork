@@ -20,8 +20,8 @@
             </div>
             <div class="card-body row" >
                 <div class="col-md-6">
-                    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-indicators">
+                    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" >
+                        <div class="carousel-indicators" >
                             @foreach($fotos as $key => $foto)
                             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{ $key }}" @if($key === 0) class="active" @endif aria-label="Slide {{ $key + 1 }}"></button>
                             @endforeach
@@ -49,6 +49,7 @@
                             <h5>Activo Fijos: {{$activo->activo}}</h5>
                         </div>
                         <div class="card-body">
+
                             <div class="mb-3">
                                 <p class="fs-5">Equipo {{$activo->tipoEquipo->tipo_de_equipo}}</p>
                             </div>
@@ -57,16 +58,33 @@
                             </div>
                             <!-- Resto de tu formulario -->
                             <!-- ... -->
+                            <div class="card" style="width: 27rem;" style="text-justify: ">
+
+                                <ul class="list-group list-group-flush" >
+                                  <li class="list-group-item"> Marca: {{$activo->marca->marca}}</li>
+                                  <li class="list-group-item"> Caracteristica: {{$activo->equipo->equipo}}</li>
+                                  <li class="list-group-item">  Modelo: {{$activo->modelo}}</li>
+                                  <li class="list-group-item">   Serial: {{$activo->serial}}</li>
+                                  <li class="list-group-item">   Estado: {{$activo->estado->estado}}</li>
+                                  <li class="list-group-item">   Costo: {{$activo->costo}}</li>
+                                  <li class="list-group-item">   Activo contable: {{$activo->activocontable}}</li>
+                                  <li class="list-group-item">   Propietario: {{$activo->propietario->nombre_propietario}}</li>
+
+                                </ul>
+                              </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="card-footer text-muted">
                 @foreach ($movimientos as $movimiento)
-                <li class="list-group-item">Activo: {{$movimiento->activo->activo}}<br>
-                    <p>Ubicacion: {{$movimiento->cabecera->sedes->nombre_sede}}<br>{{$movimiento->cabecera->inicio}}</p>
-                    {{$movimiento->cabecera->tipoMovimiento->movimiento}}
-                </li>
+                <div class="alert alert-info" role="alert">
+                    <div class="spinner-border spinner-border-sm" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                      </div>
+                    El movimiento fue por consecto de {{$movimiento->cabecera->tipoMovimiento->movimiento}}   al activo {{$movimiento->activo->activo}} en la sede {{$movimiento->cabecera->sedes->nombre_sede}} del cliente  {{$movimiento->cabecera->clientes->nombre_cliente}} el dia  {{$movimiento->cabecera->inicio}}
+                  </div>
+                  <span class="placeholder col-12"></span>
                 @endforeach
             </div>
         </div>

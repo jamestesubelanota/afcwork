@@ -435,6 +435,12 @@ return [
 
             ],
         ],
+        [
+           'text'        => 'Informes',
+           'url'         => 'infomres',
+           'icon'        => 'fa-solid fa-books',
+
+       ],
 
         ['header' => 'Comprolab S.A.S'],
 
