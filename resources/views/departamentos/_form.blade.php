@@ -14,15 +14,16 @@
 
 <label class="text-xs text-gray-700 uppercase" >Departamento</label>
 <br>
-<span style="color: red">@error('') {{$message}}
-
-@enderror</span>
+<span style="color: red"> @error('departamento')
+    {{ $message }}
+@enderror </span>
 <input type="text" id="departamento"  name ="departamento" class="form-control" value="{{$departamento->nombreDepartamento}}"  >
 
 
 <br>
 
 <div>
-<a   class="px-4 py-2 text-white bg-gray-800 rounded"  href="{{route('clientes.index')}}">volver</a>
+<a   class="btn btn-primary" href="{{route('departamentos.index')}}">volver</a>
+
 <input type="submit" value="Guardar"  class="btn btn-primary" >
 </div>
