@@ -8,10 +8,11 @@
 </span>
 <br>
 <select class="form-select" id="cliente_id" name ="cliente_id">
-
     @foreach ($cliente as $clientes)
-        <option value=" {{ old('cliente_id', $clientes->id_cliente) }}">{{ $clientes->nombre_cliente }}</option>
-    @endforeach
+    <option value=" {{ old('cliente_id', $clientes->id_cliente) }}">{{ $clientes->nombre_cliente }}</option>
+@endforeach
+
+
 
 
 
@@ -28,6 +29,8 @@
     @foreach ($ciudad as $ciudades)
         <option value="{{ old('ciudad_id', $ciudades->id_ciudad) }}">{{ $ciudades->nombre_ciudad }} </option>
     @endforeach
+
+
 </select>
 <br>
 
