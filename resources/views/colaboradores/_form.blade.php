@@ -54,6 +54,6 @@
 <hr>
 
 <div>
-<a   class="px-4 py-2 text-white bg-gray-800 rounded"  href="{{route('colaboradores.index')}}">volver</a>
+<a class="btn btn-primary" href="{{route('colaboradores.index')}}">volver</a>
 <input type="submit" value="Guardar"  class="btn btn-primary" >
 </div>
